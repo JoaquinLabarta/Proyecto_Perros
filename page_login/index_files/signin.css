@@ -1,0 +1,36 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.form-signin {
+  width: 37rem;
+  padding: 2rem;
+  border: 2px solid #649FA5;
+  box-sizing: border-box;
+  border-radius: 16px;
+}
+
+.form-control {
+  width: 22rem;
+}
+
+.btn-danger {
+    width: 22rem;
+    color: #fff;
+    background-color: #D0757C;
+    border-color: #D0757C;
+}
