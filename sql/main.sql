@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS Usuarios (
   Usuario VARCHAR(64) NOT NULL,
   Nombre VARCHAR(255) NOT NULL,
   Apellido VARCHAR(255) NOT NULL,
-  Nascimiento DATE NOT NULL,
+  Nacimiento DATE NOT NULL,
   Email VARCHAR(255) NOT NULL,
   Clave VARCHAR(255) NOT NULL,
   Administrador BOOLEAN NOT NULL,
