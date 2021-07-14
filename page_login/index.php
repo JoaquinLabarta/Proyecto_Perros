@@ -16,10 +16,8 @@
     <form class="form-signin">
         <h3 class="h3 mb-3 font-weight-normal" style="color:#649FA5">Bromatologia |  Municipalidad de Saladillo</h3> 
             <img class="mb-4" src="logo.png" alt="" width="150" height="150">
-            <label for="inputuser" class="sr-only">user</label>
             <input type="user" id="inputuser" class="form-control" placeholder="Ingrese Nombre" required="" autofocus="">
             <br>
-            <label for="inputpassword" class="sr-only">password</label>
             <input type="password" id="inputpassword" class="form-control" placeholder="Ingrese Contraseña" required="">
             <br>
             <button class="btn btn-lg btn-danger" type="submit" style="color: D0757C;">Ingresar</button><br><br>
