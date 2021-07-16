@@ -1,11 +1,12 @@
+DROP DATABASE IF EXISTS bromatologia;
 CREATE DATABASE IF NOT EXISTS bromatologia;
 
 CREATE TABLE IF NOT EXISTS Usuarios (
-  UsuarioID INT NOT NULL,
+  UsuarioID INT NOT NULL AUTO_INCREMENT,
   Usuario VARCHAR(64) NOT NULL,
   Nombre VARCHAR(255) NOT NULL,
   Apellido VARCHAR(255) NOT NULL,
-  Nascimiento DATE NOT NULL,
+  Nacimiento DATE NOT NULL,
   Email VARCHAR(255) NOT NULL,
   Clave VARCHAR(255) NOT NULL,
   Administrador BOOLEAN NOT NULL,
@@ -14,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Usuarios (
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS Propietarios (
-  PropietarioID INT NOT NULL,
+  PropietarioID INT NOT NULL AUTO_INCREMENT,
   DNI INT NOT NULL,
   Nombre VARCHAR(255) NOT NULL,
   Apellido VARCHAR(255) NOT NULL,
@@ -25,7 +26,7 @@ CREATE TABLE IF NOT EXISTS Propietarios (
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS Perros (
-  PerroID INT NOT NULL,
+  PerroID INT NOT NULL AUTO_INCREMENT,
   TatooID INT NOT NULL,
   Apodo VARCHAR(255),
   Raza VARCHAR(255),
@@ -38,13 +39,13 @@ CREATE TABLE IF NOT EXISTS Perros (
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS Vacunas (
-  VacunaID INT NOT NULL,
+  VacunaID INT NOT NULL AUTO_INCREMENT,
   Nombre VARCHAR(255),
   PRIMARY KEY (VacunaID)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS FotosPerros (
-  FotoID INT NOT NULL,
+  FotoID INT NOT NULL AUTO_INCREMENT,
   url VARCHAR(255) NOT NULL,
   PerroID INT NOT NULL,
   PRIMARY KEY (FotoID),
@@ -52,10 +53,50 @@ CREATE TABLE IF NOT EXISTS FotosPerros (
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS VacunasPerros (
-  VacunasPerrosID INT NOT NULL,
+  VacunasPerrosID INT NOT NULL AUTO_INCREMENT,
   VacunaID INT NOT NULL,
   PerroID INT NOT NULL,
   PRIMARY KEY (VacunasPerrosID),
   FOREIGN KEY (VacunaID) REFERENCES Vacunas(VacunaID),
   FOREIGN KEY (PerroID) REFERENCES Perros(PerroID)
 ) ENGINE=INNODB;
+
+INSERT INTO Usuarios (
+  Usuario, 
+  Nombre, 
+  Apellido,
+  Nascimiento, 
+  Email, 
+  Clave,
+  Administrador,
+  Activo
+) VALUES (
+  "administrador",
+  "Gabriel Dario",
+  "Briones Dos Santos",
+  "2002-11-03",
+  "brionesgabriel@hotmail.com",
+  "12345678",
+  1,
+  1
+);
+
+INSERT INTO Usuarios (
+  Usuario, 
+  Nombre, 
+  Apellido,
+  Nascimiento, 
+  Email, 
+  Clave,
+  Administrador,
+  Activo
+) VALUES (
+  "pachu",
+  "Axel",
+  "Fernanzdez",
+  "2002-07-05",
+  "axelfernandez@hotmail.com",
+  "12345678",
+  0,
+  1
+);
