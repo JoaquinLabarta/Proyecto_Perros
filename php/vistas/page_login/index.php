@@ -22,14 +22,14 @@
                 <!--Inputs-->
                 <div class="mb-4 input-group has-validation">
                     <input type="text" name="usernameInput" class="form-control" placeholder="Ingrese su usuario" 
-                        required>
+                        required autocomplete>
                     <div class="invalid-feedback">
                         Por favor ingrese su usuario.
                     </div>
                 </div>
                 <div class="mb-4 input-group has-validation">
                     <input type="password" name="passwordInput" class="form-control" placeholder="Ingrese su clave" 
-                        required>
+                        required autocomplete>
                     <div class="invalid-feedback">
                         Por favor ingrese su clave.
                     </div>
