@@ -7,40 +7,63 @@
         <link href="/proyecto-perros/php/vistas/page_login/index_files/bootstrap.min.css" rel="stylesheet">
         <link href="/proyecto-perros/php/vistas/page_login/index_files/signin.css" rel="stylesheet">
         <title>Bromatologia - Saladillo</title>
-        <script src="./js/pageLogin.js"></script>
     </head>
     <body>
         <div class="d-flex flex-column align-items-center border-primary">
             <!--Header-->
             <div class="text-center mb-4">
                 <h3 class="h3 mb-4 font-weight-normal" style="color:#649FA5">
-                Bromatologia |  Municipalidad de Saladillo
+                    Bromatologia |  Municipalidad de Saladillo
                 </h3> 
                 <img src="/proyecto-perros/php/vistas/page_login/logo.png" alt="Logo" width="150">
             </div>
-            <form class="form-signin needs-validation" method="POST" 
-                name="formularioLogin" novalidate action="./php/conexion/page_login/action.php">
+            <form class="form-signin needs-validation" method="POST" name="formularioLogin" novalidate 
+                action="./php/conexion/page_login/action.php">
                 <!--Inputs-->
                 <div class="mb-4 input-group has-validation">
-                    <input type="text" name="inputUser" class="form-control" placeholder="Ingrese su usuario" required>
+                    <input type="text" name="usernameInput" class="form-control" placeholder="Ingrese su usuario" 
+                        required>
                     <div class="invalid-feedback">
-                    Por favor ingrese su usuario.
+                        Por favor ingrese su usuario.
                     </div>
                 </div>
                 <div class="mb-4 input-group has-validation">
-                    <input type="password" name="inputPassword" class="form-control" placeholder="Ingrese su clave" required>
+                    <input type="password" name="passwordInput" class="form-control" placeholder="Ingrese su clave" 
+                        required>
                     <div class="invalid-feedback">
-                    Por favor ingrese su clave.
+                        Por favor ingrese su clave.
                     </div>
                 </div>
                 <!--Botones de submit-->
                 <div class="d-flex align-items-center flex-column">
                     <button class="btn btn-lg btn-danger mb-4" type="submit" style="color: D0757C;">
-                    Ingresar
+                        Ingresar
                     </button>
                     <a href="#">Ingresar como invitado</a>
                 </div>
             </form>
         </div>
     </body>
+    <script>
+        // Validacion de los campos de texto
+        (function () {
+            'use strict'
+
+            // Hacemos un querySelector de los formularios que necesitan validacion.
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Hacemos un loop y prevenimos que se submitan en caso de que esten incompletos.
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 </html>
