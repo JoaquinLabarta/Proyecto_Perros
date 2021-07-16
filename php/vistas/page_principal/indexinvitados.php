@@ -25,11 +25,6 @@ $usuarios=$gsent->fetchAll();
     <a class="navbar-brand"  style="color:#649FA5">
       <img src="icons/logo.png" alt="" width="40" height="40">
       Bromatologia | Municipalidad de Saladillo  
-            <div class="btn-group">
-            <button type="button" class="btn btn-white" style="color:#649FA5"  > <img src="icons/house.png" alt="" width="24" height="24"> Inicio</button>
-            <button type="button" class="btn btn-white" style="color:#649FA5"> <img src="icons/user.png" alt="" width="24" height="24">Usuarios</button>
-            <button type="button" class="btn btn-white" style="color:#649FA5"> <img src="icons/register.png" alt="" width="24" height="24">Agregar</button>  
-          </div>
     </a>
   </div>
 </div>
