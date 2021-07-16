@@ -65,7 +65,7 @@ $usuarios=$gsent->fetchAll();
                         <td><?php echo $usuario['Usuario']?></td>
                         <td><?php echo $usuario['Nombre']?></td>
                         <td><?php echo $usuario['Apellido']?></td>
-                        <td><?php echo $usuario['Nascimiento']?></td>
+                        <td><?php echo $usuario['Nacimiento']?></td>
                         <td><?php echo $usuario['Clave']?></td>
                         <td><?php echo $usuario['Administrador']?></td>
                         <td><?php echo $usuario['Activo']?></td>
