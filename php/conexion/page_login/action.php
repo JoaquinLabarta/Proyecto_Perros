@@ -63,4 +63,3 @@ foreach ($result as $key => $value) {
 // Redireccion del usuario a la pagina principal (por ahora es una unica pagina)
 header("Location: ../../vistas/page_principal/");
 die();
-?>
