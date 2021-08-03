@@ -1,11 +1,3 @@
-<?php
-include_once '../../conexion/pdo.php';
-
-$sql_leer='SELECT * FROM Usuarios';
-$gsent=$pdo->prepare($sql_leer);
-$gsent->execute();
-$usuarios=$gsent->fetchAll();
-?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -26,9 +18,9 @@ $usuarios=$gsent->fetchAll();
       <img src="icons/logo.png" alt="" width="40" height="40">
       Bromatologia | Municipalidad de Saladillo
       <div>  
-            <button class="btn btn-white" style="color:#649FA5"> <img src="icons/house.png" alt="" width="24" height="24"> <a href = "indexadmin.php">Inicio</a></button>
-            <button class="btn btn-white" style="color:#649FA5"> <img src="icons/user.png" alt="" width="24" height="24"> <a href = "paginausuarios.php">Usuarios</a></button>
-            <button class="btn btn-white" style="color:#649FA5"> <img src="icons/register.png" alt="" width="24" height="24"> <a href = "indexinvitados.php">Agregar</a></button>
+            <button class="btn btn-white" style="color:#649FA5"> <img src="icons/house.png" alt="" width="24" height="24"> <a href = "indexadmin.php" >Inicio</a></button>
+            <button class="btn btn-white" style="color:#649FA5"> <img src="icons/user.png" alt="" width="24" height="24"> <a href = "paginausuarios.php" >Usuarios</a></button>
+            <button class="btn btn-white" style="color:#649FA5"> <img src="icons/register.png" alt="" width="24" height="24"> <a href = "indexinvitados.php" >Agregar Usuarios</a></button>
       </div>
     </a>
   </div>
@@ -71,29 +63,7 @@ $usuarios=$gsent->fetchAll();
             </table>
            </div>
        </div> 
-
-
-
     </div>
-    
-    <div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
     <!--JavaScript -->
     <script src="jQuery-3.3.1/jquery-3.3.1.js"></script>
     <script src="DataTables-1.10.24/js/jquery.dataTables.min.js"></script> 
