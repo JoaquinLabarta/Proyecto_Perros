@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <style>
+
+@media only screen and (min-width : 300px ) {
+    .contenedor{width: 300px;}
+    
+}
+@media only screen and (min-width : 320px) {
+    .contenedor{width: 320px;}
+    
+}
+@media only screen and (min-width : 480px) {
+    .contenedor{width: 480px;}
+  
+}
+@media only screen and (min-width : 768px) { 
+    .contenedor{ width: 480px;}
+    
+}
+@media only screen and (min-width : 992px) {
+    .contenedor{width: 480px;}
+}
+@media only screen and (min-width : 1200px) {
+    .contenedor{width: 480px;}
+}
+@media only screen and (min-width : 1366px) {
+    .contenedor{width: 480px;}
+}
+</style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/proyecto-perros/php/vistas/page_login/logo.png">
         <link href="/proyecto-perros/php/vistas/page_login/index_files/bootstrap.min.css" rel="stylesheet">
         <link href="/proyecto-perros/php/vistas/page_login/index_files/signin.css" rel="stylesheet">
         <title>Bromatologia - Saladillo</title>
     </head>
     <body>
-        <div class="d-flex flex-column align-items-center border-primary">
-            <!--Header-->
-            <div class="text-center mb-4">
-                <h3 class="h3 mb-4 font-weight-normal" style="color:#649FA5">
-                    Bromatologia |  Municipalidad de Saladillo
-                </h3> 
-                <img src="/proyecto-perros/php/vistas/page_login/logo.png" alt="Logo" width="150">
-            </div>
+        <div class ="contenedor">
+            <div class="d-flex flex-column align-items-center border-primary">
+             <!--Header-->
+                <div class="text-center mb-4">
+                    <h3 class="h3 mb-4 font-weight-normal" style="color:#649FA5">
+                        Bromatologia |  Municipalidad de Saladillo
+                    </h3> 
+                    <img src="/proyecto-perros/php/vistas/page_login/logo.png" alt="Logo" width="150">
+                </div>
             <form class="form-signin needs-validation" method="POST" name="formularioLogin" novalidate 
                 action="./php/conexion/page_login/action.php">
                 <!--Inputs-->
@@ -42,6 +71,7 @@
                     <a href="#">Ingresar como invitado</a>
                 </div>
             </form>
+        </div>
         </div>
     </body>
     <script>
