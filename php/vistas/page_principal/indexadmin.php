@@ -1,11 +1,3 @@
-<?php
-include_once '../../conexion/pdo.php';
-
-$sql_leer = 'SELECT * FROM Usuarios';
-$gsent = $pdo->prepare($sql_leer);
-$gsent->execute();
-$usuarios = $gsent->fetchAll();
-?>
 <!doctype html>
 <html lang="es">
 
@@ -30,55 +22,34 @@ $usuarios = $gsent->fetchAll();
   <br>
   <div class="container">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12 table-responsive">
         <table id="usuarios" class="table table-striped">
           <thead>
-            <th class="text-center">ID</th>
-            <th class="text-center">Usuario</th>
-            <th class="text-center">Nombre</th>
-            <th class="text-center">Apellido</th>
-            <th class="text-center">Nacimiento</th>
-            <th class="text-center">Clave</th>
-            <th class="text-center">Administrador</th>
-            <th class="text-center">Activo</th>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Administrador</th>
+            <th>Activo</th>
+            <th>Acciones</th>
           </thead>
           <tbody>
-<?php
-foreach ($usuarios as $usuario) {
-?>
+            <?php
+            include "../../conexion/get_users.php";
+            foreach ($usuarios as $usuario) : ?>
               <tr>
                 <td><?php echo $usuario['UsuarioID'] ?></td>
                 <td><?php echo $usuario['Usuario'] ?></td>
-                <td><?php echo $usuario['Nombre'] ?></td>
-                <td><?php echo $usuario['Apellido'] ?></td>
-                <td><?php echo $usuario['Nacimiento'] ?></td>
-                <td><?php echo $usuario['Clave'] ?></td>
-                <td><?php echo $usuario['Administrador'] ?></td>
-                <td><?php echo $usuario['Activo'] ?></td>
+                <td><?php echo $usuario['Nombre'] . " " . $usuario['Apellido'] ?></td>
+                <td><?php echo $usuario['Administrador'] ? "Si" : "No"; ?></td>
+                <td><?php echo $usuario['Activo'] ? "Si" : "No"; ?></td>
+                <td>
+                  <button>Editar</button>
+                  <button>Eliminar</button>
+                </td>
               </tr>
-<?php
-}
-?>
+            <?php endforeach; ?>
           </tbody>
         </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
       </div>
     </div>
   </div>

@@ -96,7 +96,7 @@ INSERT INTO Usuarios (
   "Fernanzdez",
   "2002-07-05",
   "axelfernandez@hotmail.com",
-  "12345678",
+  "$2a$04$bq1U5hzjrJ3FR5tpHZqmge5sXmSSJ7b98DvlwGptwq6qNIA6/2oli",
   0,
   1
 );

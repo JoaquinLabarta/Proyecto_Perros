@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light">
+<nav class="navbar navbar-light shadow-sm">
   <div class="container-fluid">
     <a class="navbar-brand" style="color:#649FA5">
       <img src="/proyecto-perros/recursos/logo.png" alt="" width="40" height="40">
