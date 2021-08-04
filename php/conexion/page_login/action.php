@@ -22,8 +22,8 @@ $hashedPassword = $result->Clave;
  * Caso TRUE, se sigue con el proceso de autentificacion.
  */
 if (!$result->Usuario) {
-    header("Location: ../../../");
-    die();
+  header("Location: ../../../");
+  die();
 }
 
 /**
@@ -33,16 +33,17 @@ if (!$result->Usuario) {
  * Caso TRUE, el proceso de logueo fue completado y se lo redirecciona a su 'Feed'.
  */
 
-/*if (!password_verify($userPassword, $hashedPassword)) {*/
-/*    header("Location: ../../../");*/
-/*    die();*/
-/*}*/
-
 // $hashedPassword en este caso es simplemente la clave traida de la base de datos
-if ($userPassword != $hashedPassword) {
-    header("Location: ../../../");
-    die();
+if ($username == "administrador" && $userPassword != $hashedPassword) {
+  header("Location: ../../../");
+  die();
 }
+
+if ($username != "administrador" && !password_verify($userPassword, $hashedPassword)) {
+  header("Location: ../../../");
+  die();
+}
+
 
 /**
  * Verificacion 3:
@@ -51,13 +52,13 @@ if ($userPassword != $hashedPassword) {
  * Caso TRUE, se sigue con el proceso de autentificacion.
  */
 if ($result->Activo != 1) {
-    header("Location: ../../../");
-    die();
+  header("Location: ../../../");
+  die();
 }
 
 // Variables para la session
 foreach ($result as $key => $value) {
-    $_SESSION[$key] = $value;
+  $_SESSION[$key] = $value;
 }
 
 // Redireccion del usuario a la pagina principal (por ahora es una unica pagina)

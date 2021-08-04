@@ -80,23 +80,3 @@ INSERT INTO Usuarios (
   1,
   1
 );
-
-INSERT INTO Usuarios (
-  Usuario, 
-  Nombre, 
-  Apellido,
-  Nacimiento, 
-  Email, 
-  Clave,
-  Administrador,
-  Activo
-) VALUES (
-  "pachu",
-  "Axel",
-  "Fernanzdez",
-  "2002-07-05",
-  "axelfernandez@hotmail.com",
-  "12345678",
-  0,
-  1
-);
