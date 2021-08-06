@@ -7,15 +7,15 @@
     <div>
       <button class="btn btn-white" style="color:#649FA5">
         <img src="/proyecto-perros/recursos/home.png" alt="" width="24" height="24">
-        <a href="indexadmin.php">Inicio</a>
+        Inicio
       </button>
       <button class="btn btn-white" style="color:#649FA5">
         <img src="/proyecto-perros/recursos/user.png" alt="" width="24" height="24">
-        <a href="paginausuarios.php">Usuarios</a>
+        Usuarios
       </button>
-      <button class="btn btn-white" style="color:#649FA5">
+      <button class="btn btn-white" style="color:#649FA5" data-bs-toggle="modal" data-bs-target="#agregarPerro">
         <img src="/proyecto-perros/recursos/register.png" alt="" width="24" height="24">
-        <a href="indexinvitados.php">Agregar</a>
+        Agregar
       </button>
     </div>
   </div>
