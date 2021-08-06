@@ -40,7 +40,7 @@
           <button class="btn btn-lg btn-danger mb-4" type="submit" style="color: D0757C;">
             Ingresar
           </button>
-          <a href="#">Ingresar como invitado</a>
+          <a href="/proyecto-perros/php/vistas/page_principal">Ingresar como invitado</a>
         </div>
       </form>
     </div>
