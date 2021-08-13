@@ -1,0 +1,55 @@
+.border-primary {
+  border: 2px solid #649FA5 !important;
+  padding: 2%;
+  box-sizing: border-box;
+  border-radius: 16px;
+}
+
+.btn-danger {
+  width: 18rem;
+  color: white;
+  background-color: #D0757C;
+  border-color: #D0757C;
+}
+
+@media only screen and (min-width : 300px ) {
+  .contenedor {
+    width: 300px;
+  }
+}
+
+@media only screen and (min-width : 320px) {
+  .contenedor {
+    width: 320px;
+  }
+}
+
+@media only screen and (min-width : 480px) {
+  .contenedor {
+    width: 480px;
+  }
+}
+
+@media only screen and (min-width : 768px) { 
+  .contenedor {
+    width: 480px;
+  }
+}
+
+@media only screen and (min-width : 992px) {
+  .contenedor {
+    width: 480px;
+  }
+}
+
+@media only screen and (min-width : 1200px) {
+  .contenedor {
+    width: 480px;
+  }
+}
+
+@media only screen and (min-width : 1366px) {
+  .contenedor {
+    width: 480px;
+  }
+}
