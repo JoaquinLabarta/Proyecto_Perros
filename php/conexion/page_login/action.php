@@ -55,6 +55,8 @@ foreach ($result as $key => $value) {
   $_SESSION[$key] = $value;
 }
 
+$_SESSION["Invitado"] = 0;
+
 // Redireccion del usuario a la pagina principal (por ahora es una unica pagina)
 header("Location: ../../vistas/page_principal/");
 die();
