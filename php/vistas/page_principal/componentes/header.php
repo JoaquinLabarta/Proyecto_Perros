@@ -16,7 +16,7 @@ WHERE Usuario = :usuario AND Email = :email";
   $es_admin = $usuarios[0]["Administrador"];
   $_SESSION["Invitado"] = 0;
 } else {
-    $es_admin = 0;
+  $es_admin = 0;
 }
 ?>
 
@@ -27,15 +27,15 @@ WHERE Usuario = :usuario AND Email = :email";
       Bromatologia | Municipalidad de Saladillo
     </a>
     <div>
-      <?php if (!$_SESSION["Invitado"]) : ?>
+      <?php if (!$_SESSION["Invitado"] && $carpeta_actual !== "page_principal") : ?>
         <button class="btn btn-white" style="color: #649fa5">
           Inicio
         </button>
       <?php endif; ?>
-      <?php if ($es_admin) : ?>
-        <button class='btn btn-white' style='color: #649fa5'>
+      <?php if ($es_admin && $carpeta_actual !== "page_usuarios") : ?>
+        <a class='btn btn-white' style='color: #649fa5' href="/proyecto-perros/php/vistas/page_usuarios/usuarios.php">
           Usuarios
-        </button>
+        </a>
       <?php endif; ?>
       <a class="btn btn-white" style="color: #649fa5" href="/proyecto-perros/php/conexion/page_principal/cerrar_sesion.php">Cerrar sesion</a>
     </div>

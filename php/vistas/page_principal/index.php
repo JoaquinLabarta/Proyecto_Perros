@@ -4,6 +4,8 @@ session_start();
 if (!$_SESSION && !$_SESSION["Invitado"]) {
   header("Location: /proyecto-perros");
 }
+
+$carpeta_actual = basename(getcwd());
 ?>
 <!doctype html>
 <html lang="es">
