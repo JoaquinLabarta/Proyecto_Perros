@@ -1,18 +1,23 @@
 <?php
-include_once "../../conexion/pdo.php";
+if (!$_SESSION["Invitado"]) {
+  include_once "../../conexion/pdo.php";
 
-$query = "SELECT Administrador 
+  $query = "SELECT Administrador 
 FROM Usuarios 
 WHERE Usuario = :usuario AND Email = :email";
 
-$sql = $pdo->prepare($query);
-$sql->bindParam(":usuario", $_SESSION["Usuario"]);
-$sql->bindParam(":email", $_SESSION["Email"]);
+  $sql = $pdo->prepare($query);
+  $sql->bindParam(":usuario", $_SESSION["Usuario"]);
+  $sql->bindParam(":email", $_SESSION["Email"]);
 
-$sql->execute();
+  $sql->execute();
 
-$usuarios = $sql->fetchAll(PDO::FETCH_ASSOC);
-$es_admin = $usuarios[0]["Administrador"];
+  $usuarios = $sql->fetchAll(PDO::FETCH_ASSOC);
+  $es_admin = $usuarios[0]["Administrador"];
+  $_SESSION["Invitado"] = 0;
+} else {
+    $es_admin = 0;
+}
 ?>
 
 <nav class="navbar navbar-light shadow-sm">
