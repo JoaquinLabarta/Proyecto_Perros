@@ -76,27 +76,7 @@ INSERT INTO Usuarios (
   "Briones Dos Santos",
   "2002-11-03",
   "brionesgabriel@hotmail.com",
-  "12345678",
+  "$2a$04$IZTtQfshyTnu8I0qOvzxv.0vJ/F..NBAfLtaWtIcp.FZT0H1qA.eO",
   1,
-  1
-);
-
-INSERT INTO Usuarios (
-  Usuario, 
-  Nombre, 
-  Apellido,
-  Nacimiento, 
-  Email, 
-  Clave,
-  Administrador,
-  Activo
-) VALUES (
-  "pachu",
-  "Axel",
-  "Fernanzdez",
-  "2002-07-05",
-  "axelfernandez@hotmail.com",
-  "$2a$04$bq1U5hzjrJ3FR5tpHZqmge5sXmSSJ7b98DvlwGptwq6qNIA6/2oli",
-  0,
   1
 );
