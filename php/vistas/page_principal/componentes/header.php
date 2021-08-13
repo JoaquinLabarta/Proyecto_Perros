@@ -5,16 +5,13 @@
       Bromatologia | Municipalidad de Saladillo
     </a>
     <div>
-      <button class="btn btn-white" style="color:#649FA5">
-        <img src="/proyecto-perros/recursos/home.png" alt="" width="24" height="24">
+      <button class="btn btn-white" style="color: #649fa5">
         Inicio
       </button>
-      <button class="btn btn-white" style="color:#649FA5">
-        <img src="/proyecto-perros/recursos/user.png" alt="" width="24" height="24">
+      <button class="btn btn-white" style="color: #649fa5">
         Usuarios
       </button>
-      <button class="btn btn-white" style="color:#649FA5" data-bs-toggle="modal" data-bs-target="#agregarPerro">
-        <img src="/proyecto-perros/recursos/register.png" alt="" width="24" height="24">
+      <button class="btn btn-white" data-bs-toggle="modal" data-bs-target="#agregarPerro" style="color: #649fa5">
         Agregar
       </button>
     </div>
