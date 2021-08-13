@@ -33,13 +33,7 @@ if (!$result->Usuario) {
  * Caso TRUE, el proceso de logueo fue completado y se lo redirecciona a su 'Feed'.
  */
 
-// $hashedPassword en este caso es simplemente la clave traida de la base de datos
-if ($username == "administrador" && $userPassword != $hashedPassword) {
-  header("Location: ../../../");
-  die();
-}
-
-if ($username != "administrador" && !password_verify($userPassword, $hashedPassword)) {
+if (!password_verify($userPassword, $hashedPassword)) {
   header("Location: ../../../");
   die();
 }
