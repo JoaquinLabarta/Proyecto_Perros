@@ -80,3 +80,21 @@ INSERT INTO Usuarios (
   1,
   1
 );
+
+INSERT INTO Perros (
+  TatooID,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion,
+  PropietarioID
+) VALUES (
+  "AABBCC11",
+  "Cliford",
+  "Bulldog",
+  "2020/11/12",
+  "2020/10/10",
+  NULL,
+  NULL
+)
