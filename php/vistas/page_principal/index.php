@@ -22,11 +22,11 @@ $carpeta_actual = basename(getcwd());
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
   <link href="/proyecto-perros/css/page_principal/styles.css" rel="stylesheet">
 
-  <title>Datatable PHP</title>
+  <title>Inicio | Bromatologia</title>
 </head>
 
 <body>
-  <?php include_once "./componentes/header.php"; ?>
+  <?php include_once "../componentes/header.php"; ?>
 
   <br>
   <div class="container">

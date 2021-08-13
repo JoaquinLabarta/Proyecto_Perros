@@ -28,12 +28,12 @@ WHERE Usuario = :usuario AND Email = :email";
     </a>
     <div>
       <?php if (!$_SESSION["Invitado"] && $carpeta_actual !== "page_principal") : ?>
-        <button class="btn btn-white" style="color: #649fa5">
+        <a class="btn btn-white" style="color: #649fa5" href="/proyecto-perros/php/vistas/page_principal">
           Inicio
-        </button>
+        </a>
       <?php endif; ?>
       <?php if ($es_admin && $carpeta_actual !== "page_usuarios") : ?>
-        <a class='btn btn-white' style='color: #649fa5' href="/proyecto-perros/php/vistas/page_usuarios/usuarios.php">
+        <a class='btn btn-white' style='color: #649fa5' href="/proyecto-perros/php/vistas/page_usuarios">
           Usuarios
         </a>
       <?php endif; ?>
