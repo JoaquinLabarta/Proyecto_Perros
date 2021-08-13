@@ -77,6 +77,6 @@ $carpeta_actual = basename(getcwd());
 <script src="/proyecto-perros/js/modulos/pdfmake/pdfmake.js" type="module"></script>
 <script src="/proyecto-perros/js/modulos/jszip/jszip.js" type="module"></script>
 
-<?php include_once "./componentes/modals.php"; ?>
+<?php include_once "../componentes/modals.php"; ?>
 
 </html>
