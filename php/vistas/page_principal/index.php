@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!$_SESSION) {
+if (!$_SESSION && !$_SESSION["Invitado"]) {
   header("Location: /proyecto-perros");
 }
 ?>
@@ -28,6 +28,11 @@ if (!$_SESSION) {
 
   <br>
   <div class="container">
+    <?php if (!$_SESSION["Invitado"]) : ?>
+      <button class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#agregarPerro">
+        Agregar perro
+      </button>
+    <?php endif; ?>
     <div class="row">
       <div class="col-lg-12 table-responsive">
         <table id="usuarios" class="table table-striped">

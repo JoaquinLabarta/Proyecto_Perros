@@ -1,3 +1,10 @@
+<?php 
+session_start();
+
+if ($_SESSION) {
+  header("Location: /proyecto-perros/php/vistas/page_principal");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +47,7 @@
           <button class="btn btn-lg btn-danger mb-4" type="submit" style="color: D0757C;">
             Ingresar
           </button>
-          <a href="/proyecto-perros/php/vistas/page_principal">Ingresar como invitado</a>
+          <a href="/proyecto-perros/php/conexion/page_login/ingreso_invitados.php">Ingresar como invitado</a>
         </div>
       </form>
     </div>
