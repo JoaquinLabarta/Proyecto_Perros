@@ -81,6 +81,22 @@ INSERT INTO Usuarios (
   1
 );
 
+INSERT INTO Propietarios (
+  DNI,
+  Nombre,
+  Apellido,
+  Email,
+  Telefono,
+  Direccion
+) VALUES (
+  44367293,
+  "Gabriel Dario",
+  "Briones Dos Santos",
+  "brionesgabriel@hotmail.com",
+  02344468916,
+  "Saavedra 3455"
+);
+
 INSERT INTO Perros (
   TatooID,
   Apodo,
@@ -97,4 +113,10 @@ INSERT INTO Perros (
   "2020/10/10",
   NULL,
   NULL
-)
+);
+
+INSERT INTO Vacunas (
+  Nombre
+) VALUES (
+  "Vacuna Antirrabica"
+);
