@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if (!$_SESSION) {
+  header("Location: /proyecto-perros");
+}
+?>
 <!doctype html>
 <html lang="es">
 
