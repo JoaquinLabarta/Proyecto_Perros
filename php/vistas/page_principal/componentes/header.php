@@ -14,6 +14,8 @@
       <button class="btn btn-white" data-bs-toggle="modal" data-bs-target="#agregarPerro" style="color: #649fa5">
         Agregar
       </button>
+      <a class="btn btn-white" style="color: #649fa5" 
+         href="/proyecto-perros/php/conexion/page_principal/cerrar_sesion.php">Cerrar sesion</a>
     </div>
   </div>
 </nav>
