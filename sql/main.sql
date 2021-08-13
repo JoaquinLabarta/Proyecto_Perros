@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS bromatologia;
 CREATE DATABASE IF NOT EXISTS bromatologia;
 
 CREATE TABLE IF NOT EXISTS Usuarios (
-  UsuarioID INT NOT NULL AUTO_INCREMENT,
+  UsuarioId INT NOT NULL AUTO_INCREMENT,
   Usuario VARCHAR(64) NOT NULL,
   Nombre VARCHAR(255) NOT NULL,
   Apellido VARCHAR(255) NOT NULL,
@@ -11,54 +11,61 @@ CREATE TABLE IF NOT EXISTS Usuarios (
   Clave VARCHAR(255) NOT NULL,
   Administrador BOOLEAN NOT NULL,
   Activo BOOLEAN NOT NULL,
-  PRIMARY KEY (UsuarioID)
+  PRIMARY KEY (UsuarioId)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS Propietarios (
-  PropietarioID INT NOT NULL AUTO_INCREMENT,
+  PropietarioId INT NOT NULL AUTO_INCREMENT,
   DNI INT NOT NULL,
   Nombre VARCHAR(255) NOT NULL,
   Apellido VARCHAR(255) NOT NULL,
   Email VARCHAR(255),
   Telefono VARCHAR(255),
   Direccion VARCHAR(255),
-  PRIMARY KEY (PropietarioID)
+  PRIMARY KEY (PropietarioId)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS Perros (
-  PerroID INT NOT NULL AUTO_INCREMENT,
-  TatooID INT NOT NULL,
+  PerroId INT NOT NULL AUTO_INCREMENT,
+  TatooId INT NOT NULL,
   Apodo VARCHAR(255),
   Raza VARCHAR(255),
   Castracion DATE,
   Adopcion DATE NOT NULL,
   Observacion VARCHAR(255),
-  PropietarioID INT,
-  PRIMARY KEY (PerroID),
-  FOREIGN KEY (PropietarioID) REFERENCES Propietarios(PropietarioID)
+  PRIMARY KEY (PerroId)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS Vacunas (
-  VacunaID INT NOT NULL AUTO_INCREMENT,
+  VacunaId INT NOT NULL AUTO_INCREMENT,
   Nombre VARCHAR(255),
-  PRIMARY KEY (VacunaID)
+  PRIMARY KEY (VacunaId)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS FotosPerros (
-  FotoID INT NOT NULL AUTO_INCREMENT,
-  url VARCHAR(255) NOT NULL,
-  PerroID INT NOT NULL,
-  PRIMARY KEY (FotoID),
-  FOREIGN KEY (PerroID) REFERENCES Perros(PerroID)
+  FotoId INT NOT NULL AUTO_INCREMENT,
+  Url VARCHAR(255) NOT NULL,
+  PerroId INT NOT NULL,
+  PRIMARY KEY (FotoId),
+  FOREIGN KEY (PerroId) REFERENCES Perros(PerroId)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS VacunasPerros (
-  VacunasPerrosID INT NOT NULL AUTO_INCREMENT,
-  VacunaID INT NOT NULL,
-  PerroID INT NOT NULL,
-  PRIMARY KEY (VacunasPerrosID),
-  FOREIGN KEY (VacunaID) REFERENCES Vacunas(VacunaID),
-  FOREIGN KEY (PerroID) REFERENCES Perros(PerroID)
+  VacunaPerroId INT NOT NULL AUTO_INCREMENT,
+  VacunaId INT NOT NULL,
+  PerroId INT NOT NULL,
+  PRIMARY KEY (VacunaPerroId),
+  FOREIGN KEY (VacunaId) REFERENCES Vacunas(VacunaId),
+  FOREIGN KEY (PerroId) REFERENCES Perros(PerroId)
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS PropietariosPerros (
+  PropietarioPerroId INT NOT NULL AUTO_INCREMENT,
+  PropietarioId INT NOT NULL,
+  PerroId INT NOT NULL,
+  PRIMARY KEY (PropietarioPerroId),
+  FOREIGN KEY (PropietarioId) REFERENCES Propietarios(PropietarioId),
+  FOREIGN KEY (PerroId) REFERENCES Perros(PerroId)
 ) ENGINE=INNODB;
 
 INSERT INTO Usuarios (
@@ -98,20 +105,18 @@ INSERT INTO Propietarios (
 );
 
 INSERT INTO Perros (
-  TatooID,
+  TatooId,
   Apodo,
   Raza,
   Castracion,
   Adopcion,
-  Observacion,
-  PropietarioID
+  Observacion
 ) VALUES (
   "AABBCC11",
   "Cliford",
   "Bulldog",
   "2020/11/12",
   "2020/10/10",
-  NULL,
   NULL
 );
 
