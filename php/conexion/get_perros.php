@@ -1,4 +1,5 @@
 <?php
+include_once "pdo.php";
 
 $query = "
 SELECT

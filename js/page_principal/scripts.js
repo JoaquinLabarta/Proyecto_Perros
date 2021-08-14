@@ -16,34 +16,12 @@ $(document).ready(function() {
         sNext: "Siguiente",
         sPrevious: "Anterior",
       },
-    },
-    buttons: [
-      {
-        extend: "excelHtml5",
-        text: '<img src="https://img.icons8.com/dotty/43/000000/ms-excel.png"/> ',
-        titleAttr: "Exportar a Excel",
-        className: "btn btn-light",
-      },
-      {
-        extend: "pdfHtml5",
-        text: '<img src="https://img.icons8.com/wired/43/000000/pdf.png"/> ',
-        titleAttr: "Exportar a PDF",
-        className: "btn btn-light",
-      },
-      {
-        extend: "print",
-        text: '<img src="https://img.icons8.com/dotty/43/000000/print.png"/> ',
-        titleAttr: "Imprimir",
-        className: "btn btn-light",
-      },
-    ],
+    }
   });
 
   function search() {
-    table.search($('#inputBuscarPerro').val()).draw();
+    table.search($("#inputBuscarUsuarios").val()).draw();
   }
 
-  $('#inputBuscarPerro').keyup((e) => {
-    if (e.keyCode == 13 || e.keyCode == 8) search();
-  });
+  $("#inputBuscarUsuarios").keyup(() => search());
 });

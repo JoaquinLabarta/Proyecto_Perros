@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!$_SESSION || $_SESSION["Invitado"]) {
+if (!$_SESSION && !$_SESSION["Invitado"]) {
   header("Location: /proyecto-perros");
 }
 

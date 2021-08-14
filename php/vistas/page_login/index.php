@@ -1,8 +1,8 @@
-<?php 
+<?php
 session_start();
 
-if ($_SESSION) {
-  header("Location: /proyecto-perros/php/vistas/page_principal");
+if ($_SESSION["Usuario"] || $_SESSION["Invitado"]) {
+  header("Location: /proyecto-perros");
 }
 ?>
 <!DOCTYPE html>

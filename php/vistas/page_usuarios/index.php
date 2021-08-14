@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!$_SESSION && !$_SESSION["Invitado"]) {
+if (!$_SESSION || $_SESSION["Invitado"]) {
   header("Location: /proyecto-perros");
 }
 
@@ -50,7 +50,7 @@ $carpeta_actual = basename(getcwd());
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarPerro" type="search" placeholder="Buscar usuarios">
+        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar usuarios">
       </div>
       <?php if (!$_SESSION["Invitado"]) : ?>
         <div class="col-auto">
