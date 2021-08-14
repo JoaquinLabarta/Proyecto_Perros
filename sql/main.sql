@@ -88,6 +88,26 @@ INSERT INTO Usuarios (
   1
 );
 
+INSERT INTO Usuarios (
+  Usuario, 
+  Nombre, 
+  Apellido,
+  Nacimiento, 
+  Email, 
+  Clave,
+  Administrador,
+  Activo
+) VALUES (
+  "labar",
+  "Joaquin",
+  "Labarta",
+  "2003-03-01",
+  "labar@hotmail.com",
+  "$2a$04$IZTtQfshyTnu8I0qOvzxv.0vJ/F..NBAfLtaWtIcp.FZT0H1qA.eO",
+  1,
+  1
+);
+
 INSERT INTO Propietarios (
   DNI,
   Nombre,

@@ -1,10 +1,12 @@
 <!--https://getbootstrap.com/docs/5.0/components/modal/-->
+
+<!--Modal para agregar perros-->
 <div class="modal fade" id="agregarPerro" tabindex="-1">
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agrear un perro</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar un perro</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -54,6 +56,59 @@
               <option value="2">Labarta</option>
               <option value="3">Ventos</option>
             </select>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal para agregar usuarios-->
+<div class="modal fade" id="agregarUsuario" tabindex="-1">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar un usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form method="POST" action="">
+          <!--Usuario-->
+          <div class="mb-3">
+            <label for="usuario" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="usuario">
+          </div>
+          <!--Nombre-->
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre">
+          </div>
+          <!--Apellido-->
+          <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido">
+          </div>
+          <!--Nacimiento-->
+          <div class="mb-3">
+            <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="nacimiento">
+          </div>
+          <!--Email-->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+          <!--Clave-->
+          <div class="mb-3">
+            <label for="clave" class="form-label">Clave</label>
+            <input type="password" class="form-control" id="clave">
           </div>
         </form>
       </div>

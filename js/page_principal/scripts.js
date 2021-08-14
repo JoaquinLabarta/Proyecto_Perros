@@ -1,7 +1,7 @@
-$(document).ready(function () {
-  $("#usuarios").DataTable({
+$(document).ready(function() {
+  var table = $("#usuarios").DataTable({
     processing: true,
-    dom: "Bfrtip",
+    dom: '<"top"i>rt<"bottom"><"clear">',
     responsive: "true",
     language: {
       lengthMenu: "Mostrar _MENU_ registros",
@@ -9,7 +9,6 @@ $(document).ready(function () {
       info: "Mostrando _END_ de _TOTAL_ registros",
       infoEmpty: "Mostrando 0 de 0 de un total de 0 registros",
       infoFiltered: "(filtrado de un total de _MAX_ registros)",
-      sSearch: "Buscar Registro: ",
       sProcessing: "Procesando...",
       oPaginate: {
         sFirst: "Primero",
@@ -38,5 +37,13 @@ $(document).ready(function () {
         className: "btn btn-light",
       },
     ],
+  });
+
+  function search() {
+    table.search($('#inputBuscarPerro').val()).draw();
+  }
+
+  $('#inputBuscarPerro').keyup((e) => {
+    if (e.keyCode == 13 || e.keyCode == 8) search();
   });
 });
