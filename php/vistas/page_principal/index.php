@@ -13,14 +13,39 @@ $carpeta_actual = basename(getcwd());
 <head>
   <meta name="viewport" content="width=device-width" />
   <meta charset="utf-8">
-
   <link rel="icon" href="/proyecto-perros/recursos/logo.png">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-
-  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> 
   <link href="/proyecto-perros/css/page_principal/styles.css" rel="stylesheet">
+
+  <style>
+    .dataTables_filter,
+    .dataTables_info {
+      display: none;
+    }
+
+    .btn-primary {
+      background-color: #649fa5;
+      border-color: #649fa5;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:focus {
+      background-color: #D0757C;
+      border-color: #D0757C;
+    }
+}
+           
+
+table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
+     padding-right: 0px; 
+}
+
+#usuarios.dataTable thead th {
+  border-bottom: 1;
+}
+          </style>
 
   <title>Usuarios | Bromatologia</title>
 </head>
@@ -39,7 +64,7 @@ $carpeta_actual = basename(getcwd());
       <div class="col-lg-12 table-responsive">
         <table id="perros" class="table table-striped">
           <thead>
-            <th>Foto</th>
+            <th class = "">Foto</th>
             <th>ID</th>
             <th>Tatoo ID</th>
             <th>Apodo</th>

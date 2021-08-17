@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION["Usuario"] || $_SESSION["Invitado"]) {
+if ( isset ($_SESSION["Usuario"]) || isset ($_SESSION["Invitado"])) {
   header("Location: /proyecto-perros");
 }
 ?>
