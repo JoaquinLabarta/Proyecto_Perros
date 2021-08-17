@@ -64,6 +64,11 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
             Agregar usuario
           </button>
         </div>
+        <div class="col-auto">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPropietario">
+            Agregar Propietario
+          </button>
+        </div>
       <?php endif; ?>
     </div>
     

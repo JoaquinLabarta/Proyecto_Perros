@@ -68,6 +68,11 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
             Agregar Perro
           </button>
         </div>
+        <div class="col-auto">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarVacuna">
+            Agregar Vacuna
+          </button>
+        </div>
       <?php endif; ?>
     </div>
     <div class="row">
