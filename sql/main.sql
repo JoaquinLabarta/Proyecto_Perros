@@ -78,32 +78,12 @@ INSERT INTO Usuarios (
   Administrador,
   Activo
 ) VALUES (
-  "administrador",
-  "Gabriel Dario",
-  "Briones Dos Santos",
-  "2002-11-03",
-  "brionesgabriel@hotmail.com",
-  "$2a$04$IZTtQfshyTnu8I0qOvzxv.0vJ/F..NBAfLtaWtIcp.FZT0H1qA.eO",
-  1,
-  1
-);
-
-INSERT INTO Usuarios (
-  Usuario, 
-  Nombre, 
-  Apellido,
-  Nacimiento, 
-  Email, 
-  Clave,
-  Administrador,
-  Activo
-) VALUES (
-  "labar",
-  "Joaquin",
-  "Labarta",
-  "2003-03-01",
-  "labar@hotmail.com",
-  "$2a$04$IZTtQfshyTnu8I0qOvzxv.0vJ/F..NBAfLtaWtIcp.FZT0H1qA.eO",
+  "admin",
+  "Bromatologia",
+  "Saladillo",
+  "2021-08-31",
+  "-",
+  "$2a$12$L3ApBbryfSZgHLa9lXPOiOFEvep6.On8DJyAKAcZTYHpO23IHnoya",
   1,
   1
 );
@@ -116,12 +96,12 @@ INSERT INTO Propietarios (
   Telefono,
   Direccion
 ) VALUES (
-  44367293,
-  "Gabriel Dario",
-  "Briones Dos Santos",
-  "brionesgabriel@hotmail.com",
-  02344468916,
-  "Saavedra 3455"
+  00000001,
+  "Bromatologia",
+  "Saladillo",
+  "-",
+  02344451350,
+  "Eva Duarte de Perón, Saladillo, Provincia de Buenos Aires"
 );
 
 INSERT INTO Perros (
@@ -135,8 +115,8 @@ INSERT INTO Perros (
   "AABBCC11",
   "Cliford",
   "Bulldog",
-  "2020/11/12",
-  "2020/10/10",
+  "2021/08/31",
+  "2021/08/31",
   NULL
 );
 
