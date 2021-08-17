@@ -56,7 +56,7 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar usuarios">
+        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Usuario por ID, Nombre, Apellido, etc...">
       </div>
       <?php if (!$_SESSION["Invitado"]) : ?>
         <div class="col-auto">
@@ -89,8 +89,8 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
                 <td class="text-center"><?php echo $usuario['Administrador'] ? "Si" : "No"; ?></td>
                 <td class="text-center"><?php echo $usuario['Activo'] ? "Si" : "No"; ?></td>
                 <td class="text-center">
-                  <i class="fas fa-user-edit"></i>
-                  <i class="fas fa-user-times"></i>
+                  <i class="far fa-edit"></i>
+                  <i class="far fa-trash-alt"></i>
                 </td>
               </tr>
             <?php endforeach; ?>
