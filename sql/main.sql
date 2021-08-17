@@ -125,3 +125,13 @@ INSERT INTO Vacunas (
 ) VALUES (
   "Vacuna Antirrabica"
 );
+
+INSERT INTO Perros (TatooID,Apodo,Raza,Castracion,Adopcion,Observacion) VALUES (?,?,?,?,?,?)
+
+INSERT INTO Vacunas (Nombre) VALUES (?)
+
+INSERT INTO Usuarios (Usuario,Nombre,Apellido,Nacimiento,Email,Clave,Administrador,Activo) VALUES (?,?,?,?,?,?,?,?)
+
+
+
+
