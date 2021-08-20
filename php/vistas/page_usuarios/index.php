@@ -14,7 +14,9 @@ $carpeta_actual = basename(getcwd());
   <meta name="viewport" content="width=device-width" />
   <meta charset="utf-8">
 
+  
   <link rel="icon" href="/proyecto-perros/recursos/logo.png">
+  
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> 
   <style>
@@ -93,6 +95,19 @@ $carpeta_actual = basename(getcwd());
           </tbody>
         </table>
       </div>
+          <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Next</a>
+                    </li>
+                  </ul>
+                </nav>
     </div>
   </div>
 </body>
