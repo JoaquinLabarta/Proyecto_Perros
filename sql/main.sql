@@ -119,18 +119,167 @@ INSERT INTO Perros (
   "2021/08/31",
   NULL
 );
-
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC00",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC12",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC13",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC14",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC15",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC16",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC17",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC18",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC19",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
+INSERT INTO Perros (
+  TatooId,
+  Apodo,
+  Raza,
+  Castracion,
+  Adopcion,
+  Observacion
+) VALUES (
+  "AABBCC20",
+  "Cliford",
+  "Bulldog",
+  "2021/08/31",
+  "2021/08/31",
+  NULL
+);
 INSERT INTO Vacunas (
   Nombre
 ) VALUES (
   "Vacuna Antirrabica"
 );
 
-INSERT INTO Perros (TatooID,Apodo,Raza,Castracion,Adopcion,Observacion) VALUES (?,?,?,?,?,?)
+-- INSERT INTO Perros (TatooID,Apodo,Raza,Castracion,Adopcion,Observacion) VALUES (?,?,?,?,?,?)
 
-INSERT INTO Vacunas (Nombre) VALUES (?)
+-- INSERT INTO Vacunas (Nombre) VALUES (?)
 
-INSERT INTO Usuarios (Usuario,Nombre,Apellido,Nacimiento,Email,Clave,Administrador,Activo) VALUES (?,?,?,?,?,?,?,?)
+-- INSERT INTO Usuarios (Usuario,Nombre,Apellido,Nacimiento,Email,Clave,Administrador,Activo) VALUES (?,?,?,?,?,?,?,?)
 
 
 
