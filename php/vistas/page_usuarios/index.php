@@ -14,9 +14,10 @@ $carpeta_actual = basename(getcwd());
   <meta name="viewport" content="width=device-width" />
   <meta charset="utf-8">
 
+  
   <link rel="icon" href="/proyecto-perros/recursos/logo.png">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> 
   <style>
     .dataTables_filter,
     .dataTables_info {
@@ -34,6 +35,7 @@ $carpeta_actual = basename(getcwd());
       background-color: #D0757C;
       border-color: #D0757C;
     }
+<<<<<<< HEAD
 
     table.dataTable>thead>tr>th:not(.sorting_disabled),
     table.dataTable>thead>tr>td:not(.sorting_disabled) {
@@ -43,6 +45,9 @@ $carpeta_actual = basename(getcwd());
     #usuarios.dataTable thead th {
       border-bottom: 1;
     }
+=======
+}
+>>>>>>> 3c3ddd799c1ab7478833373f35bda263b4934adf
   </style>
 
   <title>Inicio | Bromatologia</title>
@@ -55,7 +60,7 @@ $carpeta_actual = basename(getcwd());
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar usuarios">
+        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Usuario por ID, Nombre, Apellido, etc...">
       </div>
       <?php if (!$_SESSION["Invitado"]) : ?>
         <div class="col-auto">
@@ -63,12 +68,17 @@ $carpeta_actual = basename(getcwd());
             Agregar usuario
           </button>
         </div>
+        <div class="col-auto">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPropietario">
+            Agregar Propietario
+          </button>
+        </div>
       <?php endif; ?>
     </div>
 
     <div class="row">
       <div class="col-lg-12 table-responsive"><br>
-        <table id="usuarios" class="table table-bordered ">
+        <table id="usuarios" class="table table-hover ">
           <thead>
             <th class="text-center">ID</th>
             <th class="text-center">Usuario</th>
@@ -88,8 +98,8 @@ $carpeta_actual = basename(getcwd());
                 <td class="text-center"><?php echo $usuario['Administrador'] ? "Si" : "No"; ?></td>
                 <td class="text-center"><?php echo $usuario['Activo'] ? "Si" : "No"; ?></td>
                 <td class="text-center">
-                  <i class="fas fa-user-edit"></i>
-                  <i class="fas fa-user-times"></i>
+                  <i class="far fa-edit"></i>
+                  <i class="far fa-trash-alt"></i>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -98,6 +108,7 @@ $carpeta_actual = basename(getcwd());
       </div>
     </div>
   </div>
+  <br>
 </body>
 
 <!--LINK: https://cdn.datatables.net/-->

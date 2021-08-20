@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var table = $("#usuarios").DataTable({
     processing: true,
-    dom: '<"top"i>rt<"bottom"><"clear">',
+    dom: '<"top"i>t<"bottom"fp><"clear">',
     responsive: "true",
     language: {
       lengthMenu: "Mostrar _MENU_ registros",
@@ -24,4 +24,6 @@ $(document).ready(function() {
   }
 
   $("#inputBuscarUsuarios").keyup(() => search());
+
+  
 });
