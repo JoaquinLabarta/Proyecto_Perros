@@ -4,14 +4,13 @@
 <div class="modal fade" id="agregarPerro" tabindex="-1">
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Agregar un perro</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <div class="modal-body">
-        <form method="POST" action="">
+        <div>
           <!--Codigo de tatuaje-->
           <div class="mb-3">
             <label for="tatuaje" class="form-label">Codigo de tatuaje</label>
@@ -57,7 +56,7 @@
               <option value="3">Ventos</option>
             </select>
           </div>
-        </form>
+        </div>
       </div>
 
       <div class="modal-footer">
@@ -70,53 +69,82 @@
 
 <!--Modal para agregar usuarios-->
 <div class="modal fade" id="agregarUsuario" tabindex="-1">
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
-    <div class="modal-content">
+  <form class="needs-validation" novalidate id="formAgregarUsuario">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar un usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
 
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar un usuario</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body">
-        <form method="POST" action="">
+        <div class="modal-body">
           <!--Usuario-->
           <div class="mb-3">
             <label for="usuario" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="usuario">
+            <input type="text" class="form-control" id="usuario" required>
+            <div class="invalid-feedback">Debe ingresar su usuario</div>
           </div>
           <!--Nombre-->
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre">
+            <input type="text" class="form-control" id="nombre" required>
+            <div class="invalid-feedback">Debe ingresar su nombre</div>
           </div>
           <!--Apellido-->
           <div class="mb-3">
             <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellido">
+            <input type="text" class="form-control" id="apellido" required>
+            <div class="invalid-feedback">Debe ingresar su apellido</div>
           </div>
           <!--Nacimiento-->
           <div class="mb-3">
             <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
-            <input type="date" class="form-control" id="nacimiento">
+            <input type="date" class="form-control" id="nacimiento" required>
+            <div class="invalid-feedback">Debe ingresar su fecha de nacimiento</div>
           </div>
           <!--Email-->
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email">
+            <input type="email" class="form-control" id="email" required>
+            <div class="invalid-feedback">Ingrese su email correctamente</div>
           </div>
           <!--Clave-->
           <div class="mb-3">
             <label for="clave" class="form-label">Clave</label>
-            <input type="password" class="form-control" id="clave">
+            <input type="password" class="form-control" id="clave" required>
+            <span class="form-text text-muted">Su clave debe tener una longitud minima de 8 caracteres y contener numeros y letras</span>
+            <div class="invalid-feedback">Clave invalida</div>
           </div>
-        </form>
-      </div>
+        </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Agregar</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary" id="botonAgregarUsuario">Agregar</button>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
 </div>
+
+<script>
+  (function() {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>
+<script src="/proyecto-perros/js/page_usuarios/agregarUsuario.js" type="module"></script>

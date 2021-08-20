@@ -16,7 +16,7 @@ $carpeta_actual = basename(getcwd());
 
   <link rel="icon" href="/proyecto-perros/recursos/logo.png">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
   <style>
     .dataTables_filter,
     .dataTables_info {
@@ -35,14 +35,15 @@ $carpeta_actual = basename(getcwd());
       border-color: #D0757C;
     }
 
-    table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
-         padding-right: 0px; 
+    table.dataTable>thead>tr>th:not(.sorting_disabled),
+    table.dataTable>thead>tr>td:not(.sorting_disabled) {
+      padding-right: 0px;
     }
 
     #usuarios.dataTable thead th {
       border-bottom: 1;
     }
-</style>
+  </style>
 
   <title>Inicio | Bromatologia</title>
 </head>
@@ -64,7 +65,7 @@ $carpeta_actual = basename(getcwd());
         </div>
       <?php endif; ?>
     </div>
-    
+
     <div class="row">
       <div class="col-lg-12 table-responsive"><br>
         <table id="usuarios" class="table table-bordered ">
@@ -109,5 +110,27 @@ $carpeta_actual = basename(getcwd());
 <script src="/proyecto-perros/js/modulos/jszip/jszip.js" type="module"></script>
 
 <?php include_once "../componentes/modals.php"; ?>
+
+<script>
+  (function() {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>
 
 </html>
