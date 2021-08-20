@@ -35,16 +35,7 @@ $carpeta_actual = basename(getcwd());
       border-color: #D0757C;
     }
 }
-           
-
-table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
-     padding-right: 0px; 
-}
-
-#usuarios.dataTable thead th {
-  border-bottom: 1;
-}
-          </style>
+  </style>
 
   <title>Inicio | Bromatologia</title>
 </head>
