@@ -85,31 +85,31 @@
           <!--Nombre-->
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" required>
+            <input type="text" class="form-control" id="nombreUsuario" required>
             <div class="invalid-feedback">Debe ingresar su nombre</div>
           </div>
           <!--Apellido-->
           <div class="mb-3">
             <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellido" required>
+            <input type="text" class="form-control" id="apellidoUsuario" required>
             <div class="invalid-feedback">Debe ingresar su apellido</div>
           </div>
           <!--Nacimiento-->
           <div class="mb-3">
             <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
-            <input type="date" class="form-control" id="nacimiento" required>
+            <input type="date" class="form-control" id="nacimientoUsuario" required>
             <div class="invalid-feedback">Debe ingresar su fecha de nacimiento</div>
           </div>
           <!--Email-->
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required>
+            <input type="email" class="form-control" id="emailUsuario" required>
             <div class="invalid-feedback">Ingrese su email correctamente</div>
           </div>
           <!--Clave-->
           <div class="mb-3">
             <label for="clave" class="form-label">Clave</label>
-            <input type="password" class="form-control" id="clave" required>
+            <input type="password" class="form-control" id="claveUsuario" required>
             <span class="form-text text-muted">Su clave debe tener una longitud minima de 8 caracteres y contener numeros y letras</span>
             <div class="invalid-feedback">Clave invalida</div>
           </div>
@@ -125,8 +125,8 @@
 </div>
 
 <!--Modal para agregar propietarios-->
-<div class="modal fade" id="agregarVacuna" tabindex="-1">
-  <form class="needs-validation" novalidate id="formAgregarVacuna">
+<div class="modal fade" id="agregarPropietario" tabindex="-1">
+  <form class="needs-validation" novalidate id="formAgregarPropietario">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -143,17 +143,17 @@
           <!--Nombre-->
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre">
+            <input type="text" class="form-control" id="nombrePropietario">
           </div>
           <!--Apellido-->
           <div class="mb-3">
             <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellido">
+            <input type="text" class="form-control" id="apellidoPropietario">
           </div>
           <!--Email-->
           <div class="mb-3">
             <label for="email" class="form-label"> Direccion de email</label>
-            <input type="email" class="form-control" id="email">
+            <input type="email" class="form-control" id="emailPropietario">
           </div>
           <!--telefono-->
           <div class="mb-3">
@@ -177,8 +177,8 @@
 </div>
 
 <!--Modal para agregar vacunas-->
-<div class="modal fade" id="agregarPerro" tabindex="-1">
-  <form class="needs-validation" novalidate id="formAgregarUsuario">
+<div class="modal fade" id="agregarVacuna" tabindex="-1">
+  <form class="needs-validation" novalidate id="formAgregarVacuna">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -195,7 +195,7 @@
           <!--Fecha-->
           <div class="mb-3">
             <label for="vacunacion" class="form-label">Fecha de vacunacion</label>
-            <input type="date" class="form-control" id="vacunacion">
+            <input type="date" class="form-control" id="fechaVacunacion">
           </div>
         </div>
 
