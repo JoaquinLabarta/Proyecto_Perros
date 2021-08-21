@@ -42,7 +42,7 @@ if (count($checkResult) > 0) {
     'email' => $email,
     'clave' => $clave,
     'administrador' => 0,
-    'activo' => 0
+    'activo' => 1
   ];
 
   try {

@@ -5,11 +5,11 @@ form.addEventListener("submit", function validateForm(event) {
 
   const nuevoUsuario = {
     usuario: $("#usuario").val(),
-    nombre: $("#nombre").val(),
-    apellido: $("#apellido").val(),
-    nacimiento: $("#nacimiento").val(),
-    email: $("#email").val(),
-    clave: $("#clave").val(),
+    nombre: $("#nombreUsuario").val(),
+    apellido: $("#apellidoUsuario").val(),
+    nacimiento: $("#nacimientoUsuario").val(),
+    email: $("#emailUsuario").val(),
+    clave: $("#claveUsuario").val(),
   };
 
   const validatePassword = (password) => {
@@ -40,8 +40,14 @@ form.addEventListener("submit", function validateForm(event) {
     return false;
   } else {
     // Caso los datos hayan pasado la validacion con exito
-    $.post("/proyecto-perros/php/conexion/page_usuarios/agregarUsuario.php", nuevoUsuario)
-      .done(() => console.log("Usuario agregado con exito"))
+    const url = "/proyecto-perros/php/conexion/page_usuarios/agregarUsuario.php"
+    $.ajax({
+      type: "POST",
+      url: url, 
+      data: nuevoUsuario, 
+      success: () => location.reload(),
+      error: () => console.log("Hubo un error al intentar crear un usuario. Por favor intente recargar la pagina.")
+    });
 
     return true;
   }
