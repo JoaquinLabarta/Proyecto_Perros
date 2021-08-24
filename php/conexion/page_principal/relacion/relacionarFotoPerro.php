@@ -8,7 +8,7 @@ $perroId = $_POST["perroId"];
 
 /* Query para checkear si el email ya esta registrado en la base de datos */
 $sql = $pdo->prepare("SELECT FotoPerroId FROM FotosPerros WHERE FotoId = :fotoId AND PerroId = :perroId");
-$sql->execute(["fotoId" => $urlFoto]);
+$sql->execute(["fotoId" => $fotoId, "perroId" => $perroId]);
 $checkResult = $sql->fetchAll();
 
 /**
@@ -18,8 +18,8 @@ if (count($checkResult) > 0) {
   return false;
 } else {
   /* Query para insertar un nuevo registro en la base de datos. */
-  $query = "INSERT INTO Fotos(Url) VALUES (:url)";
-  $params = ["url" => $urlFoto];
+  $query = "INSERT INTO FotosPerros(FotoId, PerroId) VALUES (:fotoId, :perroId)";
+  $params = ["fotoId" => $fotoId, "perroId", $perroId];
 
   try {
     $result = $pdo->prepare($query)->execute($params);
