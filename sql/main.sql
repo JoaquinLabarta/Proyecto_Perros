@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS VacunasPerros (
   VacunaPerroId INT NOT NULL AUTO_INCREMENT,
   VacunaId INT NOT NULL,
   PerroId INT NOT NULL,
+  FechaDeRelacion DATETIME NOT NULL,
   PRIMARY KEY (VacunaPerroId),
   FOREIGN KEY (VacunaId) REFERENCES Vacunas(VacunaId),
   FOREIGN KEY (PerroId) REFERENCES Perros(PerroId)
