@@ -38,15 +38,22 @@ CREATE TABLE IF NOT EXISTS Perros (
 
 CREATE TABLE IF NOT EXISTS Vacunas (
   VacunaId INT NOT NULL AUTO_INCREMENT,
-  Nombre VARCHAR(255),
+  Nombre VARCHAR(255) NOT NULL,
   PRIMARY KEY (VacunaId)
 ) ENGINE=INNODB;
 
-CREATE TABLE IF NOT EXISTS FotosPerros (
+CREATE TABLE IF NOT EXISTS Fotos (
   FotoId INT NOT NULL AUTO_INCREMENT,
   Url VARCHAR(255) NOT NULL,
+  PRIMARY KEY (FotoId)
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS FotosPerros (
+  FotoPerroId INT NOT NULL AUTO_INCREMENT,
+  FotoId INT NOT NULL,
   PerroId INT NOT NULL,
-  PRIMARY KEY (FotoId),
+  PRIMARY KEY (FotosPerrosId),
+  FOREIGN KEY (FotoId) REFERENCES Fotos(FotoId),
   FOREIGN KEY (PerroId) REFERENCES Perros(PerroId)
 ) ENGINE=INNODB;
 
@@ -276,12 +283,42 @@ INSERT INTO Vacunas (
   "Vacuna Antirrabica"
 );
 
--- INSERT INTO Perros (TatooID,Apodo,Raza,Castracion,Adopcion,Observacion) VALUES (?,?,?,?,?,?)
-
--- INSERT INTO Vacunas (Nombre) VALUES (?)
-
--- INSERT INTO Usuarios (Usuario,Nombre,Apellido,Nacimiento,Email,Clave,Administrador,Activo) VALUES (?,?,?,?,?,?,?,?)
-
-
-
-
+/*-- Agregar perros*/
+/*INSERT INTO Perros(*/
+/*    TatooId,*/
+/*    Apodo,*/
+/*    Raza,*/
+/*    Castracion,*/
+/*    Adopcion,*/
+/*    Observacion*/
+/*)*/
+/*VALUES(*/
+/*    :tatooId,*/
+/*    :apodo,*/
+/*    :raza,*/
+/*    :castracion,*/
+/*    :adopcion,*/
+/*    :observacion*/
+/*)*/
+/**/
+/*-- Agregar vacunas*/
+/*INSERT INTO Vacunas(Nombre)*/
+/*VALUES(:nombre)*/
+/**/
+/*-- Agregar propietarios*/
+/*INSERT INTO Propietarios(*/
+/*    DNI,*/
+/*    Nombre,*/
+/*    Apellido,*/
+/*    Email,*/
+/*    Telefono,*/
+/*    Direccion*/
+/*)*/
+/*VALUES(*/
+/*    :dni,*/
+/*    :nombre,*/
+/*    :apellido,*/
+/*    :email,*/
+/*    :telefono,*/
+/*    :direccion*/
+/*)*/

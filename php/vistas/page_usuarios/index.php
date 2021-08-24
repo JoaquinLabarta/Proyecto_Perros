@@ -14,10 +14,10 @@ $carpeta_actual = basename(getcwd());
   <meta name="viewport" content="width=device-width" />
   <meta charset="utf-8">
 
-  
+
   <link rel="icon" href="/proyecto-perros/recursos/logo.png">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
   <style>
     .dataTables_filter,
     .dataTables_info {
@@ -35,7 +35,6 @@ $carpeta_actual = basename(getcwd());
       background-color: #D0757C;
       border-color: #D0757C;
     }
-<<<<<<< HEAD
 
     table.dataTable>thead>tr>th:not(.sorting_disabled),
     table.dataTable>thead>tr>td:not(.sorting_disabled) {
@@ -45,9 +44,6 @@ $carpeta_actual = basename(getcwd());
     #usuarios.dataTable thead th {
       border-bottom: 1;
     }
-=======
-}
->>>>>>> 3c3ddd799c1ab7478833373f35bda263b4934adf
   </style>
 
   <title>Inicio | Bromatologia</title>
