@@ -56,7 +56,7 @@ $carpeta_actual = basename(getcwd());
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Usuario por ID, Nombre, Apellido, etc...">
+        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Usuario por Nombre, Apellido, etc...">
       </div>
     </div>
 

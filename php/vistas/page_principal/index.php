@@ -47,6 +47,12 @@ $carpeta_actual = basename(getcwd());
     #usuarios.dataTable thead th {
       border-bottom: 1;
     }
+
+    a{
+      text-decoration:none;
+      color:black;
+    }
+
   </style>
 
   <title>Perros | Bromatologia</title>
@@ -59,21 +65,19 @@ $carpeta_actual = basename(getcwd());
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarPerro" type="text" placeholder="Buscar perros">
+        <input class="form-control" id="inputBuscarPerro" type="text" placeholder="Buscar Perros por Codigo, Apodo, Raza, etc...">
       </div>
     </div>
     <div class="row">
       <div class="col-lg-12 table-responsive"><br>
         <table id="perros" class="table table-hover">
           <thead>
-            <th class="text-center"></th>
+            <th class="text-center">Foto</th>
             <th class="text-center">Tatoo ID</th>
             <th class="text-center">Apodo</th>
-            <th class="text-center">Raza</th>
-            <th class="text-center">Castracion</th>
-            <th class="text-center">Adopcion</th>
-            <th class="text-center">Observacion</th>
+            <th class="text-center">Raza</th>            
             <th class="text-center">Propietario</th>
+            <th class="text-center">Observacion</th>
             <th class="text-center">Acciones</th>
           </thead>
           <tbody>
@@ -82,17 +86,15 @@ $carpeta_actual = basename(getcwd());
             include "../../conexion/get_perros.php";
             foreach ($perros as $perro) : ?>
               <tr>
-                <td class="text-center"><img src=<?php echo $perro["FotoPerro"] ?> width="32" class="img-thumbnail"></td>
-                <td class="text-center"><?php echo $perro["TatooId"] ?></td>
-                <td class="text-center"><?php echo $perro["Apodo"] ?></td>
-                <td class="text-center"><?php echo $perro["Raza"] ?></td>
-                <td class="text-center"><?php echo $perro["Castracion"] ?></td>
-                <td class="text-center"><?php echo $perro["Adopcion"] ?></td>
-                <td class="text-center"><?php echo $perro["Observacion"] ?></td>
-                <td class="text-center">
+                <td class="text-center align-middle"><img src=<?php echo $perro["FotoPerro"] ?> width="40" class="img-thumbnail"></td>
+                <td class="text-center align-middle"><?php echo $perro["TatooId"] ?></td>
+                <td class="text-center align-middle"><?php echo $perro["Apodo"] ?></td>
+                <td class="text-center align-middle"><?php echo $perro["Raza"] ?></td>
+                <td class="text-center align-middle">
                   <?php echo $perro["NombrePropietario"] ?>
                 </td>
-                <td class="text-center">
+                <td class="text-center align-middle"><a href = "#">Click para ver</a></td>
+                <td class=" text-center align-middle">
                   <i class="far fa-edit"></i>
                   <i class="far fa-trash-alt"></i>
                 </td>
