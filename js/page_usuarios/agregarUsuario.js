@@ -1,3 +1,5 @@
+import { agregarRegistro } from "../agregarRegistro.js";
+
 var form = document.getElementById("formAgregarUsuario");
 
 form.addEventListener("submit", function validateForm(event) {
@@ -41,15 +43,6 @@ form.addEventListener("submit", function validateForm(event) {
   } else {
     // Caso los datos hayan pasado la validacion con exito
     const url = "/proyecto-perros/php/conexion/page_usuarios/agregarUsuario.php"
-    $.ajax({
-      type: "POST",
-      url: url, 
-      data: nuevoUsuario, 
-      success: () => location.reload(),
-      error: () => console.log("Hubo un error al intentar crear un usuario. Por favor intente recargar la pagina.")
-    });
-
-    return true;
+    agregarRegistro(url, nuevoUsuario);
   }
-
 });

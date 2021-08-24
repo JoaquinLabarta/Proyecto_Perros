@@ -13,12 +13,12 @@
         <!--Codigo de tatuaje-->
         <div class="mb-3">
           <label for="tatuaje" class="form-label">Codigo de tatuaje</label>
-          <input type="text" class="form-control" id="tatuaje" placeholder="AABB1122">
+          <input type="text" class="form-control" id="tatooId" placeholder="AABB1122">
         </div>
         <!--Foto-->
         <div class="mb-3">
           <label for="foto" class="form-label">Foto</label>
-          <input type="file" class="form-control" id="foto">
+          <input type="file" class="form-control" id="fotoUrl">
         </div>
         <!--Apodo-->
         <div class="mb-3">
