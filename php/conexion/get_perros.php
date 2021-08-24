@@ -4,7 +4,7 @@ include_once "pdo.php";
 $query = "
 SELECT
     COALESCE(
-        FP.Url,
+        FO.Url,
         '/proyecto-perros/recursos/perroDefault.svg'
     ) AS FotoPerro,
     Perros.PerroId,
@@ -32,7 +32,10 @@ ON
     Prop.PropietarioId = PP.PropietarioId
 LEFT JOIN FotosPerros AS FP
 ON
-    Perros.PerroId = FP.PerroId;
+    Perros.PerroId = FP.PerroId
+LEFT JOIN Fotos AS FO
+ON
+    FP.FotoId = FO.FotoId;
 ";
 
 $sql = $pdo->prepare($query);
