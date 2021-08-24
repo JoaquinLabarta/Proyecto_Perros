@@ -11,15 +11,15 @@ $carpeta_actual = basename(getcwd());
 <html lang="es">
 
 <head>
-<meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width" />
   <meta charset="utf-8">
 
   <link rel="icon" href="/proyecto-perros/recursos/logo.png">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> 
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+
   <link href="/proyecto-perros/css/page_principal/styles.css" rel="stylesheet">
-  
+
 
   <style>
     .dataTables_filter,
@@ -38,19 +38,18 @@ $carpeta_actual = basename(getcwd());
       background-color: #D0757C;
       border-color: #D0757C;
     }
-}
-           
 
-table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
-     padding-right: 0px; 
-}
+    table.dataTable>thead>tr>th:not(.sorting_disabled),
+    table.dataTable>thead>tr>td:not(.sorting_disabled) {
+      padding-right: 0px;
+    }
 
-#usuarios.dataTable thead th {
-  border-bottom: 1;
-}
-          </style>
+    #usuarios.dataTable thead th {
+      border-bottom: 1;
+    }
+  </style>
 
-  <title>Usuarios | Bromatologia</title>
+  <title>Perros | Bromatologia</title>
 </head>
 
 <body>
@@ -60,35 +59,22 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarPerro" type="search" placeholder="Buscar Perro por ID, Nombre, Apodo, Raza, etc...">
+        <input class="form-control" id="inputBuscarPerro" type="text" placeholder="Buscar perros">
       </div>
-      <?php if (!$_SESSION["Invitado"]) : ?>
-        <div class="col-auto">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPerro">
-            Agregar Perro
-          </button>
-        </div>
-        <div class="col-auto">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarVacuna">
-            Agregar Vacuna
-          </button>
-        </div>
-      <?php endif; ?>
     </div>
     <div class="row">
-     <div class="col-lg-12 table-responsive"><br>
+      <div class="col-lg-12 table-responsive"><br>
         <table id="perros" class="table table-hover">
           <thead>
-            <th class = "text-center">Foto</th>
-            <th class = "text-center">ID</th>
-            <th class = "text-center">Tatoo ID</th>
-            <th class = "text-center">Apodo</th>
-            <th class = "text-center">Raza</th>
-            <th class = "text-center">Castracion</th>
-            <th class = "text-center">Adopcion</th>
-            <th class = "text-center">Observacion</th>
-            <th class = "text-center">Propietario</th>
-            <th class = "text-center">Acciones</th>
+            <th class="text-center"></th>
+            <th class="text-center">Tatoo ID</th>
+            <th class="text-center">Apodo</th>
+            <th class="text-center">Raza</th>
+            <th class="text-center">Castracion</th>
+            <th class="text-center">Adopcion</th>
+            <th class="text-center">Observacion</th>
+            <th class="text-center">Propietario</th>
+            <th class="text-center">Acciones</th>
           </thead>
           <tbody>
 
@@ -96,19 +82,18 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
             include "../../conexion/get_perros.php";
             foreach ($perros as $perro) : ?>
               <tr>
-                <td class = "text-center"><img src=<?php echo $perro["FotoPerro"] ?> width="32" class="img-thumbnail"></td>
-                <td class = "text-center"><?php echo $perro["PerroId"] ?></td>
-                <td class = "text-center"><?php echo $perro["TatooId"] ?></td>
-                <td class = "text-center"><?php echo $perro["Apodo"] ?></td>
-                <td class = "text-center"><?php echo $perro["Raza"] ?></td>
-                <td class = "text-center"><?php echo $perro["Castracion"] ?></td>
-                <td class = "text-center"><?php echo $perro["Adopcion"] ?></td>
-                <td class = "text-center"><?php echo $perro["Observacion"] ?></td>
-                <td class = "text-center">
+                <td class="text-center"><img src=<?php echo $perro["FotoPerro"] ?> width="32" class="img-thumbnail"></td>
+                <td class="text-center"><?php echo $perro["TatooId"] ?></td>
+                <td class="text-center"><?php echo $perro["Apodo"] ?></td>
+                <td class="text-center"><?php echo $perro["Raza"] ?></td>
+                <td class="text-center"><?php echo $perro["Castracion"] ?></td>
+                <td class="text-center"><?php echo $perro["Adopcion"] ?></td>
+                <td class="text-center"><?php echo $perro["Observacion"] ?></td>
+                <td class="text-center">
                   <?php echo $perro["NombrePropietario"] ?>
                 </td>
-                <td class = "text-center">
-                <i class="far fa-edit"></i>
+                <td class="text-center">
+                  <i class="far fa-edit"></i>
                   <i class="far fa-trash-alt"></i>
                 </td>
               </tr>
@@ -117,7 +102,7 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
         </table>
       </div>
     </div>
-  </div>    
+  </div>
   <br>
 </body>
 

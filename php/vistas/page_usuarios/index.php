@@ -62,18 +62,6 @@ $carpeta_actual = basename(getcwd());
       <div class="col">
         <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Usuario por ID, Nombre, Apellido, etc...">
       </div>
-      <?php if (!$_SESSION["Invitado"]) : ?>
-        <div class="col-auto">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuario">
-            Agregar usuario
-          </button>
-        </div>
-        <div class="col-auto">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPropietario">
-            Agregar Propietario
-          </button>
-        </div>
-      <?php endif; ?>
     </div>
 
     <div class="row">

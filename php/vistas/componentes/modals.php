@@ -46,14 +46,21 @@
           <textarea class="form-control" id="observacion" rows="3"></textarea>
         </div>
         <!--Propietario-->
-        <div class="mb-3">
-          <label for="propietario" class="form-label">Propietario</label>
-          <select class="form-select">
-            <option selected hidden>Seleccionar un propietario</option>
-            <option value="1">Axel</option>
-            <option value="2">Labarta</option>
-            <option value="3">Ventos</option>
-          </select>
+        <div class="d-flex flex-row mb-3">
+          <div class="col">
+            <label for="propietario" class="form-label">Propietario</label>
+            <select class="form-select">
+              <option selected hidden>Seleccionar un propietario</option>
+              <option value="1">Axel</option>
+              <option value="2">Labarta</option>
+              <option value="3">Ventos</option>
+            </select>
+          </div>
+          <div class="d-flex align-items-end">
+            <button class='btn btn-white' style='color: #649fa5' data-bs-toggle="modal" data-bs-target="#agregarVacuna">
+              Agregar propietario
+            </button>
+          </div>
         </div>
       </div>
 
