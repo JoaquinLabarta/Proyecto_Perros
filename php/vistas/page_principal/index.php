@@ -68,11 +68,18 @@ $carpeta_actual = basename(getcwd());
 }
     a{
       text-decoration:none;
-      color:black;
     }
 
     table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
     padding-left: 0px;
+
+}
+table.dataTable {
+    width: 100%;
+    margin: 0 auto;
+    clear: both;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
   </style>
 
@@ -91,7 +98,7 @@ $carpeta_actual = basename(getcwd());
     </div>
     <div class="row">
       <div class="col-lg-12 table-responsive"><br>
-        <table id="perros" class="table table-hover">
+        <table id="perros" class="table table-hover table-bordered">
           <thead>
             <th class="text-center">Foto</th>
             <th class="text-center">Tatoo ID</th>
