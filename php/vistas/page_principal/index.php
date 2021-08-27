@@ -49,31 +49,34 @@ $carpeta_actual = basename(getcwd());
     }
 
     .table>:not(caption)>*>* {
-    border-bottom-width: 0px;
-    }
-    .table {
-    --bs-table-bg: transparent;
-    --bs-table-accent-bg: transparent;
-    --bs-table-striped-color: #212529;
-    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
-    --bs-table-active-color: #212529;
-    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
-    --bs-table-hover-color: #212529;
-    
-    width: 100%;
-    margin-bottom: 1rem;
-    color: #212529;
-    vertical-align: top;
-    border-color: #dee2e6;
-}
-    a{
-      text-decoration:none;
-      color:black;
+      border-bottom-width: 0px;
     }
 
-    table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
-    padding-left: 0px;
-}
+    .table {
+      --bs-table-bg: transparent;
+      --bs-table-accent-bg: transparent;
+      --bs-table-striped-color: #212529;
+      --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+      --bs-table-active-color: #212529;
+      --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+      --bs-table-hover-color: #212529;
+
+      width: 100%;
+      margin-bottom: 1rem;
+      color: #212529;
+      vertical-align: top;
+      border-color: #dee2e6;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    table.dataTable>thead>tr>th:not(.sorting_disabled),
+    table.dataTable>thead>tr>td:not(.sorting_disabled) {
+      padding-left: 0px;
+    }
   </style>
 
   <title>Perros | Bromatologia</title>
@@ -96,7 +99,7 @@ $carpeta_actual = basename(getcwd());
             <th class="text-center">Foto</th>
             <th class="text-center">Tatoo ID</th>
             <th class="text-center">Apodo</th>
-            <th class="text-center">Raza</th>            
+            <th class="text-center">Raza</th>
             <th class="text-center">Propietario</th>
             <th class="text-center">Observacion</th>
             <th class="text-center">Acciones</th>
@@ -114,7 +117,7 @@ $carpeta_actual = basename(getcwd());
                 <td class="text-center align-middle">
                   <?php echo $perro["NombrePropietario"] ?>
                 </td>
-                <td class="text-center align-middle"><a href = "#">Click para ver</a></td>
+                <td class="text-center align-middle"><a href="#">Click para ver</a></td>
                 <td class=" text-center align-middle">
                   <i class="far fa-edit"></i>
                   <i class="far fa-trash-alt"></i>
