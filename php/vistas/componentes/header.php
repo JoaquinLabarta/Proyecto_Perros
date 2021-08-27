@@ -27,7 +27,7 @@ WHERE Usuario = :usuario AND Email = :email";
       Bromatologia | Municipalidad de Saladillo
     </a>
     <div class="d-flex">
-      <?php if ($es_admin && $carpeta_actual === "page_principal") : ?>
+      <?php if ($es_admin) : ?>
         <div class="dropdown me-2">
           <button class="btn btn-white border" style='color: #649fa5' type="button" data-bs-toggle="dropdown" title="Agregar">
             <i class="fas fa-plus"></i>

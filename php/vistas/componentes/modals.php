@@ -1,5 +1,3 @@
-<!--https://getbootstrap.com/docs/5.0/components/modal/-->
-
 <!--Modal para agregar perros-->
 <div class="modal fade" id="agregarPerro" tabindex="-1">
   <form class="needs-validation" novalidate id="formAgregarPerro">
@@ -51,9 +49,12 @@
             <label for="propietario" class="form-label">Propietario</label>
             <select class="form-select">
               <option selected hidden>Seleccionar un propietario</option>
-              <option value="1">Axel</option>
-              <option value="2">Labarta</option>
-              <option value="3">Ventos</option>
+              <?php include_once "../../conexion/get_propietarios.php";
+                    foreach ($propietarios as $propietario) : ?>
+                <?php
+                echo "<option value='" . $propietario["PropietarioId"] . "'>" . $propietario["Nombre"] . "</option>";
+                ?>
+              <?php endforeach; ?>
             </select>
           </div>
         </div>

@@ -7,7 +7,9 @@ $username = $_POST["usernameInput"];
 $userPassword = $_POST["passwordInput"];
 
 // Obtencion de datos desde la BDD para la validacion por back-end
-$validationQuery = "SELECT UsuarioID, Usuario, Nombre, Apellido, Nacimiento, Email, Clave, Administrador, Activo FROM Usuarios WHERE Usuario = :username";
+$validationQuery = "SELECT UsuarioID, Usuario, Nombre, Apellido, Nacimiento, Email, Clave, Administrador, Activo " .
+  "FROM Usuarios " .
+  "WHERE Usuario = :username";
 $sql = $pdo->prepare($validationQuery);
 $sql->execute(["username" => $username]);
 $result = $sql->fetchObject();
