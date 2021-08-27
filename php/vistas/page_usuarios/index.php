@@ -44,6 +44,36 @@ $carpeta_actual = basename(getcwd());
     #usuarios.dataTable thead th {
       border-bottom: 1;
     }
+    
+    .table>:not(caption)>*>* {
+    border-bottom-width: 0px;
+    }
+     
+    table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
+    padding-left: 0px;
+}
+
+
+    .table {
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
+}
+    a{
+      text-decoration:none;
+      color:black;
+    }
+
   </style>
 
   <title>Inicio | Bromatologia</title>
@@ -62,7 +92,7 @@ $carpeta_actual = basename(getcwd());
 
     <div class="row">
       <div class="col-lg-12 table-responsive"><br>
-        <table id="usuarios" class="table table-hover ">
+        <table id="usuarios" class="table table-hover table-bordered ">
           <thead>
             <th class="text-center">ID</th>
             <th class="text-center">Usuario</th>
