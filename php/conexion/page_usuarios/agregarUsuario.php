@@ -20,7 +20,8 @@ $checkResult = $sql->fetchAll();
  * Si $checkReasult es mayor a 0, significa que el uruario ya existe. 
  */
 if (count($checkResult) > 0) {
-  return false;
+  echo "Ya existe un usuario con este nombre de usuario.";
+  throw new Error();
 } else {
   /* Query para insertar un nuevo registro de usuario en la base de datos. */
   $query = "INSERT INTO Usuarios 
@@ -45,7 +46,8 @@ if (count($checkResult) > 0) {
   try {
     $result = $pdo->prepare($query)->execute($params);
   } catch (\Throwable $th) {
-    throw $th;
+    echo "Hubo un error al intentar agregar un usuario.";
+    throw new Error();
   }
 }
 

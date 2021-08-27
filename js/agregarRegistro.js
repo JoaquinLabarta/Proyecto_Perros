@@ -10,6 +10,6 @@ export function agregarRegistro(url, nuevoRegistro) {
     url: url,
     data: nuevoRegistro,
     success: () => location.reload(),
-    error: () => alert("Hubo un error inesperado. Por favor intente recargar la pagina.")
+    error: (xhr, ajaxOptions, thrownError) => alert(xhr.responseText)
   });
 }

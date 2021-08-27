@@ -47,7 +47,7 @@
           <!--Propietario-->
           <div class="col">
             <label for="propietario" class="form-label">Propietario</label>
-            <select class="form-select">
+            <select class="form-select" id="propietarioPerro">
               <option selected hidden>Seleccionar un propietario</option>
               <?php include_once "../../conexion/get_propietarios.php";
                     foreach ($propietarios as $propietario) : ?>

@@ -4,6 +4,7 @@ include "../../pdo.php";
 
 // Definicion de variables
 $tatooId = $_POST["tatooId"];
+$propietarioId = $_POST["propietarioId"];
 $apodo = $_POST["apodo"];
 $raza = $_POST["raza"];
 $castracion = $_POST["castracion"];
@@ -19,7 +20,8 @@ $checkResult = $sql->fetchAll();
  * Checkeo que se hace para saber si el el registro ya existe en la base de datos
  */
 if (count($checkResult) > 0) {
-  return false;
+  echo "Ya existe un perro con este codigo de tatuaje.";
+  throw new Error();
 } else {
   /* Query para insertar un nuevo registro en la base de datos. */
   $query = "INSERT INTO Perros (TatooId, Apodo, Raza, Castracion, Adopcion, Observacion) " .
@@ -37,7 +39,25 @@ if (count($checkResult) > 0) {
   try {
     $result = $pdo->prepare($query)->execute($params);
   } catch (\Throwable $th) {
-    throw $th;
+    echo "Hubo un error al intentar agregar un perro.";
+    throw new Error();
+  }
+
+  if ($propietarioId != null) {
+    $perroId = $pdo->lastInsertId();
+    $query = "INSER INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
+
+    $params = [
+      "propietarioId" => $propietarioId,
+      "perroid" => $perroId
+    ];
+
+    try {
+      $result = $pdo->prepare($query)->execute($params);
+    } catch (\Throwable $th) {
+      echo "Hubo un error al intentar agregar un perro.";
+      throw new Error();
+    }
   }
 }
 
