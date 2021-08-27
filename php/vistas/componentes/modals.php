@@ -2,51 +2,51 @@
 
 <!--Modal para agregar perros-->
 <div class="modal fade" id="agregarPerro" tabindex="-1">
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Agregar un perro</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+  <form class="needs-validation" novalidate id="formAgregarPerro">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Agregar un perro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
 
-      <div class="modal-body">
-        <!--Codigo de tatuaje-->
-        <div class="mb-3">
-          <label for="tatuaje" class="form-label">Codigo de tatuaje</label>
-          <input type="text" class="form-control" id="tatooId" placeholder="AABB1122">
-        </div>
-        <!--Foto-->
-        <div class="mb-3">
-          <label for="foto" class="form-label">Foto</label>
-          <input type="file" class="form-control" id="fotoUrl">
-        </div>
-        <!--Apodo-->
-        <div class="mb-3">
-          <label for="apodo" class="form-label">Apodo</label>
-          <input type="text" class="form-control" id="apodo" placeholder="Cliford">
-        </div>
-        <!--Raza-->
-        <div class="mb-3">
-          <label for="raza" class="form-label">Raza</label>
-          <input type="text" class="form-control" id="raza" placeholder="Caniche">
-        </div>
-        <!--Castracion-->
-        <div class="mb-3">
-          <label for="castracion" class="form-label">Fecha de castrado</label>
-          <input type="date" class="form-control" id="castracion">
-        </div>
-        <!--Adopcion-->
-        <div class="mb-3">
-          <label for="adopcion" class="form-label">Fecha de adopcion</label>
-          <input type="date" class="form-control" id="adopcion">
-        </div>
-        <!--Observacion-->
-        <div class="mb-3">
-          <label for="observacion" class="form-label">Observacion</label>
-          <textarea class="form-control" id="observacion" rows="3"></textarea>
-        </div>
-        <!--Propietario-->
-        <div class="d-flex flex-row mb-3">
+        <div class="modal-body">
+          <!--Codigo de tatuaje-->
+          <div class="mb-3">
+            <label for="tatuaje" class="form-label">Codigo de tatuaje</label>
+            <input type="text" class="form-control" id="tatooId" placeholder="AABB1122" required>
+          </div>
+          <!--Foto-->
+          <div class="mb-3">
+            <label for="foto" class="form-label">Foto</label>
+            <input type="file" class="form-control" id="fotoUrl">
+          </div>
+          <!--Apodo-->
+          <div class="mb-3">
+            <label for="apodo" class="form-label">Apodo</label>
+            <input type="text" class="form-control" id="apodo" placeholder="Cliford" required>
+          </div>
+          <!--Raza-->
+          <div class="mb-3">
+            <label for="raza" class="form-label">Raza</label>
+            <input type="text" class="form-control" id="raza" placeholder="Caniche">
+          </div>
+          <!--Castracion-->
+          <div class="mb-3">
+            <label for="castracion" class="form-label">Fecha de castrado</label>
+            <input type="date" class="form-control" id="castracion">
+          </div>
+          <!--Adopcion-->
+          <div class="mb-3">
+            <label for="adopcion" class="form-label">Fecha de adopcion</label>
+            <input type="date" class="form-control" id="adopcion">
+          </div>
+          <!--Observacion-->
+          <div class="mb-3">
+            <label for="observacion" class="form-label">Observacion</label>
+            <textarea class="form-control" id="observacion" rows="3"></textarea>
+          </div>
+          <!--Propietario-->
           <div class="col">
             <label for="propietario" class="form-label">Propietario</label>
             <select class="form-select">
@@ -56,20 +56,15 @@
               <option value="3">Ventos</option>
             </select>
           </div>
-          <div class="d-flex align-items-end">
-            <button class='btn btn-white' style='color: #649fa5' data-bs-toggle="modal" data-bs-target="#agregarVacuna">
-              Agregar propietario
-            </button>
-          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
       </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Agregar</button>
-      </div>
     </div>
-  </div>
+  </form>
 </div>
 
 <!--Modal para agregar usuarios-->
@@ -176,7 +171,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Agregar</button>
+          <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
       </div>
     </div>
@@ -197,18 +192,13 @@
           <!--Vacuna-->
           <div class="mb-3">
             <label for="vacuna" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="vacuna">
-          </div>
-          <!--Fecha-->
-          <div class="mb-3">
-            <label for="vacunacion" class="form-label">Fecha de vacunacion</label>
-            <input type="date" class="form-control" id="fechaVacunacion">
+            <input type="text" class="form-control" id="nombreVacuna">
           </div>
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Agregar</button>
+          <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
       </div>
     </div>
@@ -236,4 +226,4 @@
       })
   })()
 </script>
-<script src="/proyecto-perros/js/page_usuarios/agregarUsuario.js" type="module"></script>
+<script src="/proyecto-perros/js/page_principal/agregacion/main.js" type="module"></script>

@@ -27,33 +27,35 @@ WHERE Usuario = :usuario AND Email = :email";
       Bromatologia | Municipalidad de Saladillo
     </a>
     <div class="d-flex">
-      <div class="dropdown me-2">
-        <button class="btn btn-white border" style='color: #649fa5' type="button" data-bs-toggle="dropdown" title="Agregar">
-          <i class="fas fa-plus"></i>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-          <?php if ($es_admin && $carpeta_actual === "page_principal") : ?>
-            <li>
-              <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPerro">Nuevo perro</button>
-            </li>
-          <?php endif; ?>
-          <?php if ($es_admin && $carpeta_actual !== "page_usuarios") : ?>
-            <li>
-              <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPropietario">Nuevo propietario</button>
-            </li>
-          <?php endif; ?>
-          <?php if ($es_admin && $carpeta_actual !== "page_usuarios") : ?>
-            <li>
-              <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarVacuna">Nueva vacuna</button>
-            </li>
-          <?php endif; ?>
-          <?php if ($es_admin && $carpeta_actual === "page_usuarios") : ?>
-            <li>
-              <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarUsuario">Nuevo usuario</button>
-            </li>
-          <?php endif; ?>
-        </ul>
-      </div>
+      <?php if ($es_admin && $carpeta_actual === "page_principal") : ?>
+        <div class="dropdown me-2">
+          <button class="btn btn-white border" style='color: #649fa5' type="button" data-bs-toggle="dropdown" title="Agregar">
+            <i class="fas fa-plus"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <?php if ($es_admin && $carpeta_actual === "page_principal") : ?>
+              <li>
+                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPerro">Nuevo perro</button>
+              </li>
+            <?php endif; ?>
+            <?php if ($es_admin && $carpeta_actual !== "page_usuarios") : ?>
+              <li>
+                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPropietario">Nuevo propietario</button>
+              </li>
+            <?php endif; ?>
+            <?php if ($es_admin && $carpeta_actual !== "page_usuarios") : ?>
+              <li>
+                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarVacuna">Nueva vacuna</button>
+              </li>
+            <?php endif; ?>
+            <?php if ($es_admin && $carpeta_actual === "page_usuarios") : ?>
+              <li>
+                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarUsuario">Nuevo usuario</button>
+              </li>
+            <?php endif; ?>
+          </ul>
+        </div>
+      <?php endif; ?>
       <?php if (!$_SESSION["Invitado"] && $carpeta_actual !== "page_principal") : ?>
         <a class="btn btn-white border me-2" title="Inicio" style="color: #649fa5" href="/proyecto-perros/php/vistas/page_principal">
           <i class="fas fa-home"></i>

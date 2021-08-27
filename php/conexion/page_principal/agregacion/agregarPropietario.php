@@ -1,18 +1,18 @@
 <?php
 // Se incluye la conexion a la BDD.
-include "../pdo.php";
+include "../../pdo.php";
 
 // Definicion de variables
-$dniPropietario = $_POST["dniPropietario"];
-$nombrePropietario = $_POST["nombrePropietario"];
-$apellidoPropietario = $_POST["apellidoPropietario"];
-$emailPropietario = $_POST["emailPropietario"];
-$telefonoPropietario = $_POST["telefonoPropietario"];
+$dni = $_POST["dni"];
+$nombre = $_POST["nombre"];
+$apellido = $_POST["apellido"];
+$email = $_POST["email"];
+$telefono = $_POST["telefono"];
 $direccion = $_POST["direccionPropietario"];
 
 /* Query para checkear si el email ya esta registrado en la base de datos */
 $sql = $pdo->prepare("SELECT DNI FROM Propietarios WHERE DNI = :dni");
-$sql->execute(["dni" => $dniPropietario]);
+$sql->execute(["dni" => $dni]);
 $checkResult = $sql->fetchAll();
 
 /**
@@ -22,15 +22,15 @@ if (count($checkResult) > 0) {
   return false;
 } else {
   /* Query para insertar un nuevo registro en la base de datos. */
-  $query = "INSERT INTO Propietarios (DNI, Nombre, Apellido, Email, Telefono, Direccion) " +
+  $query = "INSERT INTO Propietarios (DNI, Nombre, Apellido, Email, Telefono, Direccion) " .
     "VALUES (:dni, :nombre, :apellido, :email, :telefono, :direccion)";
 
   $params = [
-    "dni" => $dniPropietario,
-    "nombre" => $nombrePropietario,
-    "apellido" => $apellidoPropietario,
-    "email" => $emailPropietario,
-    "telefono" => $telefonoPropietario,
+    "dni" => $dni,
+    "nombre" => $nombre,
+    "apellido" => $apellido,
+    "email" => $email,
+    "telefono" => $telefono,
     "direccion" => $direccion
   ];
 

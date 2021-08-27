@@ -1,6 +1,6 @@
 <?php
 // Se incluye la conexion a la BDD.
-include "../pdo.php";
+include "../../pdo.php";
 
 // Definicion de variables
 $nombreVacuna = $_POST["nombreVacuna"];
@@ -19,7 +19,6 @@ if (count($checkResult) > 0) {
   /* Query para insertar un nuevo registro en la base de datos. */
   $query = "INSERT INTO Vacunas(Nombre) VALUES (:nombreVacuna)";
   $params = ["nombreVacuna" => $nombreVacuna];
-
   try {
     $result = $pdo->prepare($query)->execute($params);
   } catch (\Throwable $th) {

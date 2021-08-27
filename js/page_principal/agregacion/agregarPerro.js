@@ -1,4 +1,4 @@
-import { agregarRegistro } from "../agregarRegistro.js";
+import { agregarRegistro } from "../../agregarRegistro.js";
 
 var form = document.getElementById("formAgregarPerro");
 
@@ -7,7 +7,7 @@ form.addEventListener("submit", function validateForm(event) {
 
   const nuevoPerro = {
     tatooId: $("#tatooId").val(),
-    fotoUrl: $("#fotoUrl").val(),
+    //fotoUrl: $("#fotoUrl").val(),
     apodo: $("#apodo").val(),
     raza: $("#raza").val(),
     castracion: $("#castracion").val(),

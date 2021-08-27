@@ -1,6 +1,6 @@
 <?php
 // Se incluye la conexion a la BDD.
-include "../pdo.php";
+include "../../pdo.php";
 
 // Definicion de variables
 $tatooId = $_POST["tatooId"];
@@ -11,7 +11,7 @@ $adopcion = $_POST["adopcion"];
 $observacion = $_POST["observacion"];
 
 /* Query para checkear si el email ya esta registrado en la base de datos */
-$sql = $pdo->prepare("SELECT TatooId FROM Perros WHERE TatooId = :tatooid");
+$sql = $pdo->prepare("SELECT TatooId FROM Perros WHERE TatooId = :tatooId");
 $sql->execute(["tatooId" => $tatooId]);
 $checkResult = $sql->fetchAll();
 
@@ -22,7 +22,7 @@ if (count($checkResult) > 0) {
   return false;
 } else {
   /* Query para insertar un nuevo registro en la base de datos. */
-  $query = "INSERT INTO Perros (TatooId, Apodo, Raza, Castracion, Adopcion, Observacion) " +
+  $query = "INSERT INTO Perros (TatooId, Apodo, Raza, Castracion, Adopcion, Observacion) " .
     "VALUES (:tatooId, :apodo, :raza, :castracion, :adopcion, :observacion)";
 
   $params = [
