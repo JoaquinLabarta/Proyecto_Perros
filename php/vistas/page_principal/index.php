@@ -85,6 +85,14 @@ $carpeta_actual = basename(getcwd());
       border-collapse: collapse;
       border-spacing: 0;
     }
+
+    table.dataTable.no-footer {
+    border-bottom: 0px solid grey; 
+  }
+  table.dataTable.no-footer {
+      border-bottom: 0px solid #E3E9EA;
+  }
+  }
   </style>
 
   <title>Perros | Bromatologia</title>
