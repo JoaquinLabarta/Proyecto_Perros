@@ -13,6 +13,7 @@ form.addEventListener("submit", function validateForm(event) {
     castracion: $("#castracion").val(),
     adopcion: $("#adopcion").val(),
     observacion: $("#observacion").val(),
+    propietarioId: $("propietarioPerro").val(),
   };
 
   if (nuevoPerro.tatooId.length < 1 || nuevoPerro.apodo.length < 1) {

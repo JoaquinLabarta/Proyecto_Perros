@@ -14,7 +14,8 @@ $checkResult = $sql->fetchAll();
  * Checkeo que se hace para saber si el el registro ya existe en la base de datos
  */
 if (count($checkResult) > 0) {
-  return false;
+  echo "Ya existe una vacuna con este nombre.";
+  throw new Error();
 } else {
   /* Query para insertar un nuevo registro en la base de datos. */
   $query = "INSERT INTO Vacunas(Nombre) VALUES (:nombreVacuna)";
@@ -22,7 +23,8 @@ if (count($checkResult) > 0) {
   try {
     $result = $pdo->prepare($query)->execute($params);
   } catch (\Throwable $th) {
-    throw $th;
+    echo "Hubo un error al intentar agregar una vacuna.";
+    throw new Error();
   }
 }
 
