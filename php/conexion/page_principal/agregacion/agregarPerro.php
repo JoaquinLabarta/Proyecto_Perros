@@ -43,7 +43,7 @@ if (count($checkResult) > 0) {
     throw new Error();
   }
 
-  if ($propietarioId) {
+  if ($propietarioId != 0) {
     $perroId = $pdo->lastInsertId();
     $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
 

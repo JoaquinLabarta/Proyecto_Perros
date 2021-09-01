@@ -57,7 +57,7 @@
           <div class="col">
             <label for="propietario" class="form-label">Propietario</label>
             <select class="form-select" id="propietarioId">
-              <option selected hidden>Seleccionar un propietario</option>
+              <option selected hidden value="0">Seleccionar un propietario</option>
               <?php include_once "../../conexion/get_propietarios.php";
               foreach ($propietarios as $propietario) : ?>
                 <?php
@@ -233,5 +233,88 @@
     </div>
   </div>
 </div>
+
+<!--Modal de observacion-->
+<div class="modal fade" tabindex="-1" id="modalObservacion">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Observacion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="contenidoObservacion"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal para editar perros-->
+<form class="needs-validation" novalidate id="formEditarPerro">
+  <div class="modal fade" id="editarPerro" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar perro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <!--Codigo de tatuaje-->
+          <div class="mb-3">
+            <label for="tatuaje" class="form-label required-field">Codigo de tatuaje</label>
+            <input type="text" class="form-control" id="editarTatooId" placeholder="AABB1122" required>
+          </div>
+          <!--Apodo-->
+          <div class="mb-3">
+            <label for="apodo" class="form-label required-field">Apodo</label>
+            <input type="text" class="form-control" id="editarApodo" placeholder="Cliford" required>
+          </div>
+          <!--Raza-->
+          <div class="mb-3">
+            <label for="raza" class="form-label">Raza</label>
+            <input type="text" class="form-control" id="editarRaza" placeholder="Caniche">
+          </div>
+          <!--Castracion-->
+          <div class="mb-3">
+            <label for="castracion" class="form-label">Fecha de castrado</label>
+            <input type="date" class="form-control" id="editarCastracion">
+          </div>
+          <!--Adopcion-->
+          <div class="mb-3">
+            <label for="adopcion" class="form-label required-field">Fecha de adopcion</label>
+            <input type="date" class="form-control" id="editarAdopcion" required>
+          </div>
+          <!--Observacion-->
+          <div class="mb-3">
+            <label for="observacion" class="form-label">Observacion</label>
+            <textarea class="form-control" id="editarObservacion" rows="3"></textarea>
+          </div>
+          <!--Propietario-->
+          <div class="col">
+            <label for="propietario" class="form-label">Propietario</label>
+            <select class="form-select" id="editarPropietarioId">
+              <option selected hidden value="0">Seleccionar un propietario</option>
+              <?php include_once "../../conexion/get_propietarios.php";
+              foreach ($propietarios as $propietario) : ?>
+                <?php
+                echo "<option value='" . $propietario["PropietarioId"] . "'>" . $propietario["Nombre"] . "</option>";
+                ?>
+              <?php endforeach; ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 
 <script src="/proyecto-perros/js/page_principal/agregacion/main.js" type="module"></script>

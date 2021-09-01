@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var table = $("#perros").DataTable({
     processing: true,
     dom: '<"top"i>t<"bottom"fp><"clear">',
@@ -26,9 +26,21 @@ $(document).ready(function() {
   $("#inputBuscarPerro").keyup(() => search());
 });
 
-// Modal para borrar un perro
-const modalBorrarPerro = document.getElementById("modalBorrarPerro");
+/**
+ * Permite al usuario ver la observacion de un perro.
+ * @param {string} observacion La observacion a mostrar
+ * @author briones-gabriel
+ */
+function verObservacion(observacion) {
+  $("#contenidoObservacion").text(observacion);
+  $("#modalObservacion").modal("show");
+}
 
+/**
+ * Permite al usuario eliminar un perro de la BDD.
+ * @param {number} perroId El Id del perro a eliminar.
+ * @author briones-gabriel
+ */
 function eliminarPerro(perroId) {
   $("#modalBorrarPerro").modal("show");
   const url = "/proyecto-perros/php/conexion/page_principal/eliminacion/eliminarPerro.php";
@@ -38,7 +50,57 @@ function eliminarPerro(perroId) {
       url: url,
       data: { perroId },
       success: () => location.reload(),
-      error: (xhr) => alert(xhr.responseText)
+      error: (xhr) => alert(xhr.responseText),
     });
+  });
+}
+
+/**
+ * Permite al usuario editar a un perro.
+ * @param {number} perroId
+ * @author briones-gabriel
+ */
+function editarPerro(perro) {
+  $("#editarTatooId").val(perro["TatooId"]);
+  $("#editarApodo").val(perro["Apodo"]);
+  $("#editarRaza").val(perro["Raza"]);
+  $("#editarCastracion").val(perro["Castracion"]);
+  $("#editarAdopcion").val(perro["Adopcion"]);
+  $("#editarObservacion").val(perro["Observacion"]);
+  $("#editarPropietarioId").val(perro["PropietarioId"]);
+
+  $("#editarPerro").modal("show");
+
+  let form = document.getElementById("formEditarPerro");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const castracion = $("#editarCastracion").val();
+    const propietarioId = document.getElementById("editarPropietarioId").value;
+
+    const perroEditado = {
+      castracion,
+      propietarioId,
+      perroId: perro["PerroId"],
+      tatooId: $("#editarTatooId").val(),
+      apodo: $("#editarApodo").val(),
+      raza: $("#editarRaza").val(),
+      adopcion: $("#editarAdopcion").val(),
+      observacion: $("#editarObservacion").val(),
+    };
+
+    if (perroEditado.tatooId.length < 1 || perroEditado.apodo.length < 1 || perroEditado.adopcion.length < 1) {
+      return false;
+    } else {
+      const url = "/proyecto-perros/php/conexion/page_principal/edicion/editarPerro.php";
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: perroEditado,
+        success: () => location.reload(),
+        error: (xhr) => alert(xhr.responseText),
+      });
+    }
   });
 }

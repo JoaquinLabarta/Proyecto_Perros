@@ -31,6 +31,10 @@ $carpeta_actual = basename(getcwd());
       border-color: #649fa5;
     }
 
+    .btn-link {
+      text-decoration: none;
+    }
+
     .btn-primary:hover,
     .btn-primary:active,
     .btn-primary:focus {
@@ -86,12 +90,13 @@ $carpeta_actual = basename(getcwd());
     }
 
     table.dataTable.no-footer {
-    border-bottom: 0px solid grey; 
-  }
-  table.dataTable.no-footer {
+      border-bottom: 0px solid grey;
+    }
+
+    table.dataTable.no-footer {
       border-bottom: 0px solid #E3E9EA;
-  }
-  }
+    }
+    }
   </style>
 
   <title>Perros | Bromatologia</title>
@@ -126,18 +131,18 @@ $carpeta_actual = basename(getcwd());
             foreach ($perros as $perro) : ?>
               <tr>
                 <td class="text-center align-middle"><img src=<?php echo $perro["FotoPerro"] ?> width="40" class="img-thumbnail"></td>
-                <td class="text-center align-middle"><?php echo $perro["TatooId"] ?></td>
-                <td class="text-center align-middle"><?php echo $perro["Apodo"] ?></td>
-                <td class="text-center align-middle"><?php echo $perro["Raza"] ?></td>
+                <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
+                <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
+                <td class="text-center align-middle"><?php echo $perro["Raza"]; ?></td>
                 <td class="text-center align-middle">
                   <?php echo $perro["NombrePropietario"] ?>
                 </td>
-                <td class="text-center align-middle"><a href="#">Click para ver</a></td>
+                <td class="text-center align-middle"><button class="btn btn-link" onclick="verObservacion('<?php echo $perro['Observacion']; ?>')">Click para ver</button></td>
                 <td class=" text-center align-middle">
-                  <button class="btn border editarPerro" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick="editarPerro(<?php echo $perro["PerroId"]; ?>)">
+                  <button class="btn border" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
                     <i class="far fa-edit"></i>
                   </button>
-                  <button class="btn border borrarPerro" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
+                  <button class="btn border" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
                     <i class="far fa-trash-alt"></i>
                   </button>
                 </td>

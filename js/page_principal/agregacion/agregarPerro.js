@@ -12,14 +12,13 @@ form.addEventListener("submit", function validateForm(event) {
     castracion,
     propietarioId,
     tatooId: $("#tatooId").val(),
-    //fotoUrl: $("#fotoUrl").val(),
     apodo: $("#apodo").val(),
     raza: $("#raza").val(),
     adopcion: $("#adopcion").val(),
     observacion: $("#observacion").val(),
   };
 
-  if (nuevoPerro.tatooId.length < 1 || nuevoPerro.apodo.length < 1) {
+  if (nuevoPerro.tatooId.length < 1 || nuevoPerro.apodo.length < 1 || nuevoPerro.adopcion.length < 1) {
     return false;
   } else {
     const url = "/proyecto-perros/php/conexion/page_principal/agregacion/agregarPerro.php";

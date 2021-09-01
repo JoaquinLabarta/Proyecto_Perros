@@ -14,7 +14,7 @@ SELECT
     Castracion,
     Adopcion,
     COALESCE(
-        Observacion,
+        NULLIF(Observacion, ''),
         'No hay observacion'
     ) AS Observacion,
     COALESCE(Prop.PropietarioId, 0) AS PropietarioId,
