@@ -20,7 +20,6 @@ $carpeta_actual = basename(getcwd());
 
   <link href="/proyecto-perros/css/page_principal/styles.css" rel="stylesheet">
 
-
   <style>
     .dataTables_filter,
     .dataTables_info {
@@ -127,8 +126,12 @@ $carpeta_actual = basename(getcwd());
                 </td>
                 <td class="text-center align-middle"><a href="#">Click para ver</a></td>
                 <td class=" text-center align-middle">
-                  <i class="far fa-edit"></i>
-                  <i class="far fa-trash-alt"></i>
+                  <button class="btn border editarPerro" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick="editarPerro(<?php echo $perro["PerroId"]; ?>)">
+                    <i class="far fa-edit"></i>
+                  </button>
+                  <button class="btn border borrarPerro" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -149,6 +152,7 @@ $carpeta_actual = basename(getcwd());
 <script src="/proyecto-perros/js/page_principal/script.js"></script>
 <script src="/proyecto-perros/js/modulos/pdfmake/pdfmake.js" type="module"></script>
 <script src="/proyecto-perros/js/modulos/jszip/jszip.js" type="module"></script>
+<script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 
 <?php include_once "../componentes/modals.php"; ?>
 

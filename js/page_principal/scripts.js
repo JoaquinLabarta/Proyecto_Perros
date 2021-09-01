@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var table = $("#usuarios").DataTable({
     processing: true,
     dom: '<"top"i>t<"bottom"fp><"clear">',
@@ -16,7 +16,7 @@ $(document).ready(function() {
         sNext: "Siguiente",
         sPrevious: "Anterior",
       },
-    }
+    },
   });
 
   function search() {
@@ -24,6 +24,4 @@ $(document).ready(function() {
   }
 
   $("#inputBuscarUsuarios").keyup(() => search());
-
-  
 });

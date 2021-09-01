@@ -1,6 +1,15 @@
+<style>
+  .required-field::after {
+    content: '*' !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: red;
+  }
+</style>
+
 <!--Modal para agregar perros-->
-<div class="modal fade" id="agregarPerro" tabindex="-1">
-  <form class="needs-validation" novalidate id="formAgregarPerro">
+<form class="needs-validation" novalidate id="formAgregarPerro">
+  <div class="modal fade" id="agregarPerro" tabindex="-1">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -11,7 +20,7 @@
         <div class="modal-body">
           <!--Codigo de tatuaje-->
           <div class="mb-3">
-            <label for="tatuaje" class="form-label">Codigo de tatuaje</label>
+            <label for="tatuaje" class="form-label required-field">Codigo de tatuaje</label>
             <input type="text" class="form-control" id="tatooId" placeholder="AABB1122" required>
           </div>
           <!--Foto-->
@@ -21,7 +30,7 @@
           </div>
           <!--Apodo-->
           <div class="mb-3">
-            <label for="apodo" class="form-label">Apodo</label>
+            <label for="apodo" class="form-label required-field">Apodo</label>
             <input type="text" class="form-control" id="apodo" placeholder="Cliford" required>
           </div>
           <!--Raza-->
@@ -36,8 +45,8 @@
           </div>
           <!--Adopcion-->
           <div class="mb-3">
-            <label for="adopcion" class="form-label">Fecha de adopcion</label>
-            <input type="date" class="form-control" id="adopcion">
+            <label for="adopcion" class="form-label required-field">Fecha de adopcion</label>
+            <input type="date" class="form-control" id="adopcion" required>
           </div>
           <!--Observacion-->
           <div class="mb-3">
@@ -47,10 +56,10 @@
           <!--Propietario-->
           <div class="col">
             <label for="propietario" class="form-label">Propietario</label>
-            <select class="form-select" id="propietarioPerro">
+            <select class="form-select" id="propietarioId">
               <option selected hidden>Seleccionar un propietario</option>
               <?php include_once "../../conexion/get_propietarios.php";
-                    foreach ($propietarios as $propietario) : ?>
+              foreach ($propietarios as $propietario) : ?>
                 <?php
                 echo "<option value='" . $propietario["PropietarioId"] . "'>" . $propietario["Nombre"] . "</option>";
                 ?>
@@ -65,12 +74,12 @@
         </div>
       </div>
     </div>
-  </form>
-</div>
+  </div>
+</form>
 
 <!--Modal para agregar usuarios-->
-<div class="modal fade" id="agregarUsuario" tabindex="-1">
-  <form class="needs-validation" novalidate id="formAgregarUsuario">
+<form class="needs-validation" novalidate id="formAgregarUsuario">
+  <div class="modal fade" id="agregarUsuario" tabindex="-1">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -124,12 +133,12 @@
         </div>
       </div>
     </div>
-  </form>
-</div>
+  </div>
+</form>
 
 <!--Modal para agregar propietarios-->
-<div class="modal fade" id="agregarPropietario" tabindex="-1">
-  <form class="needs-validation" novalidate id="formAgregarPropietario">
+<form class="needs-validation" novalidate id="formAgregarPropietario">
+  <div class="modal fade" id="agregarPropietario" tabindex="-1">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -176,12 +185,12 @@
         </div>
       </div>
     </div>
-  </form>
-</div>
+  </div>
+</form>
 
 <!--Modal para agregar vacunas-->
-<div class="modal fade" id="agregarVacuna" tabindex="-1">
-  <form class="needs-validation" novalidate id="formAgregarVacuna">
+<form class="needs-validation" novalidate id="formAgregarVacuna">
+  <div class="modal fade" id="agregarVacuna" tabindex="-1">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -203,28 +212,26 @@
         </div>
       </div>
     </div>
-  </form>
+  </div>
+</form>
+
+<!--Modal para borrar un perro-->
+<div class="modal fade" tabindex="-1" id="modalBorrarPerro">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminar perro</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Esta seguro de que quiere eliminar este perro?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" id="confirmarEliminarPerro">Eliminar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<script>
-  (function() {
-    'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function(form) {
-        form.addEventListener('submit', function(event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
-</script>
 <script src="/proyecto-perros/js/page_principal/agregacion/main.js" type="module"></script>

@@ -31,7 +31,7 @@ if (count($checkResult) > 0) {
     "tatooId" => $tatooId,
     "apodo" => $apodo,
     "raza" => $raza,
-    "castracion" => $castracion,
+    "castracion" => $castracion ? $castracion : null,
     "adopcion" => $adopcion,
     "observacion" => $observacion
   ];
@@ -43,19 +43,19 @@ if (count($checkResult) > 0) {
     throw new Error();
   }
 
-  if ($propietarioId != null) {
+  if ($propietarioId) {
     $perroId = $pdo->lastInsertId();
-    $query = "INSER INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
+    $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
 
     $params = [
       "propietarioId" => $propietarioId,
-      "perroid" => $perroId
+      "perroId" => $perroId
     ];
 
     try {
       $result = $pdo->prepare($query)->execute($params);
     } catch (\Throwable $th) {
-      echo "Hubo un error al intentar agregar un perro.";
+      echo "Hubo un error al intentar relacionar un propietario con este perro.";
       throw new Error();
     }
   }

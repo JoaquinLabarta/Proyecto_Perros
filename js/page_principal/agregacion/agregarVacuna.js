@@ -1,6 +1,6 @@
 import { agregarRegistro } from "../../agregarRegistro.js";
 
-var form = document.getElementById("formAgregarVacuna");
+let form = document.getElementById("formAgregarVacuna");
 
 form.addEventListener("submit", function validateForm(event) {
   event.preventDefault();
