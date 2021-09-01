@@ -91,19 +91,19 @@
           <!--Usuario-->
           <div class="mb-3">
             <label for="usuario" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="usuario" required>
+            <input type="text" class="form-control" id="usuario" placeholder = "Bromatologia" required>
             <div class="invalid-feedback">Debe ingresar su usuario</div>
           </div>
           <!--Nombre-->
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombreUsuario" required>
+            <input type="text" class="form-control" id="nombreUsuario" placeholder = "Juan" required>
             <div class="invalid-feedback">Debe ingresar su nombre</div>
           </div>
           <!--Apellido-->
           <div class="mb-3">
             <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellidoUsuario" required>
+            <input type="text" class="form-control" id="apellidoUsuario" placeholder = "Perez" required>
             <div class="invalid-feedback">Debe ingresar su apellido</div>
           </div>
           <!--Nacimiento-->
@@ -115,13 +115,13 @@
           <!--Email-->
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="emailUsuario" required>
+            <input type="email" class="form-control" id="emailUsuario" placeholder = "juanperez@gmail.com" required>
             <div class="invalid-feedback">Ingrese su email correctamente</div>
           </div>
           <!--Clave-->
           <div class="mb-3">
             <label for="clave" class="form-label">Clave</label>
-            <input type="password" class="form-control" id="claveUsuario" required>
+            <input type="password" class="form-control" id="claveUsuario" placeholder = "bromatologia123" required>
             <span class="form-text text-muted">Su clave debe tener una longitud minima de 8 caracteres y contener numeros y letras</span>
             <div class="invalid-feedback">Clave invalida</div>
           </div>
@@ -150,32 +150,32 @@
           <!--DNI-->
           <div class="mb-3">
             <label for="dni" class="form-label">DNI</label>
-            <input type="number" class="form-control" id="dni">
+            <input type="number" class="form-control" id="dni" placeholder = "23.123.323">
           </div>
           <!--Nombre-->
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombrePropietario">
+            <input type="text" class="form-control" id="nombrePropietario" placeholder = "Juan">
           </div>
           <!--Apellido-->
           <div class="mb-3">
             <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellidoPropietario">
+            <input type="text" class="form-control" id="apellidoPropietario" placeholder = "Perez">
           </div>
           <!--Email-->
           <div class="mb-3">
             <label for="email" class="form-label"> Direccion de email</label>
-            <input type="email" class="form-control" id="emailPropietario">
+            <input type="email" class="form-control" id="emailPropietario" placeholder = "juanperez@gmail.com">
           </div>
           <!--telefono-->
           <div class="mb-3">
             <label for="telefono" class="form-label">Telefono</label>
-            <input type="number" class="form-control" id="telefono">
+            <input type="number" class="form-control" id="telefono" placeholder = "2344 123456">
           </div>
           <!--Direccion-->
           <div class="mb-3">
             <label for="direccion" class="form-label">Direccion</label>
-            <input type="text" class="form-control" id="direccion">
+            <input type="text" class="form-control" id="direccion" placeholder = "Moreno 2500">
           </div>
         </div>
 
@@ -202,7 +202,7 @@
           <!--Vacuna-->
           <div class="mb-3">
             <label for="vacuna" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombreVacuna">
+            <input type="text" class="form-control" id="nombreVacuna" placeholder = "Coronavirus">
           </div>
         </div>
 
