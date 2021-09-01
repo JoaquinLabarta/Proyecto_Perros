@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ( isset ($_SESSION["Usuario"]) || isset ($_SESSION["Invitado"])) {
+if (isset($_SESSION["Usuario"]) || isset($_SESSION["Invitado"])) {
   header("Location: /proyecto-perros");
 }
 ?>
@@ -14,11 +14,10 @@ if ( isset ($_SESSION["Usuario"]) || isset ($_SESSION["Invitado"])) {
   <link rel="icon" href="/proyecto-perros/recursos/logo.png">
   <link href="/proyecto-perros/css/bootstrap/bootstrap.min.css" rel="stylesheet">
   <link href="/proyecto-perros/css/page_login/styles.css" rel="stylesheet">
-  <link href="/proyecto-perros/css/global.css" rel="stylesheet">
   <title>Bromatologia - Saladillo</title>
 </head>
 
-<body>
+<body style="height: 100vh;" class="d-flex align-items-center justify-content-center">
   <div class="contenedor">
     <div class="d-flex flex-column align-items-center border-primary">
       <!--Header-->
