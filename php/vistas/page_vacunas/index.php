@@ -89,7 +89,6 @@ $carpeta_actual = basename(getcwd());
   table.dataTable.no-footer {
       border-bottom: 0px solid #E3E9EA;
   }
-  
   .dataTables_wrapper .dataTables_paginate {
     float: right;
     text-align: right;

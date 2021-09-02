@@ -31,10 +31,6 @@ $carpeta_actual = basename(getcwd());
       border-color: #649fa5;
     }
 
-    .btn-link {
-      text-decoration: none;
-    }
-
     .btn-primary:hover,
     .btn-primary:active,
     .btn-primary:focus {
@@ -90,13 +86,16 @@ $carpeta_actual = basename(getcwd());
     }
 
     table.dataTable.no-footer {
-      border-bottom: 0px solid grey;
-    }
-
-    table.dataTable.no-footer {
+    border-bottom: 0px solid grey; 
+  }
+  table.dataTable.no-footer {
       border-bottom: 0px solid #E3E9EA;
-    }
-    }
+  }
+  .dataTables_wrapper .dataTables_paginate {
+    float: right;
+    text-align: right;
+    padding-top: .75em;
+}
   </style>
 
   <title>Perros | Bromatologia</title>
