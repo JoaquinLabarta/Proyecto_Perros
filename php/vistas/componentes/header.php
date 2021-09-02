@@ -66,6 +66,16 @@ WHERE Usuario = :usuario AND Email = :email";
           <i class="fas fa-users"></i>
         </a>
       <?php endif; ?>
+      <?php if ($es_admin && $carpeta_actual !== "page_propietarios") : ?>
+        <a class='btn btn-white border me-2' title="Propietarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_propietarios">
+          <i class="fas fa-id-card"></i>
+        </a>
+      <?php endif; ?>
+      <?php if ($es_admin && $carpeta_actual !== "page_vacunas") : ?>
+        <a class='btn btn-white border me-2' title="Vacunas" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_vacunas">
+          <i class="fas fa-syringe"></i>
+        </a>
+      <?php endif; ?>
       <a class="btn btn-white border" title="Cerrar sesion" style="color: #649fa5" href="/proyecto-perros/php/conexion/page_principal/cerrar_sesion.php">
         <i class="fas fa-sign-out-alt"></i>
       </a>
