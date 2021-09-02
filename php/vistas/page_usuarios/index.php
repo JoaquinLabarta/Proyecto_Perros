@@ -94,6 +94,7 @@ $carpeta_actual = basename(getcwd());
     text-align: right;
     padding-top: .75em;
 }
+
   </style>
 
   <title>Inicio | Bromatologia</title>
@@ -131,9 +132,13 @@ $carpeta_actual = basename(getcwd());
                 <td class="text-center"><?php echo $usuario['Nombre'] . " " . $usuario['Apellido'] ?></td>
                 <td class="text-center"><?php echo $usuario['Administrador'] ? "Si" : "No"; ?></td>
                 <td class="text-center"><?php echo $usuario['Activo'] ? "Si" : "No"; ?></td>
-                <td class="text-center">
-                  <i class="far fa-edit"></i>
-                  <i class="far fa-trash-alt"></i>
+                <td class=" text-center align-middle">
+                  <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
+                    <i class="far fa-edit"></i>
+                  </button>
+                  <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
                 </td>
               </tr>
             <?php endforeach; ?>

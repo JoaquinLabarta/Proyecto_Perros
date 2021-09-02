@@ -96,6 +96,7 @@ $carpeta_actual = basename(getcwd());
     text-align: right;
     padding-top: .75em;
 }
+
   </style>
 
   <title>Perros | Bromatologia</title>
@@ -138,10 +139,10 @@ $carpeta_actual = basename(getcwd());
                 </td>
                 <td class="text-center align-middle"><button class="btn btn-link" onclick="verObservacion('<?php echo $perro['Observacion']; ?>')">Click para ver</button></td>
                 <td class=" text-center align-middle">
-                  <button class="btn border" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
+                  <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
                     <i class="far fa-edit"></i>
                   </button>
-                  <button class="btn border" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
+                  <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
                     <i class="far fa-trash-alt"></i>
                   </button>
                 </td>
