@@ -31,6 +31,10 @@ $carpeta_actual = basename(getcwd());
       border-color: #649fa5;
     }
 
+    .btn-link {
+        text-decoration: none;
+    }
+
     .btn-primary:hover,
     .btn-primary:active,
     .btn-primary:focus {
