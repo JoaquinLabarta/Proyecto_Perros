@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!$_SESSION && !$_SESSION["Invitado"]) {
+if (!$_SESSION || $_SESSION["Invitado"]) {
   header("Location: /proyecto-perros");
 }
 
@@ -14,12 +14,10 @@ $carpeta_actual = basename(getcwd());
   <meta name="viewport" content="width=device-width" />
   <meta charset="utf-8">
 
+
   <link rel="icon" href="/proyecto-perros/recursos/logo.png">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-
-  <link href="/proyecto-perros/css/page_principal/styles.css" rel="stylesheet">
-
   <style>
     .dataTables_filter,
     .dataTables_info {
@@ -99,7 +97,7 @@ $carpeta_actual = basename(getcwd());
 
   </style>
 
-  <title>Perros | Bromatologia</title>
+  <title>Inicio | Bromatologia</title>
 </head>
 
 <body>
@@ -109,35 +107,33 @@ $carpeta_actual = basename(getcwd());
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarPerro" type="text" placeholder="Buscar Perros por Codigo, Apodo, Raza, etc...">
+        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Propietarios por Nombre, Apellido, etc...">
       </div>
     </div>
+
     <div class="row">
       <div class="col-lg-12 table-responsive"><br>
-        <table id="perros" class="table table-hover table-bordered">
+        <table id="propietarios" class="table table-hover table-bordered ">
           <thead>
-            <th class="text-center">Foto</th>
-            <th class="text-center">Tatoo ID</th>
-            <th class="text-center">Apodo</th>
-            <th class="text-center">Raza</th>
-            <th class="text-center">Propietario</th>
-            <th class="text-center">Observacion</th>
+            <th class="text-center">ID</th>
+            <th class="text-center">DNI</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Telefono</th>
+            <th class="text-center">Direccion</th>
             <th class="text-center">Acciones</th>
           </thead>
           <tbody>
-
             <?php
-            include "../../conexion/get_perros.php";
-            foreach ($perros as $perro) : ?>
+            include "../../conexion/get_propietarios.php";
+            foreach ($propietarios as $propietario) : ?>
               <tr>
-                <td class="text-center align-middle"><img src=<?php echo $perro["FotoPerro"] ?> width="40" class="img-thumbnail"></td>
-                <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
-                <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
-                <td class="text-center align-middle"><?php echo $perro["Raza"]; ?></td>
-                <td class="text-center align-middle">
-                  <?php echo $perro["NombrePropietario"] ?>
-                </td>
-                <td class="text-center align-middle"><button class="btn btn-link" onclick="verObservacion('<?php echo $perro['Observacion']; ?>')">Click para ver</button></td>
+                <td class="text-center"><?php echo $propietario['PropietarioId'] ?></td>
+                <td class="text-center"><?php echo $propietario['DNI'] ?></td>
+                <td class="text-center"><?php echo $propietario['Nombre'] . " " . $usuario['Apellido'] ?></td>
+                <td class="text-center"><?php echo $propietario['Email']?></td>
+                <td class="text-center"><?php echo $propietario['Telefono']?></td>
+                <td class="text-center"><?php echo $propietario['Direccion']?></td>
                 <td class=" text-center align-middle">
                   <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
                     <i class="far fa-edit"></i>
@@ -145,6 +141,7 @@ $carpeta_actual = basename(getcwd());
                   <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
                     <i class="far fa-trash-alt"></i>
                   </button>
+                </td>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -157,16 +154,37 @@ $carpeta_actual = basename(getcwd());
 </body>
 
 <!--LINK: https://cdn.datatables.net/-->
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/de1cdf12c2.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="/proyecto-perros/js/page_principal/script.js"></script>
+<script src="/proyecto-perros/js/page_principal/scripts.js"></script>
 <script src="/proyecto-perros/js/modulos/pdfmake/pdfmake.js" type="module"></script>
 <script src="/proyecto-perros/js/modulos/jszip/jszip.js" type="module"></script>
-<script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 
 <?php include_once "../componentes/modals.php"; ?>
 
+<script>
+  (function() {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>
+
 </html>
+<
