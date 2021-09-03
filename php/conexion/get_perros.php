@@ -19,7 +19,7 @@ SELECT
     ) AS Observacion,
     COALESCE(Prop.PropietarioId, 0) AS PropietarioId,
     COALESCE(
-        CONCAT(Prop.Nombre, Prop.Apellido),
+        CONCAT(Prop.Nombre, ' ', Prop.Apellido),
         'No tiene'
     ) AS NombrePropietario
 FROM

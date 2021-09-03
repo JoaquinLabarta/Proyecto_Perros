@@ -28,11 +28,12 @@ $(document).ready(function () {
 
 /**
  * Permite al usuario ver la observacion de un perro.
- * @param {string} observacion La observacion a mostrar
+ * @param {object} perro La observacion a mostrar
  * @author briones-gabriel
  */
-function verObservacion(observacion) {
-  $("#contenidoObservacion").text(observacion);
+function verObservacion(perro) {
+  $("#tituloObservacion").text(`${perro["Apodo"]} (Codigo ${perro["TatooId"]})`);
+  $("#contenidoObservacion").text(perro["Observacion"]);
   $("#modalObservacion").modal("show");
 }
 
@@ -57,7 +58,7 @@ function eliminarPerro(perroId) {
 
 /**
  * Permite al usuario editar a un perro.
- * @param {number} perroId
+ * @param {object} perro
  * @author briones-gabriel
  */
 function editarPerro(perro) {

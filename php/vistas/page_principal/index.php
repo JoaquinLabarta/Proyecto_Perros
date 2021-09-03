@@ -141,7 +141,7 @@ $carpeta_actual = basename(getcwd());
                 <td class="text-center align-middle">
                   <?php echo $perro["NombrePropietario"] ?>
                 </td>
-                <td class="text-center align-middle"><button class="btn btn-link" onclick="verObservacion('<?php echo $perro['Observacion']; ?>')">Click para ver</button></td>
+                <td class="text-center align-middle"><button class="btn btn-link" onclick='verObservacion(<?php echo json_encode($perro); ?>)'>Click para ver</button></td>
                 <td class=" text-center align-middle">
                   <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
                     <i class="far fa-edit"></i>

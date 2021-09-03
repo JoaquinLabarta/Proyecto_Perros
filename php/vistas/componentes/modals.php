@@ -66,6 +66,7 @@
               <?php endforeach; ?>
             </select>
           </div>
+          <!--Vacunas-->
         </div>
 
         <div class="modal-footer">
@@ -239,7 +240,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Observacion</h5>
+        <h5 class="modal-title" id="tituloObservacion"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
