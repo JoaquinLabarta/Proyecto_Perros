@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION["Usuario"]) || isset($_SESSION["Invitado"])) {
-  header("Location: /proyecto-perros");
+    header("Location: /proyecto-perros");
 }
 ?>
 <!DOCTYPE html>

@@ -2,7 +2,7 @@
 session_start();
 
 if (!$_SESSION && !$_SESSION["Invitado"]) {
-  header("Location: /proyecto-perros");
+    header("Location: /proyecto-perros");
 }
 
 $carpeta_actual = basename(getcwd());
@@ -132,26 +132,35 @@ $carpeta_actual = basename(getcwd());
 
             <?php
             include "../../conexion/get_perros.php";
-            foreach ($perros as $perro) : ?>
+            foreach ($perros as $perro): ?>
               <tr>
-                <td class="text-center align-middle"><img src=<?php echo $perro["FotoPerro"] ?> width="40" class="img-thumbnail"></td>
+                <td class="text-center align-middle"><img src=<?php echo $perro[
+                    "FotoPerro"
+                ]; ?> width="40" class="img-thumbnail"></td>
                 <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
                 <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
                 <td class="text-center align-middle"><?php echo $perro["Raza"]; ?></td>
                 <td class="text-center align-middle">
-                  <?php echo $perro["NombrePropietario"] ?>
+                  <?php echo $perro["NombrePropietario"]; ?>
                 </td>
-                <td class="text-center align-middle"><button class="btn btn-link" onclick='verObservacion(<?php echo json_encode($perro); ?>)'>Click para ver</button></td>
+                <td class="text-center align-middle"><button class="btn btn-link" onclick='verObservacion(<?php echo json_encode(
+                    $perro
+                ); ?>)'>Click para ver</button></td>
                 <td class=" text-center align-middle">
-                  <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
+                  <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
+                      $perro
+                  ); ?>)'>
                     <i class="far fa-edit"></i>
                   </button>
-                  <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
+                  <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
+                      "PerroId"
+                  ]; ?>)">
                     <i class="far fa-trash-alt"></i>
                   </button>
                 </td>
               </tr>
-            <?php endforeach; ?>
+            <?php endforeach;
+            ?>
           </tbody>
         </table>
       </div>
@@ -166,9 +175,7 @@ $carpeta_actual = basename(getcwd());
 <script src="https://kit.fontawesome.com/de1cdf12c2.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="/proyecto-perros/js/page_principal/script.js"></script>
-<script src="/proyecto-perros/js/modulos/pdfmake/pdfmake.js" type="module"></script>
-<script src="/proyecto-perros/js/modulos/jszip/jszip.js" type="module"></script>
+<script src="/proyecto-perros/js/page_principal/scripts.js"></script>
 <script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 
 <?php include_once "../componentes/modals.php"; ?>

@@ -1,24 +1,23 @@
 <?php
 if (!$_SESSION["Invitado"]) {
-  include_once "../../conexion/pdo.php";
+    include_once "../../conexion/pdo.php";
 
-  $query = "SELECT Administrador 
+    $query = "SELECT Administrador 
 FROM Usuarios 
 WHERE Usuario = :usuario AND Email = :email";
 
-  $sql = $pdo->prepare($query);
-  $sql->bindParam(":usuario", $_SESSION["Usuario"]);
-  $sql->bindParam(":email", $_SESSION["Email"]);
+    $sql = $pdo->prepare($query);
+    $sql->bindParam(":usuario", $_SESSION["Usuario"]);
+    $sql->bindParam(":email", $_SESSION["Email"]);
 
-  $sql->execute();
+    $sql->execute();
 
-  $usuarios = $sql->fetchAll(PDO::FETCH_ASSOC);
-  $es_admin = $usuarios[0]["Administrador"];
-  $_SESSION["Invitado"] = 0;
+    $usuarios = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $es_admin = $usuarios[0]["Administrador"];
+    $_SESSION["Invitado"] = 0;
 } else {
-  $es_admin = 0;
-}
-?>
+    $es_admin = 0;
+} ?>
 
 <nav class="navbar navbar-light shadow-sm">
   <div class="container-fluid">
@@ -27,28 +26,28 @@ WHERE Usuario = :usuario AND Email = :email";
       Bromatologia | Municipalidad de Saladillo
     </a>
     <div class="d-flex">
-      <?php if ($es_admin) : ?>
+      <?php if ($es_admin): ?>
         <div class="dropdown me-2">
           <button class="btn btn-white border" style='color: #649fa5' type="button" data-bs-toggle="dropdown" title="Agregar">
             <i class="fas fa-plus"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-            <?php if ($es_admin && $carpeta_actual === "page_principal") : ?>
+            <?php if ($es_admin && $carpeta_actual === "page_principal"): ?>
               <li>
                 <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPerro">Nuevo perro</button>
               </li>
             <?php endif; ?>
-            <?php if ($es_admin && $carpeta_actual !== "page_usuarios") : ?>
+            <?php if ($es_admin && $carpeta_actual !== "page_usuarios"): ?>
               <li>
                 <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPropietario">Nuevo propietario</button>
               </li>
             <?php endif; ?>
-            <?php if ($es_admin && $carpeta_actual !== "page_usuarios") : ?>
+            <?php if ($es_admin && $carpeta_actual !== "page_usuarios"): ?>
               <li>
                 <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarVacuna">Nueva vacuna</button>
               </li>
             <?php endif; ?>
-            <?php if ($es_admin && $carpeta_actual === "page_usuarios") : ?>
+            <?php if ($es_admin && $carpeta_actual === "page_usuarios"): ?>
               <li>
                 <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarUsuario">Nuevo usuario</button>
               </li>
@@ -56,22 +55,22 @@ WHERE Usuario = :usuario AND Email = :email";
           </ul>
         </div>
       <?php endif; ?>
-      <?php if (!$_SESSION["Invitado"] && $carpeta_actual !== "page_principal") : ?>
+      <?php if (!$_SESSION["Invitado"] && $carpeta_actual !== "page_principal"): ?>
         <a class="btn btn-white border me-2" title="Inicio" style="color: #649fa5" href="/proyecto-perros/php/vistas/page_principal">
           <i class="fas fa-home"></i>
         </a>
       <?php endif; ?>
-      <?php if ($es_admin && $carpeta_actual !== "page_usuarios") : ?>
+      <?php if ($es_admin && $carpeta_actual !== "page_usuarios"): ?>
         <a class='btn btn-white border me-2' title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_usuarios">
           <i class="fas fa-users"></i>
         </a>
       <?php endif; ?>
-      <?php if ($es_admin && $carpeta_actual !== "page_propietarios") : ?>
+      <?php if ($es_admin && $carpeta_actual !== "page_propietarios"): ?>
         <a class='btn btn-white border me-2' title="Propietarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_propietarios">
           <i class="fas fa-id-card"></i>
         </a>
       <?php endif; ?>
-      <?php if ($es_admin && $carpeta_actual !== "page_vacunas") : ?>
+      <?php if ($es_admin && $carpeta_actual !== "page_vacunas"): ?>
         <a class='btn btn-white border me-2' title="Vacunas" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_vacunas">
           <i class="fas fa-syringe"></i>
         </a>

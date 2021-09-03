@@ -1,8 +1,38 @@
-import { agregarRegistro } from "../agregarRegistro.js";
+$(document).ready(function () {
+  var table = $("#usuarios").DataTable({
+    processing: true,
+    dom: '<"top"i>t<"bottom"fp><"clear">',
+    responsive: "true",
+    language: {
+      lengthMenu: "Mostrar _MENU_ registros",
+      zeroRecords: "No se encontraron resultados",
+      info: "Mostrando _END_ de _TOTAL_ registros",
+      infoEmpty: "Mostrando 0 de 0 de un total de 0 registros",
+      infoFiltered: "(filtrado de un total de _MAX_ registros)",
+      sProcessing: "Procesando...",
+      oPaginate: {
+        sFirst: "Primero",
+        sLast: "Último",
+        sNext: "Siguiente",
+        sPrevious: "Anterior",
+      },
+    },
+  });
 
-var form = document.getElementById("formAgregarUsuario");
+  function search() {
+    table.search($("#inputBuscarUsuarios").val()).draw();
+  }
 
-form.addEventListener("submit", function validateForm(event) {
+  $("#inputBuscarUsuarios").keyup(() => search());
+});
+
+/* Funciones */
+/**
+ * Permite agregar un usuario a la BDD.
+ * @param event
+ * @author briones-gabriel
+ */
+function guardarUsuario(event) {
   event.preventDefault();
 
   const nuevoUsuario = {
@@ -24,7 +54,7 @@ form.addEventListener("submit", function validateForm(event) {
     } else {
       return true;
     }
-  }
+  };
 
   if (nuevoUsuario.usuario.length < 1) {
     return false;
@@ -42,7 +72,7 @@ form.addEventListener("submit", function validateForm(event) {
     return false;
   } else {
     // Caso los datos hayan pasado la validacion con exito
-    const url = "/proyecto-perros/php/conexion/page_usuarios/agregarUsuario.php"
-    agregarRegistro(url, nuevoUsuario);
+    const url = "/proyecto-perros/php/conexion/page_usuarios/agregarUsuario.php";
+    agregarRegistro("POST", url, nuevoUsuario);
   }
-});
+}

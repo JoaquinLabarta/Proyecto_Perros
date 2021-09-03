@@ -2,7 +2,7 @@
 session_start();
 
 if (!$_SESSION || $_SESSION["Invitado"]) {
-  header("Location: /proyecto-perros");
+    header("Location: /proyecto-perros");
 }
 
 $carpeta_actual = basename(getcwd());
@@ -122,20 +122,25 @@ $carpeta_actual = basename(getcwd());
           <tbody>
             <?php
             include "../../conexion/get_vacunas.php";
-            foreach ($vacunas as $vacuna) : ?>
+            foreach ($vacunas as $vacuna): ?>
               <tr>
-                <td class="text-center"><?php echo $vacuna['VacunaId'] ?></td>
-                <td class="text-center"><?php echo $vacuna['Nombre'] ?></td>
+                <td class="text-center"><?php echo $vacuna["VacunaId"]; ?></td>
+                <td class="text-center"><?php echo $vacuna["Nombre"]; ?></td>
                 <td class=" text-center align-middle">
-                  <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
+                  <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
+                      $perro
+                  ); ?>)'>
                     <i class="far fa-edit"></i>
                   </button>
-                  <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
+                  <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
+                      "PerroId"
+                  ]; ?>)">
                     <i class="far fa-trash-alt"></i>
                   </button>
                 </td>
               </tr>
-            <?php endforeach; ?>
+            <?php endforeach;
+            ?>
           </tbody>
         </table>
       </div>

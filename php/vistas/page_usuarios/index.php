@@ -2,7 +2,7 @@
 session_start();
 
 if (!$_SESSION || $_SESSION["Invitado"]) {
-  header("Location: /proyecto-perros");
+    header("Location: /proyecto-perros");
 }
 
 $carpeta_actual = basename(getcwd());
@@ -125,23 +125,28 @@ $carpeta_actual = basename(getcwd());
           <tbody>
             <?php
             include "../../conexion/get_users.php";
-            foreach ($usuarios as $usuario) : ?>
+            foreach ($usuarios as $usuario): ?>
               <tr>
-                <td class="text-center"><?php echo $usuario['UsuarioId'] ?></td>
-                <td class="text-center"><?php echo $usuario['Usuario'] ?></td>
-                <td class="text-center"><?php echo $usuario['Nombre'] . " " . $usuario['Apellido'] ?></td>
-                <td class="text-center"><?php echo $usuario['Administrador'] ? "Si" : "No"; ?></td>
-                <td class="text-center"><?php echo $usuario['Activo'] ? "Si" : "No"; ?></td>
+                <td class="text-center"><?php echo $usuario["UsuarioId"]; ?></td>
+                <td class="text-center"><?php echo $usuario["Usuario"]; ?></td>
+                <td class="text-center"><?php echo $usuario["Nombre"] . " " . $usuario["Apellido"]; ?></td>
+                <td class="text-center"><?php echo $usuario["Administrador"] ? "Si" : "No"; ?></td>
+                <td class="text-center"><?php echo $usuario["Activo"] ? "Si" : "No"; ?></td>
                 <td class=" text-center align-middle">
-                  <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
+                  <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
+                      $perro
+                  ); ?>)'>
                     <i class="far fa-edit"></i>
                   </button>
-                  <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
+                  <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
+                      "PerroId"
+                  ]; ?>)">
                     <i class="far fa-trash-alt"></i>
                   </button>
                 </td>
               </tr>
-            <?php endforeach; ?>
+            <?php endforeach;
+            ?>
           </tbody>
         </table>
       </div>
@@ -155,32 +160,9 @@ $carpeta_actual = basename(getcwd());
 <script src="https://kit.fontawesome.com/de1cdf12c2.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="/proyecto-perros/js/page_principal/scripts.js"></script>
-<script src="/proyecto-perros/js/modulos/pdfmake/pdfmake.js" type="module"></script>
-<script src="/proyecto-perros/js/modulos/jszip/jszip.js" type="module"></script>
+<script src="/proyecto-perros/js/page_usuarios/scripts.js"></script>
+<script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 
 <?php include_once "../componentes/modals.php"; ?>
-
-<script>
-  (function() {
-    'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function(form) {
-        form.addEventListener('submit', function(event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
-</script>
 
 </html>
