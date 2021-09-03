@@ -26,7 +26,7 @@
           <!--Foto-->
           <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
-            <input type="file" class="form-control" id="fotoUrl">
+            <input type="file" class="form-control" id="fotoFile">
           </div>
           <!--Apodo-->
           <div class="mb-3">
