@@ -107,7 +107,7 @@ $carpeta_actual = basename(getcwd());
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Propietarios por Nombre, Apellido, etc...">
+        <input class="form-control" id="inputBuscarPropietarios" type="search" placeholder="Buscar Propietarios por Nombre, Apellido, etc...">
       </div>
     </div>
 

@@ -107,7 +107,7 @@ $carpeta_actual = basename(getcwd());
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Vacunas por Nombre">
+        <input class="form-control" id="inputBuscarVacunas" type="search" placeholder="Buscar Vacunas por Nombre...">
       </div>
     </div>
 
@@ -116,7 +116,11 @@ $carpeta_actual = basename(getcwd());
         <table id="vacunas" class="table table-hover table-bordered ">
           <thead>
             <th class="text-center">ID</th>
+            <th class="text-center">DNI</th>
             <th class="text-center">Nombre</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Telefono</th>
+            <th class="text-center">Direccion</th>
             <th class="text-center">Acciones</th>
           </thead>
           <tbody>
@@ -137,6 +141,7 @@ $carpeta_actual = basename(getcwd());
                   ]; ?>)">
                     <i class="far fa-trash-alt"></i>
                   </button>
+                </td>
                 </td>
               </tr>
             <?php endforeach;
