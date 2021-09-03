@@ -107,7 +107,7 @@ $carpeta_actual = basename(getcwd());
   <div class="container">
     <div class="row">
       <div class="col">
-        <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Vacunas por Nombre">
+        <input class="form-control" id="inputBuscarVacunas" type="search" placeholder="Buscar Vacunas por Nombre...">
       </div>
     </div>
 
@@ -116,7 +116,11 @@ $carpeta_actual = basename(getcwd());
         <table id="vacunas" class="table table-hover table-bordered ">
           <thead>
             <th class="text-center">ID</th>
+            <th class="text-center">DNI</th>
             <th class="text-center">Nombre</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Telefono</th>
+            <th class="text-center">Direccion</th>
             <th class="text-center">Acciones</th>
           </thead>
           <tbody>
@@ -125,7 +129,7 @@ $carpeta_actual = basename(getcwd());
             foreach ($vacunas as $vacuna) : ?>
               <tr>
                 <td class="text-center"><?php echo $vacuna['VacunaId'] ?></td>
-                <td class="text-center"><?php echo $vacuna['Nombre'] ?></td>
+                <td class="text-center"><?php echo $vacuna['Nombre'] . " " . $usuario['Apellido'] ?></td>
                 <td class=" text-center align-middle">
                   <button class="btn border" style = "color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode($perro); ?>)'>
                     <i class="far fa-edit"></i>
@@ -133,6 +137,7 @@ $carpeta_actual = basename(getcwd());
                   <button class="btn border" style = "color:red"  data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
                     <i class="far fa-trash-alt"></i>
                   </button>
+                </td>
                 </td>
               </tr>
             <?php endforeach; ?>
