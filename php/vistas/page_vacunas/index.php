@@ -147,4 +147,5 @@ $carpeta_actual = basename(getcwd());
 <script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 
 <?php include_once "../componentes/modals.php"; ?>
+<br>
 </html>
