@@ -1,4 +1,4 @@
-function setDatatable(tablaId, inputId) {
+function setDatatable(tablaId, inputId, columnas) {
   $(document).ready(function () {
     var table = $(tablaId).DataTable({
       processing: true,
@@ -18,6 +18,7 @@ function setDatatable(tablaId, inputId) {
           sPrevious: "Anterior",
         },
       },
+      "aoColumns": columnas,
     });
 
     function search() {
@@ -28,10 +29,35 @@ function setDatatable(tablaId, inputId) {
   });
 }
 
-setDatatable("#perros", "#inputBuscarPerro");
-setDatatable("#usuarios", "#inputBuscarUsuarios");
-setDatatable("#vacunas", "#inputBuscarVacunas");
-setDatatable("#propietarios", "#inputBuscarPropietarios");
+
+
+setDatatable("#perros", "#inputBuscarPerro", [
+  { "bSortable": true },
+  { "bSortable": true },
+  { "bSortable": false },
+  { "bSortable": false },
+  { "bSortable": false },
+  { "bSortable": false }
+]);
+setDatatable("#usuarios", "#inputBuscarUsuarios", [
+  { "bSortable": true },
+  { "bSortable": true },
+  { "bSortable": false },
+  { "bSortable": false },
+  { "bSortable": false },
+]);
+setDatatable("#vacunas", "#inputBuscarVacunas", [
+  { "bSortable": true },
+  { "bSortable": false },
+]);
+setDatatable("#propietarios", "#inputBuscarPropietarios", [
+  { "bSortable": true },
+  { "bSortable": true },
+  { "bSortable": false },
+  { "bSortable": false },
+  { "bSortable": true },
+  { "bSortable": false }
+]);
 
 /* Variables */
 let vacunas = {};
