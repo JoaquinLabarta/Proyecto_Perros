@@ -100,7 +100,7 @@ WHERE Usuario = :usuario AND Email = :email";
                         <?php if ($es_admin) : ?>
                             <li class="nav-item">
                                 <?php if ($carpeta_actual !== "page_principal") : ?>
-                                    <a class='btn btn-white border me-2 mb-4' title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_principal">
+                                    <a class='btn btn-white' title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_principal">
                                         <i class="fas fa-home"></i> Inicio
                                     </a>
                                 <?php endif; ?>

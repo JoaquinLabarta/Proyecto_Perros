@@ -126,7 +126,9 @@ $carpeta_actual = basename(getcwd());
                         <th class="text-center">Raza</th>
                         <th class="text-center">Propietario</th>
                         <th class="text-center">Observacion</th>
-                        <th class="text-center">Acciones</th>
+                        <?php if ($es_admin): ?>
+                            <th class="text-center">Acciones</th>
+                        <?php endif; ?>
                     </thead>
                     <tbody>
 
@@ -140,24 +142,26 @@ $carpeta_actual = basename(getcwd());
                                 <td class="text-center align-middle">
                                     <?php echo $perro["NombrePropietario"]; ?>
                                 </td>
-                                <td class="text-center align-middle"><button class="btn btn-link" 
-                                    onclick='verObservacion(<?php echo json_encode(
+                                <td class="text-center align-middle"><button class="btn btn-link" onclick='verObservacion(<?php echo json_encode(
                                     $perro
                                 ); ?>)'>Click para ver</button></td>
-                                <td class=" text-center align-middle">
-                                    <button class="btn border" style="color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
-                                        $perro
-                                    ); ?>)'>
-                                        <i class="far fa-edit"></i>
-                                    </button>
-                                    <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
-                                        "PerroId"
-                                    ]; ?>)">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </td>
+                                <?php if ($es_admin): ?>
+                                    <td class=" text-center align-middle">
+                                        <button class="btn border" style="color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
+                                            $perro
+                                        ); ?>)'>
+                                            <i class="far fa-edit"></i>
+                                        </button>
+                                        <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
+                                            "PerroId"
+                                        ]; ?>)">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                <?php endif; ?>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php endforeach;
+                        ?>
                     </tbody>
                 </table>
             </div>
