@@ -28,6 +28,42 @@ $(document).ready(function () {
 
 /* Funciones */
 /**
+ * Agrega un registro a la base de datos.
+ * @param {string} tipo El tipo de request que se quiere hacer
+ * @param {string} url
+ * @param {Object} nuevoRegistro
+ * @author briones-gabriel
+ */
+function agregarRegistro(tipo, url, nuevoRegistro) {
+    $.ajax({
+        type: tipo,
+        url: url,
+        data: nuevoRegistro,
+        success: () => location.reload(),
+        error: (xhr) => alert(xhr.responseText),
+    });
+}
+
+/**
+ * Permite al usuario eliminar un perro de la BDD.
+ * @param {number} usuarioId El Id del perro a eliminar.
+ * @author briones-gabriel
+ */
+function eliminarUsuario(usuarioId) {
+    $("#modalBorrarUsuario").modal("show");
+    const url = "/proyecto-perros/php/conexion/page_usuarios/eliminarUsuario.php";
+    document.getElementById("confirmarEliminarUsuario").addEventListener("click", () => {
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: { usuarioId },
+            success: () => location.reload(),
+            error: (xhr) => alert(xhr.responseText),
+        });
+    });
+}
+
+/**
  * Permite agregar un usuario a la BDD.
  * @param event
  * @author briones-gabriel

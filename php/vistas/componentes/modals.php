@@ -23,11 +23,6 @@
                         <label for="tatuaje" class="form-label required-field">Codigo de tatuaje</label>
                         <input type="text" class="form-control" id="tatooId" placeholder="AABB1122" required>
                     </div>
-                    <!--Foto-->
-                    <div class="mb-3">
-                        <label for="foto" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="fotoFile">
-                    </div>
                     <!--Apodo-->
                     <div class="mb-3">
                         <label for="apodo" class="form-label required-field">Apodo</label>
@@ -97,7 +92,7 @@
 </form>
 
 <!--Modal para agregar usuarios-->
-<form class="needs-validation" novalidate id="formAgregarUsuario">
+<form class="needs-validation" novalidate id="formAgregarUsuario" onsubmit="guardarUsuario(event)">
     <div class="modal fade" id="agregarUsuario" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -248,6 +243,25 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-danger" id="confirmarEliminarPerro">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para borrar un perro-->
+<div class="modal fade" tabindex="-1" id="modalBorrarUsuario">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Esta seguro de que quiere eliminar este usuario?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" id="confirmarEliminarUsuario">Eliminar</button>
             </div>
         </div>
     </div>

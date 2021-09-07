@@ -121,8 +121,7 @@ $carpeta_actual = basename(getcwd());
             <div class="col-lg-12 table-responsive"><br>
                 <table id="perros" class="table table-hover table-bordered">
                     <thead>
-                        <th class="text-center">Foto</th>
-                        <th class="text-center">Tatoo ID</th>
+                        <th class="text-center">Codigo</th>
                         <th class="text-center">Apodo</th>
                         <th class="text-center">Raza</th>
                         <th class="text-center">Propietario</th>
@@ -135,9 +134,6 @@ $carpeta_actual = basename(getcwd());
                         include "../../conexion/get_perros.php";
                         foreach ($perros as $perro): ?>
                             <tr>
-                                <td class="text-center align-middle"><img src=<?php echo $perro[
-                                    "FotoPerro"
-                                ]; ?> width="40" class="img-thumbnail"></td>
                                 <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $perro["Raza"]; ?></td>

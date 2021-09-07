@@ -41,7 +41,6 @@ function verObservacion(perro) {
     $("#modalObservacion").modal("show");
     $("#fechaDeAdopcion").text(perro["Adopcion"] ? perro["Adopcion"] : "No hay fecha");
     $("#fechaDeCastracion").text(perro["Castracion"] ? perro["Castracion"] : "No hay fecha");
-    console.log(perro);
     $.get("/proyecto-perros/php/conexion/page_principal/get_vacunas_from_perro.php", { "PerroId": perro["PerroId"] }, function(data, status) {
         $("#vacunasDePerro").empty();
         JSON.parse(data).forEach(vacuna => {
