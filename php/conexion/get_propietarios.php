@@ -1,7 +1,7 @@
 <?php
 include_once "pdo.php";
 
-$query = "SELECT Propietarios.PropietarioId, CONCAT(Propietarios.Nombre, \" \", Propietarios.Apellido) AS Nombre FROM Propietarios;";
+$query = "SELECT DNI, Email, Telefono, Direccion PropietarioId, CONCAT(Nombre, \" \", Apellido) AS Nombre FROM Propietarios";
 
 $sql = $pdo->prepare($query);
 $sql->execute();

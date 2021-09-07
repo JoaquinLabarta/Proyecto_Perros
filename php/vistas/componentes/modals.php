@@ -104,37 +104,37 @@
                 <div class="modal-body">
                     <!--Usuario-->
                     <div class="mb-3">
-                        <label for="usuario" class="form-label">Usuario</label>
+                        <label for="usuario" class="form-label required-field">Usuario</label>
                         <input type="text" class="form-control" id="usuario" placeholder="Bromatologia" required>
                         <div class="invalid-feedback">Debe ingresar su usuario</div>
                     </div>
                     <!--Nombre-->
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
+                        <label for="nombre" class="form-label required-field">Nombre</label>
                         <input type="text" class="form-control" id="nombreUsuario" placeholder="Juan" required>
                         <div class="invalid-feedback">Debe ingresar su nombre</div>
                     </div>
                     <!--Apellido-->
                     <div class="mb-3">
-                        <label for="apellido" class="form-label">Apellido</label>
+                        <label for="apellido" class="form-label required-field">Apellido</label>
                         <input type="text" class="form-control" id="apellidoUsuario" placeholder="Perez" required>
                         <div class="invalid-feedback">Debe ingresar su apellido</div>
                     </div>
                     <!--Nacimiento-->
                     <div class="mb-3">
-                        <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
+                        <label for="nacimiento" class="form-label required-field">Fecha de nacimiento</label>
                         <input type="date" class="form-control" id="nacimientoUsuario" required>
                         <div class="invalid-feedback">Debe ingresar su fecha de nacimiento</div>
                     </div>
                     <!--Email-->
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label required-field">Email</label>
                         <input type="email" class="form-control" id="emailUsuario" placeholder="juanperez@gmail.com" required>
                         <div class="invalid-feedback">Ingrese su email correctamente</div>
                     </div>
                     <!--Clave-->
                     <div class="mb-3">
-                        <label for="clave" class="form-label">Clave</label>
+                        <label for="clave" class="form-label required-field">Clave</label>
                         <input type="password" class="form-control" id="claveUsuario" placeholder="bromatologia123" required>
                         <span class="form-text text-muted">Su clave debe tener una longitud minima de 8 caracteres y contener numeros y letras</span>
                         <div class="invalid-feedback">Clave invalida</div>
