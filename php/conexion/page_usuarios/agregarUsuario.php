@@ -17,38 +17,38 @@ $checkResult = $sql->fetchAll();
 
 /**
  * Checkeo que se hace para saber si el email del cliente ya existe en la base de datos
- * Si $checkReasult es mayor a 0, significa que el uruario ya existe. 
+ * Si $checkReasult es mayor a 0, significa que el uruario ya existe.
  */
 if (count($checkResult) > 0) {
-  echo "Ya existe un usuario con este nombre de usuario.";
-  throw new Error();
+    echo "Ya existe un usuario con este nombre de usuario.";
+    throw new Error();
 } else {
-  /* Query para insertar un nuevo registro de usuario en la base de datos. */
-  $query = "INSERT INTO Usuarios 
+    /* Query para insertar un nuevo registro de usuario en la base de datos. */
+    $query = "INSERT INTO Usuarios 
     (Usuario, Nombre, Apellido, Nacimiento, Email, Clave, Administrador, Activo)
     VALUES (:usuario, :nombre, :apellido, :nacimiento, :email, :clave, :administrador, :activo)";
 
-  /**
-   * Se prepara la sentencia SQL y se le adieren los parametros para luego ejecutarla.
-   * Al ejecuta la sentencia SQL con los parametros aderidos, se evalua si la ejecucion fue exitosa
-   */
-  $params = [
-    'usuario' => $usuario,
-    'nombre' => $nombre,
-    'apellido' => $apellido,
-    'nacimiento' => $nacimiento,
-    'email' => $email,
-    'clave' => $clave,
-    'administrador' => 0,
-    'activo' => 1
-  ];
+    /**
+     * Se prepara la sentencia SQL y se le adieren los parametros para luego ejecutarla.
+     * Al ejecuta la sentencia SQL con los parametros aderidos, se evalua si la ejecucion fue exitosa
+     */
+    $params = [
+        "usuario" => $usuario,
+        "nombre" => $nombre,
+        "apellido" => $apellido,
+        "nacimiento" => $nacimiento,
+        "email" => $email,
+        "clave" => $clave,
+        "administrador" => 0,
+        "activo" => 1,
+    ];
 
-  try {
-    $result = $pdo->prepare($query)->execute($params);
-  } catch (\Throwable $th) {
-    echo "Hubo un error al intentar agregar un usuario.";
-    throw new Error();
-  }
+    try {
+        $result = $pdo->prepare($query)->execute($params);
+    } catch (\Throwable $th) {
+        echo "Hubo un error al intentar agregar un usuario.";
+        throw new Error();
+    }
 }
 
 die();
