@@ -116,11 +116,7 @@ $carpeta_actual = basename(getcwd());
         <table id="vacunas" class="table table-hover table-bordered ">
           <thead>
             <th class="text-center">ID</th>
-            <th class="text-center">DNI</th>
             <th class="text-center">Nombre</th>
-            <th class="text-center">Email</th>
-            <th class="text-center">Telefono</th>
-            <th class="text-center">Direccion</th>
             <th class="text-center">Acciones</th>
           </thead>
           <tbody>
@@ -160,8 +156,7 @@ $carpeta_actual = basename(getcwd());
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="/proyecto-perros/js/page_principal/scripts.js"></script>
-<script src="/proyecto-perros/js/modulos/pdfmake/pdfmake.js" type="module"></script>
-<script src="/proyecto-perros/js/modulos/jszip/jszip.js" type="module"></script>
+<script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 
 <?php include_once "../componentes/modals.php"; ?>
 
@@ -188,4 +183,4 @@ $carpeta_actual = basename(getcwd());
 </script>
 
 </html>
-<
+

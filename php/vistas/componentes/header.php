@@ -34,6 +34,13 @@ WHERE Usuario = :usuario AND Email = :email";
         border-radius: .25rem;
         transition: box-shadow .15s ease-in-out;
     }
+    .btn-group-vertical {
+    flex-direction: column;
+    align-items: center;
+}
+.btn-group-vertical>.btn, .btn-group-vertical>.btn-group {
+    width: 60%;
+}
 </style>
 
 <nav class="navbar navbar-light shadow-sm">
@@ -86,31 +93,42 @@ WHERE Usuario = :usuario AND Email = :email";
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="btn-group-vertical">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
                     <?php if ($es_admin): ?>
                         <?php if ($carpeta_actual !== "page_principal"): ?>
                             <a class='btn btn-white border me-2 mb-4' title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_principal">
                                 <i class="fas fa-home"></i> Inicio
                             </a>
                         <?php endif; ?>
+                        </li>
+                        <li class="nav-item">
                         <?php if ($carpeta_actual !== "page_usuarios"): ?>
-                            <a class='btn btn-white border me-2 mb-4' title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_usuarios">
+                            <a class ="btn btn-white"title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_usuarios">
                                 <i class="fas fa-users"></i> Usuarios
                             </a>
                         <?php endif; ?>
+                        </li>
+                        
+                        <li class="nav-item">
                         <?php if ($carpeta_actual !== "page_propietarios"): ?>
-                            <a class='btn btn-white border me-2 mb-4' title="Propietarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_propietarios">
+                            <a class='btn btn-white' title="Propietarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_propietarios">
                                 <i class="fas fa-id-card"></i> Propietarios
                             </a>
                         <?php endif; ?>
+                        </li>
+                        <li class="nav-item">
                         <?php if ($carpeta_actual !== "page_vacunas"): ?>
-                            <a class='btn btn-white border me-2 mb-4' title="Vacunas" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_vacunas">
+                            <a class='btn btn-white' title="Vacunas" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_vacunas">
                                 <i class="fas fa-syringe"></i> Vacunas
                             </a>
                         <?php endif; ?>
+                        </li>
+                        <li class="nav-item">
                     <?php endif; ?>
-                    <a class="btn btn-white border" title="Cerrar sesion" style="color: #649fa5" href="/proyecto-perros/php/conexion/page_principal/cerrar_sesion.php">
+                    <a class="btn btn-white" title="Cerrar sesion" style="color: #649fa5" href="/proyecto-perros/php/conexion/page_principal/cerrar_sesion.php">
                         <i class="fas fa-sign-out-alt"></i> Cerrar Sesion
-                    </a>
+                    </a></li>
                 </div>
             </div>
         </div>
