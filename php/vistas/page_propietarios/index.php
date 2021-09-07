@@ -96,6 +96,7 @@ $carpeta_actual = basename(getcwd());
             text-align: right;
             padding-top: .75em;
         }
+        
     </style>
 
     <title>Inicio | Bromatologia</title>
@@ -127,9 +128,7 @@ $carpeta_actual = basename(getcwd());
                         foreach ($propietarios as $propietario) : ?>
                             <tr>
                                 <td class="text-center align-middle"><?php echo $propietario["DNI"]; ?></td>
-                                <td class="text-center align-middle"><?php echo $propietario["Nombre"] .
-                                                                            " " .
-                                                                            $usuario["Apellido"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $propietario["Nombre"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $propietario["Email"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $propietario["Telefono"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $propietario["Direccion"]; ?></td>
