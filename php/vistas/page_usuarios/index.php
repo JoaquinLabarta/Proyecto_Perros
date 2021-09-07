@@ -116,7 +116,6 @@ $carpeta_actual = basename(getcwd());
             <div class="col-lg-12 table-responsive"><br>
                 <table id="usuarios" class="table table-hover table-bordered ">
                     <thead>
-                        <th class="text-center">ID</th>
                         <th class="text-center">Usuario</th>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Administrador</th>
@@ -128,11 +127,10 @@ $carpeta_actual = basename(getcwd());
                         include "../../conexion/get_users.php";
                         foreach ($usuarios as $usuario) : ?>
                             <tr>
-                                <td class="text-center"><?php echo $usuario["UsuarioId"]; ?></td>
-                                <td class="text-center"><?php echo $usuario["Usuario"]; ?></td>
-                                <td class="text-center"><?php echo $usuario["Nombre"] . " " . $usuario["Apellido"]; ?></td>
-                                <td class="text-center"><?php echo $usuario["Administrador"] ? "Si" : "No"; ?></td>
-                                <td class="text-center"><?php echo $usuario["Activo"] ? "Si" : "No"; ?></td>
+                                <td class="text-center align-middle"><?php echo $usuario["Usuario"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $usuario["Nombre"] . " " . $usuario["Apellido"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $usuario["Administrador"] ? "Si" : "No"; ?></td>
+                                <td class="text-center align-middle"><?php echo $usuario["Activo"] ? "Si" : "No"; ?></td>
                                 <td class=" text-center align-middle">
                                     <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarUsuario(<?php echo $usuario["UsuarioId"]; ?>)">
                                         <i class="far fa-trash-alt"></i>

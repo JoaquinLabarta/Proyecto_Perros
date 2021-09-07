@@ -114,7 +114,6 @@ $carpeta_actual = basename(getcwd());
             <div class="col-lg-12 table-responsive"><br>
                 <table id="vacunas" class="table table-hover table-bordered ">
                     <thead>
-                        <th class="text-center">ID</th>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Acciones</th>
                     </thead>
@@ -123,8 +122,7 @@ $carpeta_actual = basename(getcwd());
                         include "../../conexion/get_vacunas.php";
                         foreach ($vacunas as $vacuna) : ?>
                             <tr>
-                                <td class="text-center"><?php echo $vacuna["VacunaId"]; ?></td>
-                                <td class="text-center"><?php echo $vacuna["Nombre"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $vacuna["Nombre"]; ?></td>
                                 <td class=" text-center align-middle">
                                 <td class=" text-center align-middle">
                                     <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarVacuna(<?php echo $vacuna["VacunaId"]; ?>)">

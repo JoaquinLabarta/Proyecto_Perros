@@ -125,7 +125,7 @@ $carpeta_actual = basename(getcwd());
                         <th class="text-center">Apodo</th>
                         <th class="text-center">Raza</th>
                         <th class="text-center">Propietario</th>
-                        <th class="text-center">Observacion</th>
+                        <th class="text-center">Informacion</th>
                         <th class="text-center">Acciones</th>
                     </thead>
                     <tbody>
