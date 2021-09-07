@@ -103,10 +103,8 @@ $carpeta_actual = basename(getcwd());
 
 <body>
     <?php include_once "../componentes/header.php"; ?>
-
-    <br>
     <div class="container">
-        <div class="row">
+        <div class="row mt-3">
             <div class="col">
                 <input class="form-control" id="inputBuscarPropietarios" type="search" placeholder="Buscar Propietarios por Nombre, Apellido, etc...">
             </div>
@@ -116,7 +114,6 @@ $carpeta_actual = basename(getcwd());
             <div class="col-lg-12 table-responsive"><br>
                 <table id="propietarios" class="table table-hover table-bordered ">
                     <thead>
-                        <th class="text-center">ID</th>
                         <th class="text-center">DNI</th>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Email</th>
@@ -127,19 +124,21 @@ $carpeta_actual = basename(getcwd());
                     <tbody>
                         <?php
                         include "../../conexion/get_propietarios.php";
-                        foreach ($propietarios as $propietario) : ?>
+                        foreach ($propietarios as $propietario): ?>
                             <tr>
-                                <td class="text-center"><?php echo $propietario["PropietarioId"]; ?></td>
-                                <td class="text-center"><?php echo $propietario["DNI"]; ?></td>
-                                <td class="text-center"><?php echo $propietario["Nombre"] . " " . $usuario["Apellido"]; ?></td>
-                                <td class="text-center"><?php echo $propietario["Email"]; ?></td>
-                                <td class="text-center"><?php echo $propietario["Telefono"]; ?></td>
-                                <td class="text-center"><?php echo $propietario["Direccion"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $propietario["DNI"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $propietario["Nombre"] .
+                                    " " .
+                                    $usuario["Apellido"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $propietario["Email"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $propietario["Telefono"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $propietario["Direccion"]; ?></td>
                                 <td class=" text-center align-middle">
-                                    <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPropietario(<?php echo $propietario["PropietarioId"]; ?>)">
+                                    <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPropietario(<?php echo $propietario[
+                                        "PropietarioId"
+                                    ]; ?>)">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
-                                </td>
                                 </td>
                             </tr>
                         <?php endforeach;
@@ -149,7 +148,6 @@ $carpeta_actual = basename(getcwd());
             </div>
         </div>
     </div>
-    <br>
 </body>
 
 <!--LINK: https://cdn.datatables.net/-->

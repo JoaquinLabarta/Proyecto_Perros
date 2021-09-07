@@ -65,12 +65,12 @@ WHERE Usuario = :usuario AND Email = :email";
                                     <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPerro">Nuevo perro</button>
                                 </li>
                             <?php endif; ?>
-                            <?php if ($carpeta_actual !== "page_usuarios") : ?>
+                            <?php if ($carpeta_actual === "page_propietarios") : ?>
                                 <li>
                                     <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPropietario">Nuevo propietario</button>
                                 </li>
                             <?php endif; ?>
-                            <?php if ($carpeta_actual !== "page_usuarios") : ?>
+                            <?php if ($carpeta_actual === "page_vacunas") : ?>
                                 <li>
                                     <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarVacuna">Nueva vacuna</button>
                                 </li>
@@ -127,12 +127,13 @@ WHERE Usuario = :usuario AND Email = :email";
                                     </a>
                                 <?php endif; ?>
                             </li>
-                            <li class="nav-item">
-                            <?php endif; ?>
+                        <?php endif; ?>
+                        <li class="nav-item">
                             <a class="btn btn-white" title="Cerrar sesion" style="color: #649fa5" href="/proyecto-perros/php/conexion/page_principal/cerrar_sesion.php">
                                 <i class="fas fa-sign-out-alt"></i> Cerrar Sesion
                             </a>
-                            </li>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

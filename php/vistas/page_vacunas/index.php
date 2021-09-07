@@ -104,7 +104,7 @@ $carpeta_actual = basename(getcwd());
 <body>
     <?php include_once "../componentes/header.php"; ?>
     <div class="container">
-        <div class="row">
+        <div class="row mt-3">
             <div class="col">
                 <input class="form-control" id="inputBuscarVacunas" type="search" placeholder="Buscar Vacunas por Nombre...">
             </div>
@@ -114,7 +114,6 @@ $carpeta_actual = basename(getcwd());
             <div class="col-lg-12 table-responsive"><br>
                 <table id="vacunas" class="table table-hover table-bordered ">
                     <thead>
-                        <th class="text-center">ID</th>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Acciones</th>
                     </thead>
@@ -123,15 +122,11 @@ $carpeta_actual = basename(getcwd());
                         include "../../conexion/get_vacunas.php";
                         foreach ($vacunas as $vacuna) : ?>
                             <tr>
-                                <td class="text-center"><?php echo $vacuna["VacunaId"]; ?></td>
-                                <td class="text-center"><?php echo $vacuna["Nombre"]; ?></td>
-                                <td class=" text-center align-middle">
+                                <td class="text-center align-middle"><?php echo $vacuna["Nombre"]; ?></td>
                                 <td class=" text-center align-middle">
                                     <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarVacuna(<?php echo $vacuna["VacunaId"]; ?>)">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
-                                </td>
-                                </td>
                                 </td>
                             </tr>
                         <?php endforeach;
@@ -152,27 +147,4 @@ $carpeta_actual = basename(getcwd());
 <script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 
 <?php include_once "../componentes/modals.php"; ?>
-
-<script>
-    (function() {
-        'use strict'
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-            .forEach(function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-    })()
-</script>
-
 </html>
