@@ -8,7 +8,7 @@ $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $email = $_POST["email"];
 $telefono = $_POST["telefono"];
-$direccion = $_POST["direccionPropietario"];
+$direccion = $_POST["direccion"];
 
 /* Query para checkear si el email ya esta registrado en la base de datos */
 $sql = $pdo->prepare("SELECT DNI FROM Propietarios WHERE DNI = :dni");

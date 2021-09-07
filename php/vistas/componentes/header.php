@@ -65,12 +65,12 @@ WHERE Usuario = :usuario AND Email = :email";
                                     <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPerro">Nuevo perro</button>
                                 </li>
                             <?php endif; ?>
-                            <?php if ($carpeta_actual === "page_propietarios") : ?>
+                            <?php if ($carpeta_actual === "page_propietarios" or $carpeta_actual === "page_principal") : ?>
                                 <li>
                                     <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPropietario">Nuevo propietario</button>
                                 </li>
                             <?php endif; ?>
-                            <?php if ($carpeta_actual === "page_vacunas") : ?>
+                            <?php if ($carpeta_actual === "page_vacunas" or $carpeta_actual === "page_principal") : ?>
                                 <li>
                                     <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarVacuna">Nueva vacuna</button>
                                 </li>
