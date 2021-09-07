@@ -76,6 +76,25 @@ function eliminarPerro(perroId) {
 }
 
 /**
+ * Permite al usuario eliminar un propietario de la BDD.
+ * @param {number} perroId El Id del propietario a eliminar.
+ * @author briones-gabriel
+ */
+function eliminarPropietario(propietarioId) {
+    $("#modalBorrarPropietario").modal("show");
+    const url = "/proyecto-perros/php/conexion/page_principal/eliminacion/eliminarPropietario.php";
+    document.getElementById("confirmarEliminarPropietario").addEventListener("click", () => {
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: { propietarioId },
+            success: () => location.reload(),
+            error: (xhr) => alert(xhr.responseText),
+        });
+    });
+}
+
+/**
  * Permite al usuario editar a un perro.
  * @param {object} perro
  * @author briones-gabriel

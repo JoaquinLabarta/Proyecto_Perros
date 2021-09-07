@@ -248,7 +248,7 @@
     </div>
 </div>
 
-<!--Modal para borrar un perro-->
+<!--Modal para borrar un usuario-->
 <div class="modal fade" tabindex="-1" id="modalBorrarUsuario">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -262,6 +262,25 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-danger" id="confirmarEliminarUsuario">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para borrar un propietario-->
+<div class="modal fade" tabindex="-1" id="modalBorrarPropietario">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar propietario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Esta seguro de que quiere eliminar este propietario?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" id="confirmarEliminarPropietario">Eliminar</button>
             </div>
         </div>
     </div>
