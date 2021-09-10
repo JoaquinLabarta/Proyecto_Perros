@@ -17,7 +17,7 @@ $validationQuery = "
         U.Email,
         U.Clave,
         U.Activo,
-        R.Rol
+        R.RolId AS Rol
     FROM
         Usuarios U
     LEFT JOIN RolesUsuarios RU ON
@@ -25,7 +25,7 @@ $validationQuery = "
     LEFT JOIN Roles R ON
         RU.RolId = R.RolId
     WHERE
-        U.Usuario = :usuario
+        U.Usuario = :username
 ";
 $sql = $pdo->prepare($validationQuery);
 $sql->execute(["username" => $username]);
