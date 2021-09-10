@@ -216,7 +216,7 @@
                     <!--Vacuna-->
                     <div class="mb-3">
                         <label for="vacuna" class="form-label required-field">Nombre</label>
-                        <input type="text" class="form-control" id="nombreVacuna" placeholder="Coronavirus" required>
+                        <input type="text" class="form-control" id="nombreVacuna" required>
                     </div>
                 </div>
 
@@ -372,6 +372,58 @@
                             <?php endforeach;
                             ?>
                         </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--Modal para editar propietarios-->
+<form class="needs-validation" novalidate id="formEditarPropietario">
+    <div class="modal fade" id="editarPropietario" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar propietario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!--DNI-->
+                    <div class="mb-3">
+                        <label for="dni" class="form-label required-field">DNI</label>
+                        <input type="number" class="form-control" id="editarDni" placeholder="23.123.323" required>
+                    </div>
+                    <!--Nombre-->
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label required-field">Nombre</label>
+                        <input type="text" class="form-control" id="editarNombrePropietario" placeholder="Juan" required>
+                    </div>
+                    <!--Apellido-->
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label required-field">Apellido</label>
+                        <input type="text" class="form-control" id="editarApellidoPropietario" placeholder="Perez" required>
+                    </div>
+                    <!--Email-->
+                    <div class="mb-3">
+                        <label for="email" class="form-label"> Direccion de email</label>
+                        <input type="email" class="form-control" id="editarEmailPropietario" placeholder="juanperez@gmail.com">
+                    </div>
+                    <!--telefono-->
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="number" class="form-control" id="editarTelefono" placeholder="2344 123456">
+                    </div>
+                    <!--Direccion-->
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" id="editarDireccion" placeholder="Moreno 2500">
                     </div>
                 </div>
 
