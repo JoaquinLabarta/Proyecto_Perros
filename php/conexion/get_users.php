@@ -1,7 +1,7 @@
 <?php
 include_once "pdo.php";
 
-$query = "SELECT UsuarioId, Usuario, Nombre, Apellido, Nacimiento, Email, Clave, Administrador, Activo 
+$query = "SELECT UsuarioId, Usuario, Nombre, Apellido, Nacimiento, Email, Clave, Activo 
     FROM Usuarios";
 
 $sql = $pdo->prepare($query);

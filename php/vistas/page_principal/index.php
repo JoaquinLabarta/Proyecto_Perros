@@ -9,6 +9,7 @@ $carpeta_actual = basename(getcwd());
 ?>
 <!doctype html>
 <html lang="es">
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8">
@@ -124,7 +125,7 @@ $carpeta_actual = basename(getcwd());
                         <th class="text-center">Raza</th>
                         <th class="text-center">Propietario</th>
                         <th class="text-center">Informacion</th>
-                        <?php if ($es_admin): ?>
+                        <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == "2"): ?>
                             <th class="text-center">Acciones</th>
                         <?php endif; ?>
                     </thead>
@@ -143,13 +144,15 @@ $carpeta_actual = basename(getcwd());
                                 <td class="text-center align-middle"><button class="btn btn-link" onclick='verObservacion(<?php echo json_encode(
                                     $perro
                                 ); ?>)'>Click para ver</button></td>
-                                <?php if ($es_admin): ?>
+                                <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == 2): ?>
                                     <td class=" text-center align-middle">
                                         <button class="btn border" style="color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
                                             $perro
                                         ); ?>)'>
                                             <i class="far fa-edit"></i>
                                         </button>
+                                    <?php endif; ?>
+                                    <?php if ($_SESSION["Rol"] == 1): ?>
                                         <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
                                             "PerroId"
                                         ]; ?>)">
@@ -177,4 +180,5 @@ $carpeta_actual = basename(getcwd());
 <script src="/proyecto-perros/js/page_principal/scripts.js"></script>
 <script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 <?php include_once "../componentes/modals.php"; ?>
+
 </html>
