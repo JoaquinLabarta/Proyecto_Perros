@@ -219,7 +219,7 @@ function guardarPropietario(event) {
         direccion: $("#direccion").val(),
     };
 
-    if (nuevoPropietario.dni.length < 1 || nuevoPropietario.nombre.length < 1 || nuevoPropietario.apellido.length < 1) {
+    if (nuevoPropietario.dni.length < 7 || nuevoPropietario.dni.length > 8 || nuevoPropietario.nombre.length < 1 || nuevoPropietario.apellido.length < 1) {
         return false;
     } else {
         agregarRegistro("POST", url, nuevoPropietario);
