@@ -1,4 +1,4 @@
-function setDatatable(tablaId, inputId) {
+function setDatatable(tablaId, inputId, columnas) {
   $(document).ready(function () {
     var table = $(tablaId).DataTable({
       processing: true,
@@ -18,6 +18,7 @@ function setDatatable(tablaId, inputId) {
           sPrevious: "Anterior",
         },
       },
+      "aoColumns": columnas,
     });
 
     function search() {
@@ -28,13 +29,31 @@ function setDatatable(tablaId, inputId) {
   });
 }
 
-setDatatable("#perros", "#inputBuscarPerro");
-setDatatable("#usuarios", "#inputBuscarUsuarios");
-setDatatable("#vacunas", "#inputBuscarVacunas");
-setDatatable("#propietarios", "#inputBuscarPropietarios");
 
-/* Variables */
-let vacunas = {};
+
+setDatatable("#perros", "#inputBuscarPerro", [
+  { "bSortable": true },
+  { "bSortable": true },
+  { "bSortable": false },
+  { "bSortable": false },
+  { "bSortable": false },
+  { "bSortable": false }
+]);
+setDatatable("#usuarios", "#inputBuscarUsuarios", [
+  { "bSortable": true },
+  { "bSortable": true },
+  { "bSortable": false },
+  { "bSortable": false },
+  { "bSortable": false },
+]);
+setDatatable("#propietarios", "#inputBuscarPropietarios", [
+  { "bSortable": true },
+  { "bSortable": true },
+  { "bSortable": false },
+  { "bSortable": false },
+  { "bSortable": true },
+  { "bSortable": false }
+]);
 
 /* Funciones */
 /**
@@ -48,19 +67,6 @@ function verObservacion(perro) {
     $("#modalObservacion").modal("show");
     $("#fechaDeAdopcion").text(perro["Adopcion"] ? perro["Adopcion"] : "No hay fecha");
     $("#fechaDeCastracion").text(perro["Castracion"] ? perro["Castracion"] : "No hay fecha");
-    $.get("/proyecto-perros/php/conexion/page_principal/get_vacunas_from_perro.php", { "PerroId": perro["PerroId"] }, function(data, status) {
-        $("#vacunasDePerro").empty();
-        JSON.parse(data).forEach(vacuna => {
-            let nombreVacuna = vacuna["Nombre"];
-            let listaDeVacunas = document.getElementById("vacunasDePerro");
-            let nuevoItem = document.createElement("li");
-
-            nuevoItem.appendChild(document.createTextNode(nombreVacuna));
-            nuevoItem.setAttribute("class", "list-group-item");
-
-            listaDeVacunas.appendChild(nuevoItem);
-        });
-    });
 }
 
 /**
@@ -152,26 +158,6 @@ function editarPerro(perro) {
 }
 
 /**
- * Permite al usuario seleccionar una vacuna a la vez.
- * @param {object} vacuna
- * @author briones-gabriel
- */
-function seleccionarVacuna(vacuna) {
-    let vacunaId = vacuna.value;
-    let nombreVacuna = vacuna[vacunaId].label;
-
-    let listaDeVacunas = document.getElementById("listaDeVacunas");
-    let nuevaItemVacuna = document.createElement("li");
-
-    nuevaItemVacuna.appendChild(document.createTextNode(nombreVacuna));
-    nuevaItemVacuna.setAttribute("class", "list-group-item");
-
-    listaDeVacunas.appendChild(nuevaItemVacuna);
-
-    vacunas[vacunaId] = nombreVacuna;
-}
-
-/**
  * Agrega un registro a la base de datos.
  * @param {string} tipo El tipo de request que se quiere hacer
  * @param {string} url
@@ -238,26 +224,6 @@ function guardarPropietario(event) {
         return false;
     } else {
         agregarRegistro("POST", url, nuevoPropietario);
-    }
-}
-
-/**
- * Permite al usuario guardar una vacuna en la BDD.
- * @param event
- * @author briones-gabriel
- */
-function guardarVacuna(event) {
-    event.preventDefault();
-
-    const url = "/proyecto-perros/php/conexion/page_principal/agregacion/agregarVacuna.php";
-    const nuevaVacuna = {
-        nombreVacuna: $("#nombreVacuna").val(),
-    };
-
-    if (nuevaVacuna.nombreVacuna.length < 1) {
-        return false;
-    } else {
-        agregarRegistro("POST", url, nuevaVacuna);
     }
 }
 

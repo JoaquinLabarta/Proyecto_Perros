@@ -70,11 +70,6 @@ WHERE Usuario = :usuario AND Email = :email";
                                     <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarPropietario">Nuevo propietario</button>
                                 </li>
                             <?php endif; ?>
-                            <?php if ($carpeta_actual === "page_vacunas" or $carpeta_actual === "page_principal") : ?>
-                                <li>
-                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarVacuna">Nueva vacuna</button>
-                                </li>
-                            <?php endif; ?>
                             <?php if ($carpeta_actual === "page_usuarios") : ?>
                                 <li>
                                     <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregarUsuario">Nuevo usuario</button>
@@ -117,13 +112,6 @@ WHERE Usuario = :usuario AND Email = :email";
                                 <?php if ($carpeta_actual !== "page_propietarios") : ?>
                                     <a class='btn btn-white' title="Propietarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_propietarios">
                                         <i class="fas fa-id-card"></i> Propietarios
-                                    </a>
-                                <?php endif; ?>
-                            </li>
-                            <li class="nav-item">
-                                <?php if ($carpeta_actual !== "page_vacunas") : ?>
-                                    <a class='btn btn-white' title="Vacunas" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_vacunas">
-                                        <i class="fas fa-syringe"></i> Vacunas
                                     </a>
                                 <?php endif; ?>
                             </li>

@@ -36,12 +36,6 @@ CREATE TABLE IF NOT EXISTS Perros (
   PRIMARY KEY (PerroId)
 ) ENGINE=INNODB;
 
-CREATE TABLE IF NOT EXISTS Vacunas (
-  VacunaId INT NOT NULL AUTO_INCREMENT,
-  Nombre VARCHAR(255) NOT NULL,
-  PRIMARY KEY (VacunaId)
-) ENGINE=INNODB;
-
 CREATE TABLE IF NOT EXISTS Fotos (
   FotoId INT NOT NULL AUTO_INCREMENT,
   Url VARCHAR(255) NOT NULL,
@@ -54,16 +48,6 @@ CREATE TABLE IF NOT EXISTS FotosPerros (
   PerroId INT NOT NULL,
   PRIMARY KEY (FotoPerroId),
   FOREIGN KEY (FotoId) REFERENCES Fotos(FotoId),
-  FOREIGN KEY (PerroId) REFERENCES Perros(PerroId)
-) ENGINE=INNODB;
-
-CREATE TABLE IF NOT EXISTS VacunasPerros (
-  VacunaPerroId INT NOT NULL AUTO_INCREMENT,
-  VacunaId INT NOT NULL,
-  PerroId INT NOT NULL,
-  FechaDeRelacion DATETIME NOT NULL,
-  PRIMARY KEY (VacunaPerroId),
-  FOREIGN KEY (VacunaId) REFERENCES Vacunas(VacunaId),
   FOREIGN KEY (PerroId) REFERENCES Perros(PerroId)
 ) ENGINE=INNODB;
 
@@ -126,52 +110,4 @@ INSERT INTO Perros (
   "2021/08/31",
   "2021/08/31",
   NULL
-);
-
-INSERT INTO Vacunas (
-  Nombre
-) VALUES (
-  "Vacuna Antirrabica"
-);
-
-INSERT INTO Vacunas (
-  Nombre
-) VALUES (
-  "Vacuna Parvovirus"
-);
-
-INSERT INTO Vacunas (
-  Nombre
-) VALUES (
-  "Vacuna Moquillo Canino"
-);
-
-INSERT INTO Vacunas (
-  Nombre
-) VALUES (
-  "Vacuna Leptospirosis"
-);
-
-INSERT INTO Vacunas (
-  Nombre
-) VALUES (
-  "Vacuna Parainfluenza"
-);
-
-INSERT INTO Vacunas (
-  Nombre
-) VALUES (
-  "Vacuna Enfermedad de lyme"
-);
-
-INSERT INTO Vacunas (
-  Nombre
-) VALUES (
-  "Vacuna Tos"
-);
-
-INSERT INTO Vacunas (
-  Nombre
-) VALUES (
-  "Vacuna Coronavirus"
 );

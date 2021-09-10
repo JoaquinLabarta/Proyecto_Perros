@@ -22,10 +22,10 @@ if (isset($_SESSION["Usuario"]) || isset($_SESSION["Invitado"])) {
     <div class="d-flex flex-column align-items-center border-primary">
       <!--Header-->
       <div class="text-center mb-4">
-        <h3 class="h3 mb-4 font-weight-normal" style="color:#649FA5">
+        <h3 class="h4 mb-4 font-weight-normal" style="color:#649FA5">
           Bromatologia | Municipalidad de Saladillo
         </h3>
-        <img src="/proyecto-perros/recursos/logo.png" alt="Logo" width="150">
+        <img src="/proyecto-perros/recursos/logo.png" alt="Logo" width="140">
       </div>
       <form class="form-signin needs-validation" method="POST" name="formularioLogin" novalidate action="/proyecto-perros/php/conexion/page_login/action.php">
         <!--Inputs-->
