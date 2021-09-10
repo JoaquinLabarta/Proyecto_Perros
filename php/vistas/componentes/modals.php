@@ -65,21 +65,6 @@
                             ?>
                         </select>
                     </div>
-                    <!--Vacunas-->
-                    <div class="col">
-                        <label for="observacion" class="form-label">Vacunas</label>
-                        <select class="form-select" id="selectVacunas" onchange="if (this.selectedIndex && this.selectedIndex !== 0) seleccionarVacuna(this)">
-                            <option selected hidden value="0">Seleccionar una vacuna</option>
-                            <?php
-                            include_once "../../conexion/get_vacunas.php";
-                            foreach ($vacunas as $vacuna) : ?>
-                                <?php echo "<option value='" . $vacuna["VacunaId"] . "'>" . $vacuna["Nombre"] . "</option>"; ?>
-                            <?php endforeach;
-                            ?>
-                        </select>
-                        <ul id="listaDeVacunas" class="list-group my-3">
-                        </ul>
-                    </div>
                 </div>
 
                 <div class="modal-footer">
@@ -202,33 +187,6 @@
     </div>
 </form>
 
-<!--Modal para agregar vacunas-->
-<form class="needs-validation" novalidate id="formAgregarVacuna" onsubmit="guardarVacuna(event)">
-    <div class="modal fade" id="agregarVacuna" tabindex="-1">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Agregar una vacuna</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <div class="modal-body">
-                    <!--Vacuna-->
-                    <div class="mb-3">
-                        <label for="vacuna" class="form-label required-field">Nombre</label>
-                        <input type="text" class="form-control" id="nombreVacuna" placeholder="Coronavirus" required>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-
 <!--Modal para borrar un perro-->
 <div class="modal fade" tabindex="-1" id="modalBorrarPerro">
     <div class="modal-dialog modal-dialog-centered">
@@ -302,10 +260,6 @@
                 <ul>
                     <li>Adopcion: <span id="fechaDeAdopcion">No hay fecha</span></li>
                     <li>Castracion: <span id="fechaDeCastracion">No hay fecha</span></li>
-                </ul>
-                <br>
-                <h5>Vacunas</h5>
-                <ul id="vacunasDePerro" class="list-group my-3">
                 </ul>
             </div>
             <div class="modal-footer">

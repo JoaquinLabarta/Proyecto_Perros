@@ -10,7 +10,6 @@ $raza = $_POST["raza"];
 $castracion = $_POST["castracion"];
 $adopcion = $_POST["adopcion"];
 $observacion = $_POST["observacion"];
-$vacunasIds = $_POST["vacunasIds"];
 
 /* Query para checkear si el email ya esta registrado en la base de datos */
 $sql = $pdo->prepare("SELECT TatooId FROM Perros WHERE TatooId = :tatooId");
@@ -61,25 +60,5 @@ if (count($checkResult) > 0) {
             throw new Error();
         }
     }
-
-    if ($vacunasIds != null) {
-        $query =
-            "INSERT INTO VacunasPerros (VacunaId, PerroId, FechaDeRelacion) VALUES (:vacunaId, :perroId, CURRENT_TIMESTAMP)";
-
-        foreach ($vacunasIds as $vacunaId) {
-            $params = [
-                "vacunaId" => $vacunaId,
-                "perroId" => $perroId,
-            ];
-
-            try {
-                $result = $pdo->prepare($query)->execute($params);
-            } catch (\Throwable $th) {
-                echo "Hubo un error al intentar relacionar una vacuna con este perro.";
-                throw new Error();
-            }
-        }
-    }
-}
 
 die();
