@@ -22,16 +22,19 @@
                     <div class="mb-3">
                         <label for="tatuaje" class="form-label required-field">Codigo de tatuaje</label>
                         <input type="text" class="form-control" id="tatooId" placeholder="AABB1122" required>
+                        <div class="invalid-feedback">Debe agregar un codigo de tatuaje</div>
                     </div>
                     <!--Apodo-->
                     <div class="mb-3">
                         <label for="apodo" class="form-label required-field">Apodo</label>
                         <input type="text" class="form-control" id="apodo" placeholder="Cliford" required>
+                        <div class="invalid-feedback">Inserte el apodo del perro</div>
                     </div>
                     <!--Raza-->
                     <div class="mb-3">
-                        <label for="raza" class="form-label">Raza</label>
-                        <input type="text" class="form-control" id="raza" placeholder="Caniche">
+                        <label for="raza" class="form-label required-field">Raza</label>
+                        <input type="text" class="form-control" id="raza" placeholder="Caniche" required>
+                        <div class="invalid-feedback">Inserte la raza del perro</div>
                     </div>
                     <!--Castracion-->
                     <div class="mb-3">
@@ -42,6 +45,7 @@
                     <div class="mb-3">
                         <label for="adopcion" class="form-label required-field">Fecha de adopcion</label>
                         <input type="date" class="form-control" id="adopcion" required>
+                        <div class="invalid-feedback">Inserte la fecha de adopcion</div>
                     </div>
                     <!--Observacion-->
                     <div class="mb-3">
@@ -150,16 +154,20 @@
                     <div class="mb-3">
                         <label for="dni" class="form-label required-field">DNI</label>
                         <input type="number" class="form-control" id="dni" placeholder="23.123.323" required>
+                        <span class="form-text text-muted">Ingrese su DNI, sin utilizar puntos, comas o espacios</span>
+                        <div class="invalid-feedback">Ingrese su DNI correctamente</div>
                     </div>
                     <!--Nombre-->
                     <div class="mb-3">
                         <label for="nombre" class="form-label required-field">Nombre</label>
                         <input type="text" class="form-control" id="nombrePropietario" placeholder="Juan" required>
+                        <div class="invalid-feedback">Ingrese su nombre</div>
                     </div>
                     <!--Apellido-->
                     <div class="mb-3">
                         <label for="apellido" class="form-label required-field">Apellido</label>
                         <input type="text" class="form-control" id="apellidoPropietario" placeholder="Perez" required>
+                        <div class="invalid-feedback">Ingrese su apellido</div>
                     </div>
                     <!--Email-->
                     <div class="mb-3">
@@ -170,6 +178,7 @@
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Telefono</label>
                         <input type="number" class="form-control" id="telefono" placeholder="2344 123456">
+                        <span class="form-text text-muted">Ingrese su telefono sin utilizar puntos, comas o espacios</span>
                     </div>
                     <!--Direccion-->
                     <div class="mb-3">
@@ -282,18 +291,21 @@
                 <div class="modal-body">
                     <!--Codigo de tatuaje-->
                     <div class="mb-3">
-                        <label for="tatuaje" class="form-label required-field">Codigo de tatuaje</label>
+                        <label for="tatuaje" class="form-label">Codigo de tatuaje</label>
                         <input type="text" class="form-control" id="editarTatooId" placeholder="AABB1122" required>
+                        <div class="invalid-feedback">Debe agregar un codigo de tatuaje</div>
                     </div>
                     <!--Apodo-->
                     <div class="mb-3">
-                        <label for="apodo" class="form-label required-field">Apodo</label>
+                        <label for="apodo" class="form-label">Apodo</label>
                         <input type="text" class="form-control" id="editarApodo" placeholder="Cliford" required>
+                        <div class="invalid-feedback">Inserte un apodo para el perro</div>
                     </div>
                     <!--Raza-->
                     <div class="mb-3">
                         <label for="raza" class="form-label">Raza</label>
                         <input type="text" class="form-control" id="editarRaza" placeholder="Caniche">
+                        <div class="invalid-feedback">Inserte la raza del perro</div>
                     </div>
                     <!--Castracion-->
                     <div class="mb-3">
@@ -302,8 +314,9 @@
                     </div>
                     <!--Adopcion-->
                     <div class="mb-3">
-                        <label for="adopcion" class="form-label required-field">Fecha de adopcion</label>
+                        <label for="adopcion" class="form-label">Fecha de adopcion</label>
                         <input type="date" class="form-control" id="editarAdopcion" required>
+                        <div class="invalid-feedback">Inserte la fecha de adopcion del perro</div>
                     </div>
                     <!--Observacion-->
                     <div class="mb-3">
