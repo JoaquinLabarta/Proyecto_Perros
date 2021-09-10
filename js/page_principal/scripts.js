@@ -185,7 +185,6 @@ function guardarPerro(event) {
     const url = "/proyecto-perros/php/conexion/page_principal/agregacion/agregarPerro.php";
 
     const nuevoPerro = {
-        vacunasIds: Object.keys(vacunas),
         propietarioId: document.getElementById("propietarioId").value,
         observacion: $("#observacion").val(),
         castracion: $("#castracion").val(),
