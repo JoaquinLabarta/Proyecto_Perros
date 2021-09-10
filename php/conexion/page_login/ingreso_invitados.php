@@ -1,5 +1,6 @@
 <?php
 session_start();
 
-$_SESSION["Invitado"] = 1;
+// El rol nivel 3 es invitado
+$_SESSION["Rol"] = 3;
 header("Location: /proyecto-perros");

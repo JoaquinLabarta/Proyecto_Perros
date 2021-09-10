@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!$_SESSION && !$_SESSION["Invitado"]) {
+if (!isset($_SESSION["Rol"])) {
     header("Location: /proyecto-perros");
 }
 
@@ -9,7 +9,6 @@ $carpeta_actual = basename(getcwd());
 ?>
 <!doctype html>
 <html lang="es">
-
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8">
@@ -125,7 +124,7 @@ $carpeta_actual = basename(getcwd());
                         <th class="text-center">Raza</th>
                         <th class="text-center">Propietario</th>
                         <th class="text-center">Informacion</th>
-                        <?php if ($es_admin) : ?>
+                        <?php if ($es_admin): ?>
                             <th class="text-center">Acciones</th>
                         <?php endif; ?>
                     </thead>
@@ -133,7 +132,7 @@ $carpeta_actual = basename(getcwd());
 
                         <?php
                         include "../../conexion/get_perros.php";
-                        foreach ($perros as $perro) : ?>
+                        foreach ($perros as $perro): ?>
                             <tr>
                                 <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
@@ -142,16 +141,18 @@ $carpeta_actual = basename(getcwd());
                                     <?php echo $perro["NombrePropietario"]; ?>
                                 </td>
                                 <td class="text-center align-middle"><button class="btn btn-link" onclick='verObservacion(<?php echo json_encode(
-                                                                                                                                $perro
-                                                                                                                            ); ?>)'>Click para ver</button></td>
-                                <?php if ($es_admin) : ?>
+                                    $perro
+                                ); ?>)'>Click para ver</button></td>
+                                <?php if ($es_admin): ?>
                                     <td class=" text-center align-middle">
                                         <button class="btn border" style="color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
-                                                                                                                                                                                $perro
-                                                                                                                                                                            ); ?>)'>
+                                            $perro
+                                        ); ?>)'>
                                             <i class="far fa-edit"></i>
                                         </button>
-                                        <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro["PerroId"]; ?>)">
+                                        <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
+                                            "PerroId"
+                                        ]; ?>)">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
                                     </td>
@@ -175,7 +176,5 @@ $carpeta_actual = basename(getcwd());
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="/proyecto-perros/js/page_principal/scripts.js"></script>
 <script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
-
 <?php include_once "../componentes/modals.php"; ?>
-
 </html>

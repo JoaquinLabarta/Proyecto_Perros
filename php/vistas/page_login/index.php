@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-if (isset($_SESSION["Usuario"]) || isset($_SESSION["Invitado"])) {
+if (isset($_SESSION["Rol"])) {
     header("Location: /proyecto-perros");
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +15,6 @@ if (isset($_SESSION["Usuario"]) || isset($_SESSION["Invitado"])) {
   <link href="/proyecto-perros/css/page_login/styles.css" rel="stylesheet">
   <title>Bromatologia - Saladillo</title>
 </head>
-
 <body style="height: 100vh;" class="d-flex align-items-center justify-content-center">
   <div class="contenedor">
     <div class="d-flex flex-column align-items-center border-primary">
@@ -52,27 +50,5 @@ if (isset($_SESSION["Usuario"]) || isset($_SESSION["Invitado"])) {
     </div>
   </div>
 </body>
-<script>
-  // Validacion de los campos de texto
-  (function() {
-    'use strict'
-
-    // Hacemos un querySelector de los formularios que necesitan validacion.
-    var forms = document.querySelectorAll('.needs-validation')
-
-    // Hacemos un loop y prevenimos que se submitan en caso de que esten incompletos.
-    Array.prototype.slice.call(forms)
-      .forEach(function(form) {
-        form.addEventListener('submit', function(event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
-</script>
-
+<script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 </html>
