@@ -12,9 +12,11 @@ $deletePerro = "DELETE FROM Perros WHERE PerroId = :perroId";
 $params = ["perroId" => $perroId];
 
 try {
-  $resultPropietarioRelation = $pdo->prepare($deletePropietarioRelation)->execute($params);
-  $resultPerro = $pdo->prepare($deletePerro)->execute($params);
+    $resultPropietarioRelation = $pdo->prepare($deletePropietarioRelation)->execute($params);
+    $resultPerro = $pdo->prepare($deletePerro)->execute($params);
 } catch (\Throwable $th) {
-  echo "Hubo un error al intentar eliminar un perro.";
-  throw new Error();
+    echo "Hubo un error al intentar eliminar un perro.";
+    throw new Error();
 }
+
+die();

@@ -39,12 +39,14 @@ if (count($checkResult) > 0) {
 
     try {
         $result = $pdo->prepare($query)->execute($params);
-        $perroId = $pdo->lastInsertId();
     } catch (\Throwable $th) {
         echo "Hubo un error al intentar agregar un perro.";
         throw new Error();
     }
 
+    $perroId = $pdo->lastInsertId();
+    echo $perroId;
+    echo $propietarioId;
     if ($propietarioId != 0) {
         $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
 
@@ -60,5 +62,6 @@ if (count($checkResult) > 0) {
             throw new Error();
         }
     }
+}
 
 die();

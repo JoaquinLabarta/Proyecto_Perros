@@ -12,9 +12,11 @@ $deletePropietario = "DELETE FROM Propietarios WHERE PropietarioId = :propietari
 $params = ["propietarioId" => $propietariosId];
 
 try {
-  $resultPropietarioRelation = $pdo->prepare($deletePropietarioRelation)->execute($params);
-  $resultPropietario = $pdo->prepare($deletePropietario)->execute($params);
+    $resultPropietarioRelation = $pdo->prepare($deletePropietarioRelation)->execute($params);
+    $resultPropietario = $pdo->prepare($deletePropietario)->execute($params);
 } catch (\Throwable $th) {
-  echo "Hubo un error al intentar eliminar un propietario.";
-  throw new Error();
+    echo "Hubo un error al intentar eliminar un propietario.";
+    throw new Error();
 }
+
+die();

@@ -1,4 +1,5 @@
 <?php
+include_once "../../conexion/get_perros.php";
 session_start();
 
 if (!isset($_SESSION["Rol"])) {
@@ -130,10 +131,7 @@ $carpeta_actual = basename(getcwd());
                         <?php endif; ?>
                     </thead>
                     <tbody>
-
-                        <?php
-                        include "../../conexion/get_perros.php";
-                        foreach ($perros as $perro): ?>
+                        <?php foreach ($perros as $perro): ?>
                             <tr>
                                 <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
@@ -161,8 +159,7 @@ $carpeta_actual = basename(getcwd());
                                     </td>
                                 <?php endif; ?>
                             </tr>
-                        <?php endforeach;
-                        ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
@@ -171,14 +168,13 @@ $carpeta_actual = basename(getcwd());
     <br>
 </body>
 
-<!--LINK: https://cdn.datatables.net/-->
+<?php include_once "../componentes/modals.php"; ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/de1cdf12c2.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="/proyecto-perros/js/page_principal/scripts.js"></script>
+<script src="/proyecto-perros/js/page_principal/scripts.js" type="module"></script>
 <script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
-<?php include_once "../componentes/modals.php"; ?>
 
 </html>
