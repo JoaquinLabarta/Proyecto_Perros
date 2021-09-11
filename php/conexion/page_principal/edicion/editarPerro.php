@@ -12,6 +12,16 @@ $castracion = $_POST["castracion"];
 $adopcion = $_POST["adopcion"];
 $observacion = $_POST["observacion"];
 
+/* Query para checkear si el email ya esta registrado en la base de datos */
+$sql = $pdo->prepare("SELECT TatooId FROM Perros WHERE TatooId = :tatooId");
+$sql->execute(["tatooId" => $tatooId]);
+$checkResult = $sql->fetchAll();
+
+if (count($checkResult) > 0) {
+    echo "Ya existe un perro con este codigo de tatuaje.";
+    throw new Error();
+}
+
 /* Query para actualizar un perro en la base de datos. */
 $query = "UPDATE Perros P
     SET P.Apodo = :apodo,
