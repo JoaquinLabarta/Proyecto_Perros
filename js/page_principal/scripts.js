@@ -128,36 +128,3 @@ window.guardarPerro = (event) => {
         error: (xhr) => alert(xhr.responseText),
     });
 };
-
-/**
- * Permite al usuario guardar un propietario en la BDD.
- * @param {Event} event
- * @author briones-gabriel
- */
-window.guardarPropietario = (event) => {
-    event.preventDefault();
-
-    const nuevoPropietario = {
-        dni: $("#dni").val(),
-        nombre: $("#nombrePropietario").val(),
-        apellido: $("#apellidoPropietario").val(),
-        email: $("#emailPropietario").val(),
-        telefono: $("#telefono").val(),
-        direccion: $("#direccion").val(),
-    };
-
-    if (
-        nuevoPropietario.dni.length < 7 ||
-        nuevoPropietario.dni.length > 8 ||
-        nuevoPropietario.nombre.length < 1 ||
-        nuevoPropietario.apellido.length < 1
-    ) return false;
-
-    $.ajax({
-        type: "POST",
-        url: "/proyecto-perros/php/conexion/page_principal/agregacion/agregarPropietario.php",
-        data: nuevoPropietario,
-        success: () => location.reload(),
-        error: (xhr) => alert(xhr.responseText),
-    });
-};

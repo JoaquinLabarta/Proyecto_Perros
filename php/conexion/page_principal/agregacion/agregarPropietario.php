@@ -19,28 +19,29 @@ $checkResult = $sql->fetchAll();
  * Checkeo que se hace para saber si el el registro ya existe en la base de datos
  */
 if (count($checkResult) > 0) {
-  echo "Ya existe un propietario con este dni.";
-  throw new Error();
+    echo "Ya existe un propietario con este dni.";
+    throw new Error();
 } else {
-  /* Query para insertar un nuevo registro en la base de datos. */
-  $query = "INSERT INTO Propietarios (DNI, Nombre, Apellido, Email, Telefono, Direccion) " .
-    "VALUES (:dni, :nombre, :apellido, :email, :telefono, :direccion)";
+    /* Query para insertar un nuevo registro en la base de datos. */
+    $query =
+        "INSERT INTO Propietarios (DNI, Nombre, Apellido, Email, Telefono, Direccion) " .
+        "VALUES (:dni, :nombre, :apellido, :email, :telefono, :direccion)";
 
-  $params = [
-    "dni" => $dni,
-    "nombre" => $nombre,
-    "apellido" => $apellido,
-    "email" => $email,
-    "telefono" => $telefono,
-    "direccion" => $direccion
-  ];
+    $params = [
+        "dni" => $dni,
+        "nombre" => $nombre,
+        "apellido" => $apellido,
+        "email" => $email,
+        "telefono" => $telefono,
+        "direccion" => $direccion,
+    ];
 
-  try {
-    $result = $pdo->prepare($query)->execute($params);
-  } catch (\Throwable $th) {
-  echo "Hubo un error al intentar agregar un propietario.";
-  throw new Error();
-  }
+    try {
+        $result = $pdo->prepare($query)->execute($params);
+    } catch (\Throwable $th) {
+        echo "Hubo un error al intentar agregar un propietario.";
+        throw new Error();
+    }
 }
 
 die();
