@@ -12,16 +12,6 @@ $castracion = $_POST["castracion"];
 $adopcion = $_POST["adopcion"];
 $observacion = $_POST["observacion"];
 
-/* Query para checkear si el email ya esta registrado en la base de datos */
-$sql = $pdo->prepare("SELECT TatooId FROM Perros WHERE TatooId = :tatooId");
-$sql->execute(["tatooId" => $tatooId]);
-$checkResult = $sql->fetchAll();
-
-if (count($checkResult) > 0) {
-    echo "Ya existe un perro con este codigo de tatuaje.";
-    throw new Error();
-}
-
 /* Query para actualizar un perro en la base de datos. */
 $query = "UPDATE Perros P
     SET P.Apodo = :apodo,
@@ -33,53 +23,54 @@ $query = "UPDATE Perros P
     WHERE P.PerroId = :perroId ";
 
 $params = [
-  "perroId" => $perroId,
-  "tatooId" => $tatooId,
-  "apodo" => $apodo,
-  "raza" => $raza,
-  "castracion" => $castracion ? $castracion : null,
-  "adopcion" => $adopcion,
-  "observacion" => $observacion
+    "perroId" => $perroId,
+    "tatooId" => $tatooId,
+    "apodo" => $apodo,
+    "raza" => $raza,
+    "castracion" => $castracion ? $castracion : null,
+    "adopcion" => $adopcion,
+    "observacion" => $observacion,
 ];
 
 try {
-  $result = $pdo->prepare($query)->execute($params);
+    $result = $pdo->prepare($query)->execute($params);
 } catch (\Throwable $th) {
-  echo "Hubo un error al intentar actualizar un perro.";
-  throw new Error();
+    echo "Hubo un error al intentar actualizar un perro.";
+    throw new Error();
 }
 
 if ($propietarioId != 0) {
-  // Caso haya propietario se actualiza
-  $query = "UPDATE PropietariosPerros PP
+    // Caso haya propietario se actualiza
+    // TODO: Usar el id que viene de la base de datos para identificar la row (usar la columna PropietarioPerroId)
+    $query = "UPDATE PropietariosPerros PP
         SET PP.PropietarioId = :propietarioId
-        WHERE perroId = :perroId ";
+        WHERE PP.PerroId = :perroId ";
 
-  $params = [
-    "propietarioId" => $propietarioId,
-    "perroId" => $perroId
-  ];
+    $params = [
+        "propietarioId" => $propietarioId,
+        "perroId" => $perroId,
+    ];
 
-  try {
-    $result = $pdo->prepare($query)->execute($params);
-  } catch (\Throwable $th) {
-    echo "Hubo un error al intentar relacionar un propietario con este perro.";
-    throw new Error();
-  }
+    try {
+        $result = $pdo->prepare($query)->execute($params);
+    } catch (\Throwable $th) {
+        echo "Hubo un error al intentar relacionar un propietario con este perro.";
+        throw new Error();
+    }
 } else {
-  // Caso no haya propietario se elimina
-  $query = "DELETE FROM PropietariosPerros WHERE perroId = :perroId ";
+    // Caso no haya propietario se elimina
+    $query = "DELETE FROM PropietariosPerros WHERE perroId = :perroId ";
 
-  $params = [
-    "perroId" => $perroId
-  ];
+    $params = [
+        "perroId" => $perroId,
+    ];
 
-  try {
-    $result = $pdo->prepare($query)->execute($params);
-  } catch (\Throwable $th) {
-    echo "Hubo un error al intentar relacionar un propietario con este perro.";
-    throw new Error();
-  }
+    try {
+        $result = $pdo->prepare($query)->execute($params);
+    } catch (\Throwable $th) {
+        echo "Hubo un error al intentar relacionar un propietario con este perro.";
+        throw new Error();
+    }
 }
 
 die();
