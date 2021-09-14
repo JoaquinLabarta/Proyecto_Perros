@@ -3,11 +3,11 @@
 include "../../pdo.php";
 
 // Definicion de variables
-$tatooId = $_POST["tatooId"];
 $propietarioId = $_POST["propietarioId"];
+$tatooId = $_POST["tatooId"];
 $apodo = $_POST["apodo"];
 $raza = $_POST["raza"];
-$castracion = $_POST["castracion"];
+$castracion = $_POST["castracion"] ? $_POST["castracion"] : null;
 $adopcion = $_POST["adopcion"];
 $observacion = $_POST["observacion"];
 
@@ -18,19 +18,17 @@ $checkResult = $sql->fetchAll();
 
 // Checkeo que se hace para saber si el el registro ya existe en la base de datos
 if (count($checkResult) > 0) {
-    http_response_code(404);
     echo "Ya existe un perro con este codigo de tatuaje.";
 } else {
     /* Query para insertar un nuevo registro en la base de datos. */
-    $query =
-        "INSERT INTO Perros (TatooId, Apodo, Raza, Castracion, Adopcion, Observacion) " .
+    $query = "INSERT INTO Perros (TatooId, Apodo, Raza, Castracion, Adopcion, Observacion) " .
         "VALUES (:tatooId, :apodo, :raza, :castracion, :adopcion, :observacion)";
 
     $params = [
         "tatooId" => $tatooId,
         "apodo" => $apodo,
         "raza" => $raza,
-        "castracion" => $castracion ? $castracion : null,
+        "castracion" => $castracion,
         "adopcion" => $adopcion,
         "observacion" => $observacion,
     ];
@@ -39,14 +37,13 @@ if (count($checkResult) > 0) {
         $result = $pdo->prepare($query)->execute($params);
     } catch (\Throwable $th) {
         echo "Hubo un error al intentar agregar un perro.";
-        throw new Error();
+        echo $th;
     }
 
-    $perroId = $pdo->lastInsertId();
-    echo $perroId;
-    echo $propietarioId;
     if ($propietarioId != 0) {
-        $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
+        $perroId = $pdo->lastInsertId();
+        $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) " .
+            "VALUES (:propietarioId, :perroId)";
 
         $params = [
             "propietarioId" => $propietarioId,
@@ -57,9 +54,10 @@ if (count($checkResult) > 0) {
             $result = $pdo->prepare($query)->execute($params);
         } catch (\Throwable $th) {
             echo "Hubo un error al intentar relacionar un propietario con este perro.";
-            throw new Error();
+            echo $th;
         }
     }
 }
 
+header("Location: /proyecto-perros/");
 die();

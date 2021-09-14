@@ -68,6 +68,7 @@ window.editarPerro = (perro) => {
 
 /**
  * Valida el formulario para editar perros.
+ * @author briones-gabriel
  */
 window.validarEditarPerro = () => {
     const camposObligatorios = {
@@ -85,34 +86,18 @@ window.validarEditarPerro = () => {
 
 /**
  * Permite al usuario guardar un perro en la BDD.
- * @param {Event} event
  * @author briones-gabriel
  */
-window.guardarPerro = (event) => {
-    event.preventDefault();
-
-    const nuevoPerro = {
-        propietarioId: document.getElementById("propietarioId").value,
-        observacion: $("#observacion").val(),
-        castracion: $("#castracion").val(),
+window.validarAgregarPerro = () => {
+    const camposObligatorios = {
         adopcion: $("#adopcion").val(),
         tatooId: $("#tatooId").val(),
         apodo: $("#apodo").val(),
-        raza: $("#raza").val(),
     };
 
-    if (
-        nuevoPerro.tatooId.length < 1 ||
-        nuevoPerro.apodo.length < 1 ||
-        nuevoPerro.adopcion.length < 1
-    )
-        return false;
-
-    $.ajax({
-        type: "POST",
-        url: "/proyecto-perros/php/conexion/page_principal/agregacion/agregarPerro.php",
-        data: nuevoPerro,
-        success: () => location.reload(),
-        error: (xhr) => alert(xhr.responseText),
-    });
+    return (
+        camposObligatorios.tatooId.length < 1 ||
+        camposObligatorios.apodo.length < 1 ||
+        camposObligatorios.adopcion.length < 1
+    );
 };

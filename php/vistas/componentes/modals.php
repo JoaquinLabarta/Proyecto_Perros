@@ -8,7 +8,7 @@
 </style>
 
 <!--Modal para agregar perros-->
-<form class="needs-validation" novalidate id="formAgregarPerro" onsubmit="guardarPerro(event)" action="../../conexion/page_principal/agregacion/agregarPerro.php">
+<form class="needs-validation" novalidate id="formAgregarPerro" onsubmit="validarAgregarPerro()" action="../../conexion/page_principal/agregacion/agregarPerro.php" method="POST">
     <div class="modal fade" id="agregarPerro" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -21,42 +21,42 @@
                     <!--Codigo de tatuaje-->
                     <div class="mb-3">
                         <label for="tatuaje" class="form-label required-field">Codigo de tatuaje</label>
-                        <input type="text" class="form-control" id="tatooId" placeholder="AABB1122" required>
+                        <input type="text" class="form-control" id="tatooId" name="tatooId" placeholder="AABB1122" required>
                         <div class="invalid-feedback">Debe agregar un codigo de tatuaje</div>
                     </div>
                     <!--Apodo-->
                     <div class="mb-3">
                         <label for="apodo" class="form-label required-field">Apodo</label>
-                        <input type="text" class="form-control" id="apodo" placeholder="Cliford" required>
+                        <input type="text" class="form-control" id="apodo" name="apodo" placeholder="Cliford" required>
                         <div class="invalid-feedback">Inserte el apodo del perro</div>
                     </div>
                     <!--Raza-->
                     <div class="mb-3">
                         <label for="raza" class="form-label required-field">Raza</label>
-                        <input type="text" class="form-control" id="raza" placeholder="Caniche" required>
+                        <input type="text" class="form-control" id="raza" name="raza" placeholder="Caniche" required>
                         <div class="invalid-feedback">Inserte la raza del perro</div>
                     </div>
                     <!--Castracion-->
                     <div class="mb-3">
                         <label for="castracion" class="form-label">Fecha de castrado</label>
-                        <input type="date" class="form-control" id="castracion">
+                        <input type="date" class="form-control" id="castracion" name="castracion">
                     </div>
                     <!--Adopcion-->
                     <div class="mb-3">
                         <label for="adopcion" class="form-label required-field">Fecha de adopcion</label>
-                        <input type="date" class="form-control" id="adopcion" required>
+                        <input type="date" class="form-control" id="adopcion" name="adopcion" required>
                         <div class="invalid-feedback">Inserte la fecha de adopcion</div>
                     </div>
                     <!--Observacion-->
                     <div class="mb-3">
                         <label for="observacion" class="form-label">Observacion</label>
-                        <textarea class="form-control" id="observacion" rows="3"></textarea>
+                        <textarea class="form-control" id="observacion" name="observacion" rows="3"></textarea>
                     </div>
                     <!--Propietario-->
                     <div class="col mb-3">
                         <label for="propietario" class="form-label">Propietario</label>
-                        <select class="form-select" id="propietarioId">
-                            <option selected hidden value="0">Seleccionar un propietario</option>
+                        <select class="form-select" id="propietarioId" name="propietarioId">
+                            <option selected value="0">Sin propietario</option>
                             <?php
                             include_once "../../conexion/get_propietarios.php";
                             foreach ($propietarios as $propietario): ?>

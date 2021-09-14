@@ -36,7 +36,7 @@ try {
     $result = $pdo->prepare($query)->execute($params);
 } catch (\Throwable $th) {
     echo "Hubo un error al intentar actualizar un perro.";
-    throw new Error();
+    echo $th;
 }
 
 if ($propietarioId != 0) {
@@ -64,6 +64,7 @@ if ($propietarioId != 0) {
         $result = $pdo->prepare($query)->execute($params);
     } catch (\Throwable $th) {
         echo "Hubo un error al intentar relacionar un propietario con este perro.";
+        echo $th;
     }
 } else {
     // Caso propietarioId sea 0, se elimina
@@ -73,6 +74,7 @@ if ($propietarioId != 0) {
             ->execute(["perroId" => $perroId]);
     } catch (\Throwable $th) {
         echo "Hubo un error al intentar relacionar un propietario con este perro.";
+        echo $th;
     }
 }
 
