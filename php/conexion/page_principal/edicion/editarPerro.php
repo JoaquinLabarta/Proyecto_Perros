@@ -41,20 +41,35 @@ try {
 
 if ($propietarioId != 0) {
     // Caso haya propietario se actualiza
-    // TODO: Usar el id que viene de la base de datos para identificar la row (usar la columna PropietarioPerroId)
-    $query = "UPDATE PropietariosPerros PP
-        SET PP.PropietarioId = :propietarioId
-        WHERE PP.PerroId = :perroId ";
+    $check = "SELECT PP.PropietarioPerroId FROM PropietariosPerros PP " .
+        "WHERE PP.PropietarioId = :propietarioId " .
+        "AND PP.PerroId = :perroId";
 
     $params = [
         "propietarioId" => $propietarioId,
         "perroId" => $perroId,
     ];
 
+    $sql = $pdo->prepare($check);
+    $sql->execute($params);
+    $relacionCheck = $sql->fetchAll();
+
+    $query = "";
+    if (count($relacionCheck) > 0) {
+        $query = "UPDATE PropietariosPerros PP " .
+            "SET PP.PropietarioId = :propietarioId " .
+            "WHERE PP.PerroId = :perroId ";
+
+    } else {
+        $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) " .
+            "VALUES (:propietarioId, :perroId)";
+    }
+
     try {
         $result = $pdo->prepare($query)->execute($params);
     } catch (\Throwable $th) {
-        echo "Hubo un error al intentar relacionar un propietario con este perro.";
+        echo $th;
+        /*echo "Hubo un error al intentar relacionar un propietario con este perro.";*/
         throw new Error();
     }
 } else {
