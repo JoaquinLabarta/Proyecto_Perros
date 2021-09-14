@@ -112,8 +112,9 @@ VALUES(
     "Saladillo",
     "-",
     02344451350,
-    "Eva Duarte de Perón, Saladillo, Provincia de Buenos Aires"
+    "Eva Duarte de Peron, Saladillo, Provincia de Buenos Aires"
 );
+
 INSERT INTO Perros(
     TatooId,
     Apodo,
@@ -130,3 +131,72 @@ VALUES(
     "2021/08/31",
     NULL
 );
+INSERT INTO Perros(
+    TatooId,
+    Apodo,
+    Raza,
+    Castracion,
+    Adopcion,
+    Observacion
+)
+VALUES(
+    "AABBCC12",
+    "Pichichho",
+    "Caniche",
+    "2021/08/12",
+    "2021/08/31",
+    NULL
+);
+
+INSERT INTO Perros(
+    TatooId,
+    Apodo,
+    Raza,
+    Castracion,
+    Adopcion,
+    Observacion
+)
+VALUES(
+    "AABBCC13",
+    "Topito",
+    "Cachorro",
+    "2021/08/11",
+    "2021/08/21",
+    NULL
+);
+
+INSERT INTO Perros(
+    TatooId,
+    Apodo,
+    Raza,
+    Castracion,
+    Adopcion,
+    Observacion
+)
+VALUES(
+    "AABBCC14",
+    "Rufus",
+    "Labrador cruza con Golden",
+    "2021/08/20",
+    "2021/08/20",
+    NULL
+);
+
+INSERT INTO Perros(
+    TatooId,
+    Apodo,
+    Raza,
+    Castracion,
+    Adopcion,
+    Observacion
+)
+VALUES(
+    "AABBCC15",
+    "Malevo",
+    "Salchicha",
+    "2021/08/09",
+    "2021/08/12",
+    NULL
+);
+
+
