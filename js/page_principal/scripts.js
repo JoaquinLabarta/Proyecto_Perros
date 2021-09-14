@@ -54,6 +54,7 @@ window.eliminarPerro = (perroId) => {
  * @author briones-gabriel
  */
 window.editarPerro = (perro) => {
+    $("#editarPerroId").val(perro["PerroId"]);
     $("#editarTatooId").val(perro["TatooId"]);
     $("#editarApodo").val(perro["Apodo"]);
     $("#editarRaza").val(perro["Raza"]);
@@ -63,37 +64,23 @@ window.editarPerro = (perro) => {
     $("#editarPropietarioId").val(perro["PropietarioId"]);
 
     $("#editarPerro").modal("show");
+};
 
-    let form = document.getElementById("formEditarPerro");
+/**
+ * Valida el formulario para editar perros.
+ */
+window.validarEditarPerro = () => {
+    const camposObligatorios = {
+        tatooId: $("#editarTatooId").val(),
+        apodo: $("#editarApodo").val(),
+        adopcion: $("#editarAdopcion").val(),
+    };
 
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const perroEditado = {
-            propietarioId: document.getElementById("editarPropietarioId").value,
-            perroId: perro["PerroId"],
-            tatooId: $("#editarTatooId").val(),
-            apodo: $("#editarApodo").val(),
-            raza: $("#editarRaza").val(),
-            adopcion: $("#editarAdopcion").val(),
-            castracion: $("#editarCastracion").val(),
-            observacion: $("#editarObservacion").val(),
-        };
-
-        if (
-            perroEditado.tatooId.length < 1 ||
-            perroEditado.apodo.length < 1 ||
-            perroEditado.adopcion.length < 1
-        ) return false;
-
-        $.ajax({
-            type: "POST",
-            url: "/proyecto-perros/php/conexion/page_principal/edicion/editarPerro.php",
-            data: perroEditado,
-            success: () => location.reload(),
-            error: (xhr) => alert(xhr.responseText),
-        });
-    });
+    return (
+        camposObligatorios.tatooId.length > 1 &&
+        camposObligatorios.apodo.length > 1 &&
+        camposObligatorios.adopcion.length > 1
+    );
 };
 
 /**
@@ -118,7 +105,8 @@ window.guardarPerro = (event) => {
         nuevoPerro.tatooId.length < 1 ||
         nuevoPerro.apodo.length < 1 ||
         nuevoPerro.adopcion.length < 1
-    ) return false;
+    )
+        return false;
 
     $.ajax({
         type: "POST",

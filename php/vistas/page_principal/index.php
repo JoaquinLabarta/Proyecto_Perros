@@ -104,13 +104,11 @@ $carpeta_actual = basename(getcwd());
             padding-top: .75em;
         }
     </style>
-
     <title>Perros | Bromatologia</title>
 </head>
 
 <body>
     <?php include_once "../componentes/header.php"; ?>
-
     <div class="container">
         <div class="row mt-3">
             <div class="col">

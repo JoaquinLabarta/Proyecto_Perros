@@ -3,14 +3,14 @@
 include "../../pdo.php";
 
 // Definicion de variables
-$perroId = $_POST["perroId"];
-$tatooId = $_POST["tatooId"];
-$propietarioId = $_POST["propietarioId"];
-$apodo = $_POST["apodo"];
-$raza = $_POST["raza"];
-$castracion = $_POST["castracion"];
-$adopcion = $_POST["adopcion"];
-$observacion = $_POST["observacion"];
+$perroId = $_POST["editarPerroId"];
+$tatooId = $_POST["editarTatooId"];
+$propietarioId = $_POST["editarPropietarioId"];
+$apodo = $_POST["editarApodo"];
+$raza = $_POST["editarRaza"];
+$castracion = $_POST["editarCastracion"];
+$adopcion = $_POST["editarAdopcion"];
+$observacion = $_POST["editarObservacion"];
 
 /* Query para actualizar un perro en la base de datos. */
 $query = "UPDATE Perros P
@@ -40,43 +40,23 @@ try {
 }
 
 if ($propietarioId != 0) {
-    // Caso haya propietario se actualiza
-    $check = "SELECT PP.PropietarioPerroId FROM PropietariosPerros PP " .
-        "WHERE PP.PropietarioId = :propietarioId " .
-        "AND PP.PerroId = :perroId";
-
-    $params = [
-        "propietarioId" => $propietarioId,
-        "perroId" => $perroId,
-    ];
+    $check = "SELECT PropietarioPerroId FROM PropietariosPerros " . "WHERE PerroId = :perroId";
 
     $sql = $pdo->prepare($check);
-    $sql->execute($params);
+    $sql->execute(["perroId" => $perroId]);
     $relacionCheck = $sql->fetchAll();
 
     $query = "";
     if (count($relacionCheck) > 0) {
-        $query = "UPDATE PropietariosPerros PP " .
-            "SET PP.PropietarioId = :propietarioId " .
-            "WHERE PP.PerroId = :perroId ";
-
+        // Caso haya propietario y propietarioId no sea 0 se actualiza
+        $query = "UPDATE PropietariosPerros " . "SET PropietarioId = :propietarioId " . "WHERE PerroId = :perroId ";
     } else {
-        $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) " .
-            "VALUES (:propietarioId, :perroId)";
+        // Caso no haya propietario, se inserta
+        $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) " . "VALUES (:propietarioId, :perroId)";
     }
-
-    try {
-        $result = $pdo->prepare($query)->execute($params);
-    } catch (\Throwable $th) {
-        echo $th;
-        /*echo "Hubo un error al intentar relacionar un propietario con este perro.";*/
-        throw new Error();
-    }
-} else {
-    // Caso no haya propietario se elimina
-    $query = "DELETE FROM PropietariosPerros WHERE perroId = :perroId ";
 
     $params = [
+        "propietarioId" => $propietarioId,
         "perroId" => $perroId,
     ];
 
@@ -84,8 +64,17 @@ if ($propietarioId != 0) {
         $result = $pdo->prepare($query)->execute($params);
     } catch (\Throwable $th) {
         echo "Hubo un error al intentar relacionar un propietario con este perro.";
-        throw new Error();
+    }
+} else {
+    // Caso propietarioId sea 0, se elimina
+    try {
+        $result = $pdo
+            ->prepare("DELETE FROM PropietariosPerros WHERE perroId = :perroId")
+            ->execute(["perroId" => $perroId]);
+    } catch (\Throwable $th) {
+        echo "Hubo un error al intentar relacionar un propietario con este perro.";
     }
 }
 
+header("Location: /proyecto-perros/");
 die();

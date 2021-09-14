@@ -8,7 +8,7 @@
 </style>
 
 <!--Modal para agregar perros-->
-<form class="needs-validation" novalidate id="formAgregarPerro" onsubmit="guardarPerro(event)">
+<form class="needs-validation" novalidate id="formAgregarPerro" onsubmit="guardarPerro(event)" action="../../conexion/page_principal/agregacion/agregarPerro.php">
     <div class="modal fade" id="agregarPerro" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -59,7 +59,7 @@
                             <option selected hidden value="0">Seleccionar un propietario</option>
                             <?php
                             include_once "../../conexion/get_propietarios.php";
-                            foreach ($propietarios as $propietario) : ?>
+                            foreach ($propietarios as $propietario): ?>
                                 <?php echo "<option value='" .
                                     $propietario["PropietarioId"] .
                                     "'>" .
@@ -279,7 +279,7 @@
 </div>
 
 <!--Modal para editar perros-->
-<form class="needs-validation" novalidate id="formEditarPerro">
+<form class="needs-validation" novalidate id="formEditarPerro" action="../../conexion/page_principal/edicion/editarPerro.php" method="POST" onsubmit="validarEditarPerro()">
     <div class="modal fade" id="editarPerro" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -289,48 +289,51 @@
                 </div>
 
                 <div class="modal-body">
+                    <div style="display: none;">
+                        <input name="editarPerroId" id="editarPerroId">
+                    </div>
                     <!--Codigo de tatuaje-->
                     <div class="mb-3">
                         <label for="tatuaje" class="form-label">Codigo de tatuaje</label>
-                        <input type="text" class="form-control" id="editarTatooId" placeholder="AABB1122" required>
+                        <input type="text" class="form-control" id="editarTatooId" name="editarTatooId" placeholder="AABB1122" required>
                         <div class="invalid-feedback">Debe agregar un codigo de tatuaje</div>
                     </div>
                     <!--Apodo-->
                     <div class="mb-3">
                         <label for="apodo" class="form-label">Apodo</label>
-                        <input type="text" class="form-control" id="editarApodo" placeholder="Cliford" required>
+                        <input type="text" class="form-control" id="editarApodo" name="editarApodo" placeholder="Cliford" required>
                         <div class="invalid-feedback">Inserte un apodo para el perro</div>
                     </div>
                     <!--Raza-->
                     <div class="mb-3">
                         <label for="raza" class="form-label">Raza</label>
-                        <input type="text" class="form-control" id="editarRaza" placeholder="Caniche">
+                        <input type="text" class="form-control" id="editarRaza" name="editarRaza" placeholder="Caniche">
                         <div class="invalid-feedback">Inserte la raza del perro</div>
                     </div>
                     <!--Castracion-->
                     <div class="mb-3">
                         <label for="castracion" class="form-label">Fecha de castrado</label>
-                        <input type="date" class="form-control" id="editarCastracion">
+                        <input type="date" class="form-control" id="editarCastracion" name="editarCastracion">
                     </div>
                     <!--Adopcion-->
                     <div class="mb-3">
                         <label for="adopcion" class="form-label">Fecha de adopcion</label>
-                        <input type="date" class="form-control" id="editarAdopcion" required>
+                        <input type="date" class="form-control" id="editarAdopcion" name="editarAdopcion" required>
                         <div class="invalid-feedback">Inserte la fecha de adopcion del perro</div>
                     </div>
                     <!--Observacion-->
                     <div class="mb-3">
                         <label for="observacion" class="form-label">Observacion</label>
-                        <textarea class="form-control" id="editarObservacion" rows="3"></textarea>
+                        <textarea class="form-control" name="editarObservacion" id="editarObservacion" rows="3"></textarea>
                     </div>
                     <!--Propietario-->
                     <div class="col">
-                        <label for="propietario" class="form-label">Propietario</label>
-                        <select class="form-select" id="editarPropietarioId">
-                            <option selected hidden value="0">Seleccionar un propietario</option>
+                        <label for="editarPropietarioId" class="form-label">Propietario</label>
+                        <select class="form-select" id="editarPropietarioId" name="editarPropietarioId">
+                            <option selected value="0">Sin propietario</option>
                             <?php
                             include_once "../../conexion/get_propietarios.php";
-                            foreach ($propietarios as $propietario) : ?>
+                            foreach ($propietarios as $propietario): ?>
                                 <?php echo "<option value='" .
                                     $propietario["PropietarioId"] .
                                     "'>" .
