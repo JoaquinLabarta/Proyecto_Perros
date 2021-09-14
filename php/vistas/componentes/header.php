@@ -28,7 +28,7 @@
             <?php if ($_SESSION["Rol"] == 1): ?>
                 <div class="dropdown me-2">
                     <div class="d-flex">
-                    <button class="btn btn-white border" style='color: #649fa5' type="button" data-bs-toggle="dropdown">
+                    <button class="btn btn-white border me-2" style='color: #649fa5' type="button" data-bs-toggle="dropdown">
                         <i class="fas fa-plus"></i>
                     </button>
                     <?php if ($_SESSION["Rol"] == 1): ?>
