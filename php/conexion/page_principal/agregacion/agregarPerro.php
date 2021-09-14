@@ -18,8 +18,8 @@ $checkResult = $sql->fetchAll();
 
 // Checkeo que se hace para saber si el el registro ya existe en la base de datos
 if (count($checkResult) > 0) {
+    http_response_code(404);
     echo "Ya existe un perro con este codigo de tatuaje.";
-    throw new Error();
 } else {
     /* Query para insertar un nuevo registro en la base de datos. */
     $query =
