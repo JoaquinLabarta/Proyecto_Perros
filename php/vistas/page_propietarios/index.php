@@ -132,11 +132,19 @@ $carpeta_actual = basename(getcwd());
                                 <td class="text-center align-middle"><?php echo $propietario["Email"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $propietario["Telefono"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $propietario["Direccion"]; ?></td>
+                                <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == 2): ?>
                                 <td class=" text-center align-middle">
+                                        <button class="btn border" style="color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPropietario(<?php echo json_encode(
+                                            $propietario
+                                        ); ?>)'>
+                                            <i class="far fa-edit"></i>
+                                        </button>
+                                    <?php endif; ?>
+                                <?php if ($_SESSION["Rol"] == 1): ?>
                                     <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPropietario(<?php echo $propietario["PropietarioId"]; ?>)">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
-                                </td>
+                                    <?php endif; ?>
                             </tr>
                         <?php endforeach;
                         ?>
