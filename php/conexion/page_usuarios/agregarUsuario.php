@@ -11,7 +11,9 @@ $email = $_POST["email"];
 $clave = password_hash($_POST["clave"], PASSWORD_DEFAULT);
 
 /* Query para checkear si el email ya esta registrado en la base de datos */
-$sql = $pdo->prepare("SELECT Usuario FROM Usuarios WHERE Usuario = :usuario OR Email = :email");
+$sql = $pdo->prepare(
+    "SELECT Usuario FROM Usuarios WHERE Usuario = :usuario OR Email = :email"
+);
 $sql->execute(["usuario" => $usuario, "email" => $email]);
 $checkResult = $sql->fetchAll();
 

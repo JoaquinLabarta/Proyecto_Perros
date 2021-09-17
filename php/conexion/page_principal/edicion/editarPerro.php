@@ -54,7 +54,9 @@ try {
 }
 
 if ($propietarioId != 0) {
-    $check = "SELECT PropietarioPerroId FROM PropietariosPerros " . "WHERE PerroId = :perroId";
+    $check =
+        "SELECT PropietarioPerroId FROM PropietariosPerros " .
+        "WHERE PerroId = :perroId";
 
     $sql = $pdo->prepare($check);
     $sql->execute(["perroId" => $perroId]);
@@ -63,10 +65,15 @@ if ($propietarioId != 0) {
     $query = "";
     if (count($relacionCheck) > 0) {
         // Caso haya propietario y propietarioId no sea 0 se actualiza
-        $query = "UPDATE PropietariosPerros " . "SET PropietarioId = :propietarioId " . "WHERE PerroId = :perroId ";
+        $query =
+            "UPDATE PropietariosPerros " .
+            "SET PropietarioId = :propietarioId " .
+            "WHERE PerroId = :perroId ";
     } else {
         // Caso no haya propietario, se inserta
-        $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) " . "VALUES (:propietarioId, :perroId)";
+        $query =
+            "INSERT INTO PropietariosPerros (PropietarioId, PerroId) " .
+            "VALUES (:propietarioId, :perroId)";
     }
 
     $params = [

@@ -55,7 +55,8 @@ if (count($checkResult) > 0) {
 
     if ($propietarioId != 0) {
         $perroId = $pdo->lastInsertId();
-        $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
+        $query =
+            "INSERT INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
 
         $params = [
             "propietarioId" => $propietarioId,

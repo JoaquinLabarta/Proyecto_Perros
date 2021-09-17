@@ -19,7 +19,8 @@ if (count($checkResult) > 0) {
     return false;
 } else {
     /* Query para insertar un nuevo registro en la base de datos. */
-    $query = "INSERT INTO PropietariosPerros(PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
+    $query =
+        "INSERT INTO PropietariosPerros(PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
     $params = ["propietarioId" => $propietarioId, "perroId", $perroId];
 
     try {

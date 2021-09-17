@@ -57,17 +57,23 @@
             <?php endif; ?>
                 </div>
                         <?php if ($_SESSION["Rol"] == 1): ?>
-                                <?php if ($carpeta_actual !== "page_principal"): ?>
+                                <?php if (
+                                    $carpeta_actual !== "page_principal"
+                                ): ?>
                                     <a class='btn btn-white border' title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_principal">
                                         <i class="fas fa-home"></i> 
                                     </a>
                                 <?php endif; ?>
-                                <?php if ($carpeta_actual !== "page_usuarios"): ?>
+                                <?php if (
+                                    $carpeta_actual !== "page_usuarios"
+                                ): ?>
                                     <a class="btn btn-white border" title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_usuarios">
                                         <i class="fas fa-users"></i>
                                     </a>
                                 <?php endif; ?>
-                                <?php if ($carpeta_actual !== "page_propietarios"): ?>
+                                <?php if (
+                                    $carpeta_actual !== "page_propietarios"
+                                ): ?>
                                     <a class='btn btn-white border' title="Propietarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_propietarios">
                                         <i class="fas fa-id-card"></i>
                                     </a>

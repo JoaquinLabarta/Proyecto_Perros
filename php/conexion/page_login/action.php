@@ -38,25 +38,25 @@ if (!$result->Usuario) {
     /**
      * Verificacion 1:
      * Verificacion que se hace para saber si el usuario dado existe en la BDD
-     * Caso $result->Usuario sea FALSE se redirecciona al usuario a la 'Login page' para explicarle el error; 
+     * Caso $result->Usuario sea FALSE se redirecciona al usuario a la 'Login page' para explicarle el error;
      * Caso TRUE, se sigue con el proceso de autentificacion.
      */
     header("Location: ../../../");
     die();
-} else if (!password_verify($userPassword, $hashedPassword)) {
+} elseif (!password_verify($userPassword, $hashedPassword)) {
     /**
      * Verificacion 2:
      * Verificacion que se hace para saber si la clave dada por el usuario es correcta.
-     * Caso FALSE se redirecciona al usuario a la 'Login page' para explicarle el error; 
+     * Caso FALSE se redirecciona al usuario a la 'Login page' para explicarle el error;
      * Caso TRUE, el proceso de logueo fue completado y se lo redirecciona a su 'Feed'.
      */
     header("Location: ../../../");
     die();
-} else if ($result->Activo != 1) {
+} elseif ($result->Activo != 1) {
     /**
      * Verificacion 3:
      * Verificacion que se hace para saber si el perfil del usuario esta activo o no.
-     * Caso $result->status sea FALSE se redirecciona al usuario a la 'Login page' para explicarle el error; 
+     * Caso $result->status sea FALSE se redirecciona al usuario a la 'Login page' para explicarle el error;
      * Caso TRUE, se sigue con el proceso de autentificacion.
      */
     header("Location: ../../../");

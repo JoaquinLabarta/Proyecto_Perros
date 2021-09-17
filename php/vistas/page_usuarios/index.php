@@ -124,14 +124,30 @@ $carpeta_actual = basename(getcwd());
                     <tbody>
                         <?php
                         include "../../conexion/get_users.php";
-                        foreach ($usuarios as $usuario) : ?>
+                        foreach ($usuarios as $usuario): ?>
                             <tr>
-                                <td class="text-center align-middle"><?php echo $usuario["Usuario"]; ?></td>
-                                <td class="text-center align-middle"><?php echo $usuario["Nombre"] . " " . $usuario["Apellido"]; ?></td>
-                                <td class="text-center align-middle"><?php echo $usuario["Administrador"] ? "Si" : "No"; ?></td>
-                                <td class="text-center align-middle"><?php echo $usuario["Activo"] ? "Si" : "No"; ?></td>
+                                <td class="text-center align-middle"><?php echo $usuario[
+                                    "Usuario"
+                                ]; ?></td>
+                                <td class="text-center align-middle"><?php echo $usuario[
+                                    "Nombre"
+                                ] .
+                                    " " .
+                                    $usuario["Apellido"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $usuario[
+                                    "Administrador"
+                                ]
+                                    ? "Si"
+                                    : "No"; ?></td>
+                                <td class="text-center align-middle"><?php echo $usuario[
+                                    "Activo"
+                                ]
+                                    ? "Si"
+                                    : "No"; ?></td>
                                 <td class=" text-center align-middle">
-                                    <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarUsuario(<?php echo $usuario["UsuarioId"]; ?>)">
+                                    <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarUsuario(<?php echo $usuario[
+                                        "UsuarioId"
+                                    ]; ?>)">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </td>

@@ -64,7 +64,7 @@
                             <option selected value="0">Sin propietario</option>
                             <?php
                             include_once "../../conexion/get_propietarios.php";
-                            foreach ($propietarios as $propietario) : ?>
+                            foreach ($propietarios as $propietario): ?>
                                 <?php echo "<option value='" .
                                     $propietario["PropietarioId"] .
                                     "'>" .
@@ -346,7 +346,7 @@
                             <option selected value="0">Sin propietario</option>
                             <?php
                             include_once "../../conexion/get_propietarios.php";
-                            foreach ($propietarios as $propietario) : ?>
+                            foreach ($propietarios as $propietario): ?>
                                 <?php echo "<option value='" .
                                     $propietario["PropietarioId"] .
                                     "'>" .

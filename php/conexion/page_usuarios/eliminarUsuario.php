@@ -11,8 +11,8 @@ $query = "DELETE FROM Usuarios WHERE UsuarioId = :usuarioId";
 $params = ["usuarioId" => $usuarioId];
 
 try {
-  $result = $pdo->prepare($query)->execute($params);
+    $result = $pdo->prepare($query)->execute($params);
 } catch (\Throwable $th) {
-  echo "Hubo un error al intentar eliminar un usuario.";
-  throw new Error();
+    echo "Hubo un error al intentar eliminar un usuario.";
+    throw new Error();
 }
