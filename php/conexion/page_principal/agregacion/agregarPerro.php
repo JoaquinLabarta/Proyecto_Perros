@@ -21,11 +21,24 @@ if (count($checkResult) > 0) {
     echo "Ya existe un perro con este codigo de tatuaje.";
 } else {
     /* Query para insertar un nuevo registro en la base de datos. */
-    $query = "INSERT INTO Perros (TatooId, Apodo, Raza, Castracion, Adopcion, Observacion) " .
-        "VALUES (:tatooId, :apodo, :raza, :castracion, :adopcion, :observacion)";
+    $query =
+        "INSERT INTO Perros (TatooId, FotoUrl, Apodo, Raza, Castracion, Adopcion, Observacion) " .
+        "VALUES (:tatooId, :fotoUrl, :apodo, :raza, :castracion, :adopcion, :observacion)";
+
+    // Se guarda la foto de forma local
+    $target = "";
+    if (isset($_FILES["foto"])) {
+        $file_tmp = $_FILES["foto"]["tmp_name"];
+        $file_ext = $_FILES["foto"]["ext"];
+        $target = "/proyecto-perros/recursos/fotos/" . $tatooId . $file_ext;
+        move_uploaded_file($file_tmp, $_SERVER["DOCUMENT_ROOT"] . $target);
+    } else {
+        $target = null;
+    }
 
     $params = [
         "tatooId" => $tatooId,
+        "fotoUrl" => $target,
         "apodo" => $apodo,
         "raza" => $raza,
         "castracion" => $castracion,
@@ -42,8 +55,7 @@ if (count($checkResult) > 0) {
 
     if ($propietarioId != 0) {
         $perroId = $pdo->lastInsertId();
-        $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) " .
-            "VALUES (:propietarioId, :perroId)";
+        $query = "INSERT INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
 
         $params = [
             "propietarioId" => $propietarioId,

@@ -8,7 +8,7 @@
 </style>
 
 <!--Modal para agregar perros-->
-<form class="needs-validation" novalidate id="formAgregarPerro" onsubmit="validarAgregarPerro()" action="../../conexion/page_principal/agregacion/agregarPerro.php" method="POST">
+<form class="needs-validation" novalidate id="formAgregarPerro" onsubmit="validarAgregarPerro()" action="../../conexion/page_principal/agregacion/agregarPerro.php" method="POST" enctype="multipart/form-data">
     <div class="modal fade" id="agregarPerro" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -18,6 +18,11 @@
                 </div>
 
                 <div class="modal-body">
+                    <!--Foto-->
+                    <div class="mb-3">
+                        <label for="tatuaje" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="foto" name="foto" placeholder="AABB1122">
+                    </div>
                     <!--Codigo de tatuaje-->
                     <div class="mb-3">
                         <label for="tatuaje" class="form-label required-field">Codigo de tatuaje</label>
@@ -59,7 +64,7 @@
                             <option selected value="0">Sin propietario</option>
                             <?php
                             include_once "../../conexion/get_propietarios.php";
-                            foreach ($propietarios as $propietario): ?>
+                            foreach ($propietarios as $propietario) : ?>
                                 <?php echo "<option value='" .
                                     $propietario["PropietarioId"] .
                                     "'>" .
@@ -262,9 +267,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <img alt="Foto" id="fotoObservacion" width="128" class="img-thumbnail mb-4" />
                 <h5>Observacion</h5>
-                <p id="contenidoObservacion"></p>
-                <br>
+                <p class="mb-4" id="contenidoObservacion"></p>
                 <h5>Fechas</h5>
                 <ul>
                     <li>Adopcion: <span id="fechaDeAdopcion">No hay fecha</span></li>
@@ -279,7 +284,7 @@
 </div>
 
 <!--Modal para editar perros-->
-<form class="needs-validation" novalidate id="formEditarPerro" action="../../conexion/page_principal/edicion/editarPerro.php" method="POST" onsubmit="validarEditarPerro()">
+<form class="needs-validation" novalidate id="formEditarPerro" action="../../conexion/page_principal/edicion/editarPerro.php" method="POST" onsubmit="validarEditarPerro()" enctype="multipart/form-data">
     <div class="modal fade" id="editarPerro" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -289,8 +294,16 @@
                 </div>
 
                 <div class="modal-body">
+                    <!--PerroId-->
                     <div style="display: none;">
                         <input name="editarPerroId" id="editarPerroId">
+                    </div>
+                    <!--Foto-->
+                    <div class="mb-3">
+                        <label for="editarFoto" class="form-label">Foto</label>
+                        <img alt="Foto" class="img-thumbnail mb-3" width="164" id="fotoPerroEditar" />
+                        <button class="btn btn-danger ms-0 mb-3" id="botonFotoEliminar">Eliminar foto</button>
+                        <input type="file" id="editarFoto" name="editarFoto" class="form-control">
                     </div>
                     <!--Codigo de tatuaje-->
                     <div class="mb-3">
@@ -333,7 +346,7 @@
                             <option selected value="0">Sin propietario</option>
                             <?php
                             include_once "../../conexion/get_propietarios.php";
-                            foreach ($propietarios as $propietario): ?>
+                            foreach ($propietarios as $propietario) : ?>
                                 <?php echo "<option value='" .
                                     $propietario["PropietarioId"] .
                                     "'>" .

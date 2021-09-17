@@ -27,26 +27,14 @@ CREATE TABLE IF NOT EXISTS Propietarios(
 CREATE TABLE IF NOT EXISTS Perros(
     PerroId INT NOT NULL AUTO_INCREMENT,
     TatooId VARCHAR(255) NOT NULL,
+    FotoUrl VARCHAR(255),
     Apodo VARCHAR(255),
     Raza VARCHAR(255),
     Castracion DATE,
     Adopcion DATE NOT NULL,
     Observacion VARCHAR(255),
     PRIMARY KEY(PerroId)
-) ENGINE = INNODB; CREATE TABLE IF NOT EXISTS Fotos(
-    FotoId INT NOT NULL AUTO_INCREMENT,
-    Url VARCHAR(255) NOT NULL,
-    PRIMARY KEY(FotoId)
-) ENGINE = INNODB; 
-
-CREATE TABLE IF NOT EXISTS FotosPerros(
-    FotoPerroId INT NOT NULL AUTO_INCREMENT,
-    FotoId INT NOT NULL,
-    PerroId INT NOT NULL,
-    PRIMARY KEY(FotoPerroId),
-    FOREIGN KEY(FotoId) REFERENCES Fotos(FotoId),
-    FOREIGN KEY(PerroId) REFERENCES Perros(PerroId)
-) ENGINE = INNODB; 
+) ENGINE = INNODB;
 
 CREATE TABLE IF NOT EXISTS PropietariosPerros(
     PropietarioPerroId INT NOT NULL AUTO_INCREMENT,
@@ -117,6 +105,7 @@ VALUES(
 
 INSERT INTO Perros(
     TatooId,
+    FotoUrl,
     Apodo,
     Raza,
     Castracion,
@@ -125,6 +114,7 @@ INSERT INTO Perros(
 )
 VALUES(
     "AABBCC11",
+    NULL,
     "Cliford",
     "Bulldog",
     "2021/08/31",
@@ -133,6 +123,7 @@ VALUES(
 );
 INSERT INTO Perros(
     TatooId,
+    FotoUrl,
     Apodo,
     Raza,
     Castracion,
@@ -141,6 +132,7 @@ INSERT INTO Perros(
 )
 VALUES(
     "AABBCC12",
+    NULL,
     "Pichichho",
     "Caniche",
     "2021/08/12",
@@ -150,6 +142,7 @@ VALUES(
 
 INSERT INTO Perros(
     TatooId,
+    FotoUrl,
     Apodo,
     Raza,
     Castracion,
@@ -158,6 +151,7 @@ INSERT INTO Perros(
 )
 VALUES(
     "AABBCC13",
+    NULL,
     "Topito",
     "Cachorro",
     "2021/08/11",
@@ -167,6 +161,7 @@ VALUES(
 
 INSERT INTO Perros(
     TatooId,
+    FotoUrl,
     Apodo,
     Raza,
     Castracion,
@@ -175,6 +170,7 @@ INSERT INTO Perros(
 )
 VALUES(
     "AABBCC14",
+    NULL,
     "Rufus",
     "Labrador cruza con Golden",
     "2021/08/20",
@@ -184,6 +180,7 @@ VALUES(
 
 INSERT INTO Perros(
     TatooId,
+    FotoUrl,
     Apodo,
     Raza,
     Castracion,
@@ -192,11 +189,10 @@ INSERT INTO Perros(
 )
 VALUES(
     "AABBCC15",
+    NULL,
     "Malevo",
     "Salchicha",
     "2021/08/09",
     "2021/08/12",
     NULL
 );
-
-

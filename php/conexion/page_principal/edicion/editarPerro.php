@@ -13,18 +13,32 @@ $adopcion = $_POST["editarAdopcion"];
 $observacion = $_POST["editarObservacion"];
 
 /* Query para actualizar un perro en la base de datos. */
-$query = "UPDATE Perros P
-    SET P.Apodo = :apodo,
-    P.TatooId = :tatooId,
-    P.Raza = :raza,
-    P.Castracion = :castracion,
-    P.Adopcion = :adopcion,
-    P.Observacion = :observacion
-    WHERE P.PerroId = :perroId ";
+$query = "UPDATE Perros
+    SET Apodo = :apodo,
+    TatooId = :tatooId,
+    FotoUrl = :fotoUrl,
+    Raza = :raza,
+    Castracion = :castracion,
+    Adopcion = :adopcion,
+    Observacion = :observacion
+    WHERE PerroId = :perroId ";
+
+// Se guarda la foto de forma local
+$target = "";
+if (isset($_FILES["editarFoto"]) && $_FILES["editarFoto"]["tmp_name"]) {
+    $file_tmp = $_FILES["editarFoto"]["tmp_name"];
+    $file_ext = $_FILES["editarFoto"]["ext"];
+    $target = "/proyecto-perros/recursos/fotos/" . $tatooId . $file_ext;
+    echo $target;
+    move_uploaded_file($file_tmp, $_SERVER["DOCUMENT_ROOT"] . $target);
+} else {
+    $target = null;
+}
 
 $params = [
     "perroId" => $perroId,
     "tatooId" => $tatooId,
+    "fotoUrl" => $target,
     "apodo" => $apodo,
     "raza" => $raza,
     "castracion" => $castracion ? $castracion : null,

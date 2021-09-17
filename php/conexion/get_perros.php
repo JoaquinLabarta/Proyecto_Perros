@@ -3,10 +3,7 @@ include_once "pdo.php";
 
 $query = "
     SELECT
-        COALESCE(
-            FO.Url,
-            '/proyecto-perros/recursos/perroDefault.svg'
-        ) AS FotoPerro,
+        COALESCE(FotoUrl, '/proyecto-perros/recursos/perroDefault.svg') AS FotoUrl,
         Perros.PerroId,
         TatooId,
         Apodo,
@@ -30,12 +27,6 @@ $query = "
     LEFT JOIN Propietarios AS Prop
     ON
         Prop.PropietarioId = PP.PropietarioId
-    LEFT JOIN FotosPerros AS FP
-    ON
-        Perros.PerroId = FP.PerroId
-    LEFT JOIN Fotos AS FO
-    ON
-        FP.FotoId = FO.FotoId;
 ";
 
 $sql = $pdo->prepare($query);
