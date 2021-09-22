@@ -2,7 +2,7 @@
 include_once "pdo.php";
 
 $query =
-    "SELECT DNI, Email, Telefono, Direccion, PropietarioId, CONCAT(Nombre, \" \", Apellido) AS Nombre FROM Propietarios";
+    "SELECT DNI, Email, Telefono, Direccion, PropietarioId, Nombre, Apellido FROM Propietarios";
 
 $sql = $pdo->prepare($query);
 $sql->execute();

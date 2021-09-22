@@ -1,10 +1,10 @@
 <?php
 // Se incluye la conexion a la BDD.
-include "../../pdo.php";
+include "../pdo.php";
 
 // Definicion de variables
 $propietarioId = $_POST["propietarioId"];
-$DNI = $_POST["DNI"];
+$dni = $_POST["dni"];
 $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $email = $_POST["email"];
@@ -12,18 +12,18 @@ $telefono = $_POST["telefono"];
 $direccion = $_POST["direccion"];
 
 /* Query para actualizar un perro en la base de datos. */
-$query = "UPDATE Propietarios P
-    SET P.DNI = :DNI,
-    P.nombre = :nombre,
-    P.apellido = :apellido,
-    P.email = :email,
-    P.telefono = :telefono,
-    P.direccion = :direccion
-    WHERE P.PropietarioId = :propietarioId ";
+$query = "UPDATE Propietarios
+    SET DNI = :dni,
+    nombre = :nombre,
+    apellido = :apellido,
+    email = :email,
+    telefono = :telefono,
+    direccion = :direccion
+    WHERE PropietarioId = :propietarioId ";
 
 $params = [
     "propietarioId" => $propietarioId,
-    "DNI" => $DNI,
+    "dni" => $dni,
     "nombre" => $nombre,
     "apellido" => $apellido,
     "email" => $email,
@@ -35,5 +35,6 @@ try {
     $result = $pdo->prepare($query)->execute($params);
 } catch (\Throwable $th) {
     echo "Hubo un error al intentar actualizar un propietario.";
+    echo $th;
     throw new Error();
 }
