@@ -20,7 +20,7 @@ window.verObservacion = (perro) => {
   $("#tituloObservacion").text(
     `${perro["Apodo"]} (Codigo ${perro["TatooId"]})`
   );
-  $("#contenidoObservacion").text(perro["Observacion"]);
+  $("#contenidoObservacion").text(perro["Observacion"].length ? perro["Observacion"] : "No hay observacion");
   $("#fechaDeAdopcion").text(
     perro["Adopcion"] ? perro["Adopcion"] : "No hay fecha"
   );

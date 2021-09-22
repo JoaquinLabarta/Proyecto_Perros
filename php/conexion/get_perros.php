@@ -12,7 +12,7 @@ $query = "
         Adopcion,
         COALESCE(
             NULLIF(Observacion, ''),
-            'No hay observacion'
+            ''
         ) AS Observacion,
         COALESCE(Prop.PropietarioId, 0) AS PropietarioId,
         COALESCE(

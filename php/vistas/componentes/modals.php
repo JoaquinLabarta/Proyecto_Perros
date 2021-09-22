@@ -55,7 +55,7 @@
                     <!--Observacion-->
                     <div class="mb-3">
                         <label for="observacion" class="form-label">Observacion</label>
-                        <textarea class="form-control" id="observacion" name="observacion" rows="3"></textarea>
+                        <textarea class="form-control" id="observacion" name="observacion" rows="3" placeholder="Aqui puede agregar datos del perro como sus vacunas, donde fue encontrado, etc..."></textarea>
                     </div>
                     <!--Propietario-->
                     <div class="col mb-3">
@@ -337,7 +337,7 @@
                     <!--Observacion-->
                     <div class="mb-3">
                         <label for="observacion" class="form-label">Observacion</label>
-                        <textarea class="form-control" name="editarObservacion" id="editarObservacion" rows="3"></textarea>
+                        <textarea class="form-control" name="editarObservacion" id="editarObservacion" rows="3" placeholder="Aqui puede agregar datos del perro como sus vacunas, donde fue encontrado, etc..."></textarea>
                     </div>
                     <!--Propietario-->
                     <div class="col">
