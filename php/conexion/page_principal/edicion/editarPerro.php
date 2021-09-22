@@ -12,6 +12,16 @@ $castracion = $_POST["editarCastracion"];
 $adopcion = $_POST["editarAdopcion"];
 $observacion = $_POST["editarObservacion"];
 
+$params = [
+    "perroId" => $perroId,
+    "tatooId" => $tatooId,
+    "apodo" => $apodo,
+    "raza" => $raza,
+    "castracion" => $castracion ? $castracion : null,
+    "adopcion" => $adopcion,
+    "observacion" => $observacion,
+];
+
 /* Query para actualizar un perro en la base de datos. */
 $query = "UPDATE Perros
     SET Apodo = :apodo,
@@ -20,31 +30,21 @@ $query = "UPDATE Perros
     Raza = :raza,
     Castracion = :castracion,
     Adopcion = :adopcion,
-    Observacion = :observacion
-    WHERE PerroId = :perroId ";
+    Observacion = :observacion";
 
 // Se guarda la foto de forma local
-$target = "";
 if (isset($_FILES["editarFoto"]) && $_FILES["editarFoto"]["tmp_name"]) {
     $file_tmp = $_FILES["editarFoto"]["tmp_name"];
     $file_ext = $_FILES["editarFoto"]["ext"];
     $target = "/proyecto-perros/recursos/fotos/" . $tatooId . $file_ext;
-    echo $target;
+
     move_uploaded_file($file_tmp, $_SERVER["DOCUMENT_ROOT"] . $target);
-} else {
-    $target = null;
+
+    $query = $query . ", FotoUrl = :fotoUrl ";
+    $params["fotoUrl"] = $target;
 }
 
-$params = [
-    "perroId" => $perroId,
-    "tatooId" => $tatooId,
-    "fotoUrl" => $target,
-    "apodo" => $apodo,
-    "raza" => $raza,
-    "castracion" => $castracion ? $castracion : null,
-    "adopcion" => $adopcion,
-    "observacion" => $observacion,
-];
+$query = $query . " WHERE PerroId = :perroId ";
 
 try {
     $result = $pdo->prepare($query)->execute($params);
