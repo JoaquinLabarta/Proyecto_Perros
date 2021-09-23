@@ -26,7 +26,6 @@ $params = [
 $query = "UPDATE Perros
     SET Apodo = :apodo,
     TatooId = :tatooId,
-    FotoUrl = :fotoUrl,
     Raza = :raza,
     Castracion = :castracion,
     Adopcion = :adopcion,
