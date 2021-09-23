@@ -66,123 +66,12 @@ INSERT INTO Usuarios(
     Rol
 )
 VALUES(
-    "admin",
+    "BromatologiaSaladillo",
     "Bromatologia",
     "Saladillo",
-    "2021-08-31",
+    "2021-09-23",
     "-",
-    "$2a$12$L3ApBbryfSZgHLa9lXPOiOFEvep6.On8DJyAKAcZTYHpO23IHnoya",
+    "$2a$12$ZF23CpD6UhclIfa.aXiAtuGi5FaQ3UO4qO4ERDwipm3FPWzcw2qVy",
     1,
     1
-);
-
-INSERT INTO Propietarios(
-    DNI,
-    Nombre,
-    Apellido,
-    Email,
-    Telefono,
-    Direccion
-)
-VALUES(
-    00000001,
-    "Bromatologia",
-    "Saladillo",
-    "-",
-    02344451350,
-    "Eva Duarte de Peron, Saladillo, Provincia de Buenos Aires"
-);
-
-INSERT INTO Perros(
-    TatooId,
-    FotoUrl,
-    Apodo,
-    Raza,
-    Castracion,
-    Adopcion,
-    Observacion
-)
-VALUES(
-    "AABBCC11",
-    NULL,
-    "Cliford",
-    "Bulldog",
-    "2021/08/31",
-    "2021/08/31",
-    NULL
-);
-INSERT INTO Perros(
-    TatooId,
-    FotoUrl,
-    Apodo,
-    Raza,
-    Castracion,
-    Adopcion,
-    Observacion
-)
-VALUES(
-    "AABBCC12",
-    NULL,
-    "Pichichho",
-    "Caniche",
-    "2021/08/12",
-    "2021/08/31",
-    NULL
-);
-
-INSERT INTO Perros(
-    TatooId,
-    FotoUrl,
-    Apodo,
-    Raza,
-    Castracion,
-    Adopcion,
-    Observacion
-)
-VALUES(
-    "AABBCC13",
-    NULL,
-    "Topito",
-    "Cachorro",
-    "2021/08/11",
-    "2021/08/21",
-    NULL
-);
-
-INSERT INTO Perros(
-    TatooId,
-    FotoUrl,
-    Apodo,
-    Raza,
-    Castracion,
-    Adopcion,
-    Observacion
-)
-VALUES(
-    "AABBCC14",
-    NULL,
-    "Rufus",
-    "Labrador cruza con Golden",
-    "2021/08/20",
-    "2021/08/20",
-    NULL
-);
-
-INSERT INTO Perros(
-    TatooId,
-    FotoUrl,
-    Apodo,
-    Raza,
-    Castracion,
-    Adopcion,
-    Observacion
-)
-VALUES(
-    "AABBCC15",
-    NULL,
-    "Malevo",
-    "Salchicha",
-    "2021/08/09",
-    "2021/08/12",
-    NULL
 );

@@ -127,7 +127,7 @@ $carpeta_actual = basename(getcwd());
                         <th class="text-center">Informacion</th>
                         <?php if (
                             $_SESSION["Rol"] == 1 ||
-                            $_SESSION["Rol"] == "2"
+                            $_SESSION["Rol"] == 2
                         ): ?>
                             <th class="text-center">Acciones</th>
                         <?php endif; ?>
@@ -139,8 +139,8 @@ $carpeta_actual = basename(getcwd());
                                     <img class="img-thumbnail" src="<?php echo $perro[
                                         "FotoUrl"
                                     ]; ?>" alt="Foto" width="48" id="foto-<?php echo $perro[
-    "TatooId"
-]; ?>" />
+                                    "TatooId"
+                                ]; ?>" />
                                 </td>
                                 <td class="text-center align-middle"><?php echo $perro[
                                     "TatooId"
@@ -168,7 +168,7 @@ $carpeta_actual = basename(getcwd());
                                             <i class="far fa-edit"></i>
                                         </button>
                                     <?php endif; ?>
-                                    <?php if ($_SESSION["Rol"] == 1): ?>
+                                    <?php if ($_SESSION["Rol"] == 1 ): ?>
                                         <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
                                             "PerroId"
                                         ]; ?>)">

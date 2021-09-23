@@ -8,13 +8,12 @@
 export default function setDatatable(tablaId, inputId, columnas) {
   $(document).ready(function () {
     let table = $(tablaId).DataTable({
-      aoColumns: columnas,
       processing: true,
       dom: '<"top"i>t<"bottom"fp><"clear">',
       responsive: "true",
       language: {
         lengthMenu: "Mostrar _MENU_ registros",
-        zeroRecords: "No se encontraron resultados",
+        zeroRecords: "No hay nada para mostrar, intente agregar algun registro",
         info: "Mostrando _END_ de _TOTAL_ registros",
         infoEmpty: "Mostrando 0 de 0 de un total de 0 registros",
         infoFiltered: "(filtrado de un total de _MAX_ registros)",
