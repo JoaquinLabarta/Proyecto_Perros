@@ -126,22 +126,14 @@ $carpeta_actual = basename(getcwd());
                         include "../../conexion/get_users.php";
                         foreach ($usuarios as $usuario): ?>
                             <tr>
-                                <td class="text-center align-middle"><?php echo $usuario[
-                                    "Usuario"
-                                ]; ?></td>
-                                <td class="text-center align-middle"><?php echo $usuario[
-                                    "Nombre"
-                                ] .
+                                <td class="text-center align-middle"><?php echo $usuario["Usuario"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $usuario["Nombre"] .
                                     " " .
                                     $usuario["Apellido"]; ?></td>
-                                <td class="text-center align-middle"><?php echo $usuario[
-                                    "Administrador"
-                                ]
+                                <td class="text-center align-middle"><?php echo $usuario["Rol"] == 1
                                     ? "Si"
                                     : "No"; ?></td>
-                                <td class="text-center align-middle"><?php echo $usuario[
-                                    "Activo"
-                                ]
+                                <td class="text-center align-middle"><?php echo $usuario["Activo"]
                                     ? "Si"
                                     : "No"; ?></td>
                                 <td class=" text-center align-middle">

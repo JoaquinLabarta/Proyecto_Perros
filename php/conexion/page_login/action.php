@@ -20,10 +20,8 @@ $validationQuery = "
         R.RolId AS Rol
     FROM
         Usuarios U
-    LEFT JOIN RolesUsuarios RU ON
-        U.UsuarioId = RU.UsuarioId
     LEFT JOIN Roles R ON
-        RU.RolId = R.RolId
+        U.Rol = R.RolId
     WHERE
         U.Usuario = :username
 ";

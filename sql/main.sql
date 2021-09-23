@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS Usuarios(
     Email VARCHAR(255) NOT NULL,
     Clave VARCHAR(255) NOT NULL,
     Activo BOOLEAN NOT NULL,
+    Rol INT NOT NULL,
     PRIMARY KEY(UsuarioId)
 ) ENGINE = INNODB; 
 
@@ -51,15 +52,6 @@ CREATE TABLE Roles(
     PRIMARY KEY(RolId)
 ) ENGINE = INNODB; 
 
-CREATE TABLE RolesUsuarios(
-    RolUsuarioId INT NOT NULL AUTO_INCREMENT,
-    RolId INT NOT NULL,
-    UsuarioId INT NOT NULL,
-    PRIMARY KEY(RolUsuarioId),
-    FOREIGN KEY(RolId) REFERENCES Roles(RolId),
-    FOREIGN KEY(UsuarioId) REFERENCES Usuarios(UsuarioId)
-) ENGINE = INNODB; 
-
 INSERT INTO Roles(Rol)
 VALUES("Administrador"),("Tatuador");
 
@@ -70,7 +62,8 @@ INSERT INTO Usuarios(
     Nacimiento,
     Email,
     Clave,
-    Activo
+    Activo,
+    Rol
 )
 VALUES(
     "admin",
@@ -79,12 +72,9 @@ VALUES(
     "2021-08-31",
     "-",
     "$2a$12$L3ApBbryfSZgHLa9lXPOiOFEvep6.On8DJyAKAcZTYHpO23IHnoya",
+    1,
     1
 );
-
-
-INSERT INTO RolesUsuarios(RolId, UsuarioId)
-VALUES(1, 1);
 
 INSERT INTO Propietarios(
     DNI,

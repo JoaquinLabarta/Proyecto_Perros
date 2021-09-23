@@ -9,11 +9,10 @@ $apellido = $_POST["apellido"];
 $nacimiento = $_POST["nacimiento"];
 $email = $_POST["email"];
 $clave = password_hash($_POST["clave"], PASSWORD_DEFAULT);
+$rol = $_POST["rol"];
 
 /* Query para checkear si el email ya esta registrado en la base de datos */
-$sql = $pdo->prepare(
-    "SELECT Usuario FROM Usuarios WHERE Usuario = :usuario OR Email = :email"
-);
+$sql = $pdo->prepare("SELECT Usuario FROM Usuarios WHERE Usuario = :usuario OR Email = :email");
 $sql->execute(["usuario" => $usuario, "email" => $email]);
 $checkResult = $sql->fetchAll();
 
@@ -26,9 +25,9 @@ if (count($checkResult) > 0) {
     throw new Error();
 } else {
     /* Query para insertar un nuevo registro de usuario en la base de datos. */
-    $query = "INSERT INTO Usuarios 
-    (Usuario, Nombre, Apellido, Nacimiento, Email, Clave, Administrador, Activo)
-    VALUES (:usuario, :nombre, :apellido, :nacimiento, :email, :clave, :administrador, :activo)";
+    $query =
+        "INSERT INTO Usuarios (Usuario, Nombre, Apellido, Nacimiento, Email, Clave, Activo, Rol) " .
+        "VALUES (:usuario, :nombre, :apellido, :nacimiento, :email, :clave, :activo, :rol)";
 
     /**
      * Se prepara la sentencia SQL y se le adieren los parametros para luego ejecutarla.
@@ -41,8 +40,8 @@ if (count($checkResult) > 0) {
         "nacimiento" => $nacimiento,
         "email" => $email,
         "clave" => $clave,
-        "administrador" => 0,
         "activo" => 1,
+        "rol" => $rol != null ? $rol : 2
     ];
 
     try {
