@@ -142,25 +142,16 @@ $carpeta_actual = basename(getcwd());
                                     "TatooId"
                                 ]; ?>" />
                                 </td>
-                                <td class="text-center align-middle"><?php echo $perro[
-                                    "TatooId"
-                                ]; ?></td>
-                                <td class="text-center align-middle"><?php echo $perro[
-                                    "Apodo"
-                                ]; ?></td>
-                                <td class="text-center align-middle"><?php echo $perro[
-                                    "Raza"
-                                ]; ?></td>
+                                <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
+                                <td class="text-center align-middle"><?php echo $perro["Raza"]; ?></td>
                                 <td class="text-center align-middle">
                                     <?php echo $perro["NombrePropietario"]; ?>
                                 </td>
                                 <td class="text-center align-middle"><button class="btn btn-link" onclick='verObservacion(<?php echo json_encode(
                                     $perro
                                 ); ?>)'>Click para ver</button></td>
-                                <?php if (
-                                    $_SESSION["Rol"] == 1 ||
-                                    $_SESSION["Rol"] == 2
-                                ): ?>
+                                <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == 2): ?>
                                     <td class=" text-center align-middle">
                                         <button class="btn border" style="color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
                                             $perro
