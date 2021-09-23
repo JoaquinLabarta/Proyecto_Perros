@@ -26,19 +26,19 @@
                     <!--Codigo de tatuaje-->
                     <div class="mb-3">
                         <label for="tatuaje" class="form-label required-field">Codigo de tatuaje</label>
-                        <input type="text" class="form-control" id="tatooId" name="tatooId" placeholder="AABB1122" required>
-                        <div class="invalid-feedback">Debe agregar un codigo de tatuaje</div>
+                        <input type="text" class="form-control" id="tatooId" name="tatooId" placeholder="A001" required>
+                        <div class="invalid-feedback">Inserte un codigo de tatuaje</div>
                     </div>
                     <!--Apodo-->
                     <div class="mb-3">
                         <label for="apodo" class="form-label required-field">Apodo</label>
-                        <input type="text" class="form-control" id="apodo" name="apodo" placeholder="Cliford" required>
+                        <input type="text" class="form-control" id="apodo" name="apodo" placeholder="Pirito" required>
                         <div class="invalid-feedback">Inserte el apodo del perro</div>
                     </div>
                     <!--Raza-->
                     <div class="mb-3">
                         <label for="raza" class="form-label required-field">Raza</label>
-                        <input type="text" class="form-control" id="raza" name="raza" placeholder="Caniche" required>
+                        <input type="text" class="form-control" id="raza" name="raza" placeholder="Labrador" required>
                         <div class="invalid-feedback">Inserte la raza del perro</div>
                     </div>
                     <!--Castracion-->
@@ -54,7 +54,7 @@
                     </div>
                     <!--Observacion-->
                     <div class="mb-3">
-                        <label for="observacion" class="form-label">Observacion</label>
+                        <label for="observacion" class="form-label">Datos y Observaciones</label>
                         <textarea class="form-control" id="observacion" name="observacion" rows="3" placeholder="Aqui puede agregar datos del perro como sus vacunas, donde fue encontrado, etc..."></textarea>
                     </div>
                     <!--Propietario-->
@@ -99,39 +99,39 @@
                     <!--Usuario-->
                     <div class="mb-3">
                         <label for="usuario" class="form-label required-field">Usuario</label>
-                        <input type="text" class="form-control" id="usuario" placeholder="Bromatologia" required>
-                        <div class="invalid-feedback">Debe ingresar su usuario</div>
+                        <input type="text" class="form-control" id="usuario" placeholder="BromotologiaSaladillo" required>
+                        <div class="invalid-feedback">Inserte un nombre de usuario</div>
+                        <span class="form-text text-muted">Este sera el usuario el cual le permitira ingresar al sistema</span>
                     </div>
                     <!--Nombre-->
                     <div class="mb-3">
                         <label for="nombre" class="form-label required-field">Nombre</label>
-                        <input type="text" class="form-control" id="nombreUsuario" placeholder="Juan" required>
-                        <div class="invalid-feedback">Debe ingresar su nombre</div>
+                        <input type="text" class="form-control" id="nombreUsuario" placeholder="Mariano" required>
+                        <div class="invalid-feedback">Ingrese su nombre</div>
                     </div>
                     <!--Apellido-->
                     <div class="mb-3">
                         <label for="apellido" class="form-label required-field">Apellido</label>
-                        <input type="text" class="form-control" id="apellidoUsuario" placeholder="Perez" required>
-                        <div class="invalid-feedback">Debe ingresar su apellido</div>
+                        <input type="text" class="form-control" id="apellidoUsuario" placeholder="Carrizo" required>
+                        <div class="invalid-feedback">Ingrese su apellido</div>
                     </div>
                     <!--Nacimiento-->
                     <div class="mb-3">
                         <label for="nacimiento" class="form-label required-field">Fecha de nacimiento</label>
                         <input type="date" class="form-control" id="nacimientoUsuario" required>
-                        <div class="invalid-feedback">Debe ingresar su fecha de nacimiento</div>
+                        <div class="invalid-feedback">Ingrese su fecha de nacimiento</div>
                     </div>
                     <!--Email-->
                     <div class="mb-3">
                         <label for="email" class="form-label required-field">Email</label>
-                        <input type="email" class="form-control" id="emailUsuario" placeholder="juanperez@gmail.com" required>
+                        <input type="email" class="form-control" id="emailUsuario" placeholder="carrizomariano@gmail.com" required>
                         <div class="invalid-feedback">Ingrese su email correctamente</div>
                     </div>
                     <!--Clave-->
                     <div class="mb-3">
-                        <label for="clave" class="form-label required-field">Clave</label>
-                        <input type="password" class="form-control" id="claveUsuario" placeholder="bromatologia123" required>
-                        <span class="form-text text-muted">Su clave debe tener una longitud minima de 8 caracteres y contener numeros y letras</span>
-                        <div class="invalid-feedback">Clave invalida</div>
+                        <label for="clave" class="form-label required-field">Contraseña</label>
+                        <input type="password" class="form-control" id="claveUsuario" placeholder="bromasaladillo123" required>
+                        <div class="invalid-feedback">Ingrese una contraseña</div>
                     </div>
                 </div>
 
@@ -158,26 +158,26 @@
                     <!--DNI-->
                     <div class="mb-3">
                         <label for="dni" class="form-label required-field">DNI</label>
-                        <input type="number" class="form-control" id="dni" placeholder="23.123.323" required>
+                        <input type="number" class="form-control" id="dni" placeholder="22333444" required>
                         <span class="form-text text-muted">Ingrese su DNI, sin utilizar puntos, comas o espacios</span>
                         <div class="invalid-feedback">Ingrese su DNI correctamente</div>
                     </div>
                     <!--Nombre-->
                     <div class="mb-3">
                         <label for="nombre" class="form-label required-field">Nombre</label>
-                        <input type="text" class="form-control" id="nombrePropietario" placeholder="Juan" required>
+                        <input type="text" class="form-control" id="nombrePropietario" placeholder="Raul" required>
                         <div class="invalid-feedback">Ingrese su nombre</div>
                     </div>
                     <!--Apellido-->
                     <div class="mb-3">
                         <label for="apellido" class="form-label required-field">Apellido</label>
-                        <input type="text" class="form-control" id="apellidoPropietario" placeholder="Perez" required>
+                        <input type="text" class="form-control" id="apellidoPropietario" placeholder="Sosa" required>
                         <div class="invalid-feedback">Ingrese su apellido</div>
                     </div>
                     <!--Email-->
                     <div class="mb-3">
                         <label for="email" class="form-label"> Direccion de email</label>
-                        <input type="email" class="form-control" id="emailPropietario" placeholder="juanperez@gmail.com">
+                        <input type="email" class="form-control" id="emailPropietario" placeholder="sosaraul@gmail.com">
                     </div>
                     <!--telefono-->
                     <div class="mb-3">
@@ -188,7 +188,7 @@
                     <!--Direccion-->
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Direccion</label>
-                        <input type="text" class="form-control" id="direccion" placeholder="Moreno 2500">
+                        <input type="text" class="form-control" id="direccion" placeholder="Belgrano 3125">
                     </div>
                 </div>
 
@@ -309,19 +309,19 @@
                     <div class="mb-3">
                         <label for="tatuaje" class="form-label">Codigo de tatuaje</label>
                         <input type="text" class="form-control" id="editarTatooId" name="editarTatooId" placeholder="AABB1122" required>
-                        <div class="invalid-feedback">Debe agregar un codigo de tatuaje</div>
+                        <div class="invalid-feedback">El perro debe tener un codigo de tatuaje</div>
                     </div>
                     <!--Apodo-->
                     <div class="mb-3">
                         <label for="apodo" class="form-label">Apodo</label>
                         <input type="text" class="form-control" id="editarApodo" name="editarApodo" placeholder="Cliford" required>
-                        <div class="invalid-feedback">Inserte un apodo para el perro</div>
+                        <div class="invalid-feedback">El perro debe tener un apodo</div>
                     </div>
                     <!--Raza-->
                     <div class="mb-3">
                         <label for="raza" class="form-label">Raza</label>
                         <input type="text" class="form-control" id="editarRaza" name="editarRaza" placeholder="Caniche">
-                        <div class="invalid-feedback">Inserte la raza del perro</div>
+                        <div class="invalid-feedback">Debe ingresar la raza del perro</div>
                     </div>
                     <!--Castracion-->
                     <div class="mb-3">
@@ -332,7 +332,7 @@
                     <div class="mb-3">
                         <label for="adopcion" class="form-label">Fecha de adopcion</label>
                         <input type="date" class="form-control" id="editarAdopcion" name="editarAdopcion" required>
-                        <div class="invalid-feedback">Inserte la fecha de adopcion del perro</div>
+                        <div class="invalid-feedback">Debe ingresar la fecha de adopcion del perro</div>
                     </div>
                     <!--Observacion-->
                     <div class="mb-3">
@@ -381,22 +381,22 @@
                     <!--DNI-->
                     <div class="mb-3">
                         <label for="dni" class="form-label required-field">DNI</label>
-                        <input type="number" class="form-control" id="editarDni" placeholder="23.123.323" required>
+                        <input type="number" class="form-control" id="editarDni" placeholder="22333444" required>
                     </div>
                     <!--Nombre-->
                     <div class="mb-3">
                         <label for="nombre" class="form-label required-field">Nombre</label>
-                        <input type="text" class="form-control" id="editarNombrePropietario" placeholder="Juan" required>
+                        <input type="text" class="form-control" id="editarNombrePropietario" placeholder="Raul" required>
                     </div>
                     <!--Apellido-->
                     <div class="mb-3">
                         <label for="apellido" class="form-label required-field">Apellido</label>
-                        <input type="text" class="form-control" id="editarApellidoPropietario" placeholder="Perez" required>
+                        <input type="text" class="form-control" id="editarApellidoPropietario" placeholder="Sosa" required>
                     </div>
                     <!--Email-->
                     <div class="mb-3">
                         <label for="email" class="form-label"> Direccion de email</label>
-                        <input type="email" class="form-control" id="editarEmailPropietario" placeholder="juanperez@gmail.com">
+                        <input type="email" class="form-control" id="editarEmailPropietario" placeholder="sosaraul@gmail.com">
                     </div>
                     <!--telefono-->
                     <div class="mb-3">
@@ -406,7 +406,7 @@
                     <!--Direccion-->
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Direccion</label>
-                        <input type="text" class="form-control" id="editarDireccion" placeholder="Moreno 2500">
+                        <input type="text" class="form-control" id="editarDireccion" placeholder="Belgrano 3125">
                     </div>
                 </div>
 

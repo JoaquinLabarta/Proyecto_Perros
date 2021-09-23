@@ -125,7 +125,10 @@ $carpeta_actual = basename(getcwd());
                         <th class="text-center">Raza</th>
                         <th class="text-center">Propietario</th>
                         <th class="text-center">Informacion</th>
-                        <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == 2): ?>
+                        <?php if (
+                            $_SESSION["Rol"] == 1 ||
+                            $_SESSION["Rol"] == 2
+                        ): ?>
                             <th class="text-center">Acciones</th>
                         <?php endif; ?>
                     </thead>
@@ -135,7 +138,9 @@ $carpeta_actual = basename(getcwd());
                                 <td class="text-center align-middle">
                                     <img class="img-thumbnail" src="<?php echo $perro[
                                         "FotoUrl"
-                                    ]; ?>" alt="Foto" width="48" id="foto-<?php echo $perro["TatooId"]; ?>" >
+                                    ]; ?>" alt="Foto" width="48" id="foto-<?php echo $perro[
+                                    "TatooId"
+                                ]; ?>" />
                                 </td>
                                 <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
@@ -154,7 +159,7 @@ $carpeta_actual = basename(getcwd());
                                             <i class="far fa-edit"></i>
                                         </button>
                                     <?php endif; ?>
-                                    <?php if ($_SESSION["Rol"] == 1): ?>
+                                    <?php if ($_SESSION["Rol"] == 1 ): ?>
                                         <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
                                             "PerroId"
                                         ]; ?>)">
