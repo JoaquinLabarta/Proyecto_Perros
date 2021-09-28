@@ -104,10 +104,9 @@ $carpeta_actual = basename(getcwd());
 <body>
     <?php include_once "../componentes/header.php"; ?>
     <div class="container">
-        <div class="row mt-3">
-            <div class="col">
-                <input class="form-control" id="inputBuscarPropietarios" type="search" placeholder="Buscar Propietarios por Nombre, Apellido, etc...">
-            </div>
+        <h2 class="my-3">Propietarios</h2>
+        <div class="col mt-3">
+            <input class="form-control" id="inputBuscarPropietarios" type="search" placeholder="Escriba para buscar propietarios...">
         </div>
 
         <div class="row">
@@ -122,16 +121,19 @@ $carpeta_actual = basename(getcwd());
                         <th class="text-center">Acciones</th>
                     </thead>
                     <tbody>
-                        <?php
-                        include "../../conexion/get_propietarios.php";
-                        foreach ($propietarios as $propietario): ?>
+                        <?php include "../../conexion/get_propietarios.php"; ?>
+                        <?php foreach ($propietarios as $propietario): ?>
                             <tr>
                                 <td class="text-center align-middle"><?php echo $propietario["DNI"]; ?></td>
+
                                 <td class="text-center align-middle"><?php echo $propietario["Nombre"] .
                                     " " .
                                     $propietario["Apellido"]; ?></td>
+
                                 <td class="text-center align-middle"><?php echo $propietario["Email"]; ?></td>
+
                                 <td class="text-center align-middle"><?php echo $propietario["Telefono"]; ?></td>
+
                                 <td class="text-center align-middle"><?php echo $propietario["Direccion"]; ?></td>
                                 <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == 2): ?>
                                     <td class=" text-center align-middle">
@@ -140,17 +142,17 @@ $carpeta_actual = basename(getcwd());
                                         ); ?>)'>
                                             <i class="far fa-edit"></i>
                                         </button>
-                                    <?php endif; ?>
-                                    <?php if ($_SESSION["Rol"] == 1): ?>
-                                        <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPropietario(<?php echo $propietario[
-                                            "PropietarioId"
-                                        ]; ?>)">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    <?php endif; ?>
+                                        <?php if ($_SESSION["Rol"] == 1): ?>
+                                            <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPropietario(<?php echo $propietario[
+                                                "PropietarioId"
+                                            ]; ?>)">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        <?php endif; ?>
+                                    </td>
+                                <?php endif; ?>
                             </tr>
-                        <?php endforeach;
-                        ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

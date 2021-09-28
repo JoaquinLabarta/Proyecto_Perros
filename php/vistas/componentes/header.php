@@ -59,7 +59,7 @@
             <?php endif; ?>
             <?php if ($_SESSION["Rol"] == 1) : ?>
                 <?php if ($carpeta_actual !== "page_principal") : ?>
-                    <a class='btn btn-white border' title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_principal">
+                    <a class='btn btn-white border' title="Perros" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_principal">
                         <i class="fas fa-home"></i>
                     </a>
                 <?php endif; ?>
