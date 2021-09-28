@@ -98,7 +98,7 @@ $carpeta_actual = basename(getcwd());
         }
     </style>
 
-    <title>Inicio | Bromatologia</title>
+    <title>Propietarios | Bromatologia</title>
 </head>
 
 <body>
