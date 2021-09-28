@@ -110,13 +110,12 @@ $carpeta_actual = basename(getcwd());
 <body>
     <?php include_once "../componentes/header.php"; ?>
     <div class="container">
-        <div class="row mt-3">
-            <div class="col">
-                <input class="form-control" id="inputBuscarPerro" type="text" placeholder="Buscar Perros por Codigo, Apodo, Raza, etc...">
-            </div>
+        <h2 class="my-3">Perros</h2>
+        <div class="col my-3">
+            <input class="form-control" id="inputBuscarPerro" type="text" placeholder="Escriba para buscar perros...">
         </div>
         <div class="row">
-            <div class="col-lg-12 table-responsive"><br>
+            <div class="col-lg-12 table-responsive">
                 <table id="perros" class="table table-hover table-bordered">
                     <thead>
                         <th class="text-center">Foto</th>
@@ -125,10 +124,7 @@ $carpeta_actual = basename(getcwd());
                         <th class="text-center">Raza</th>
                         <th class="text-center">Propietario</th>
                         <th class="text-center">Informacion</th>
-                        <?php if (
-                            $_SESSION["Rol"] == 1 ||
-                            $_SESSION["Rol"] == 2
-                        ): ?>
+                        <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == 2): ?>
                             <th class="text-center">Acciones</th>
                         <?php endif; ?>
                     </thead>
@@ -138,9 +134,7 @@ $carpeta_actual = basename(getcwd());
                                 <td class="text-center align-middle">
                                     <img class="img-thumbnail" src="<?php echo $perro[
                                         "FotoUrl"
-                                    ]; ?>" alt="Foto" width="48" id="foto-<?php echo $perro[
-                                    "TatooId"
-                                ]; ?>" />
+                                    ]; ?>" alt="Foto" width="48" id="foto-<?php echo $perro["TatooId"]; ?>" />
                                 </td>
                                 <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
@@ -152,19 +146,19 @@ $carpeta_actual = basename(getcwd());
                                     $perro
                                 ); ?>)'>Click para ver</button></td>
                                 <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == 2): ?>
-                                    <td class=" text-center align-middle">
+                                    <td class="text-center align-middle">
                                         <button class="btn border" style="color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
                                             $perro
                                         ); ?>)'>
                                             <i class="far fa-edit"></i>
                                         </button>
-                                    <?php endif; ?>
-                                    <?php if ($_SESSION["Rol"] == 1 ): ?>
-                                        <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
-                                            "PerroId"
-                                        ]; ?>)">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
+                                        <?php if ($_SESSION["Rol"] == 1): ?>
+                                            <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
+                                                "PerroId"
+                                            ]; ?>)">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        <?php endif; ?>
                                     </td>
                                 <?php endif; ?>
                             </tr>
