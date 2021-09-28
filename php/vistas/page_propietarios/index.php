@@ -1,8 +1,7 @@
 <?php
-include_once "../../conexion/get_perros.php";
 session_start();
 
-if (!isset($_SESSION["Rol"])) {
+if (!isset($_SESSION["Rol"]) || $_SESSION["Rol"] != 1) {
     header("Location: /proyecto-perros");
 }
 
@@ -15,12 +14,10 @@ $carpeta_actual = basename(getcwd());
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8">
 
+
     <link rel="icon" href="/proyecto-perros/recursos/logo.png">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-
-    <link href="/proyecto-perros/css/page_principal/styles.css" rel="stylesheet">
-
     <style>
         .dataTables_filter,
         .dataTables_info {
@@ -30,10 +27,6 @@ $carpeta_actual = basename(getcwd());
         .btn-primary {
             background-color: #649fa5;
             border-color: #649fa5;
-        }
-
-        .btn-link {
-            text-decoration: none;
         }
 
         .btn-primary:hover,
@@ -104,57 +97,54 @@ $carpeta_actual = basename(getcwd());
             padding-top: .75em;
         }
     </style>
-    <title>Perros | Bromatologia</title>
+
+    <title>Propietarios | Bromatologia</title>
 </head>
 
 <body>
     <?php include_once "../componentes/header.php"; ?>
     <div class="container">
-        <h2 class="my-3">Perros</h2>
-        <div class="col my-3">
-            <input class="form-control" id="inputBuscarPerro" type="text" placeholder="Escriba para buscar perros...">
+        <h2 class="my-3">Propietarios</h2>
+        <div class="col mt-3">
+            <input class="form-control" id="inputBuscarPropietarios" type="search" placeholder="Escriba para buscar propietarios...">
         </div>
+
         <div class="row">
-            <div class="col-lg-12 table-responsive">
-                <table id="perros" class="table table-hover table-bordered">
+            <div class="col-lg-12 table-responsive"><br>
+                <table id="propietarios" class="table table-hover table-bordered ">
                     <thead>
-                        <th class="text-center">Foto</th>
-                        <th class="text-center">Codigo</th>
-                        <th class="text-center">Apodo</th>
-                        <th class="text-center">Raza</th>
-                        <th class="text-center">Propietario</th>
-                        <th class="text-center">Informacion</th>
-                        <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == 2): ?>
-                            <th class="text-center">Acciones</th>
-                        <?php endif; ?>
+                        <th class="text-center">DNI</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Telefono</th>
+                        <th class="text-center">Direccion</th>
+                        <th class="text-center">Acciones</th>
                     </thead>
                     <tbody>
-                        <?php foreach ($perros as $perro): ?>
+                        <?php include "../../conexion/get_propietarios.php"; ?>
+                        <?php foreach ($propietarios as $propietario): ?>
                             <tr>
-                                <td class="text-center align-middle">
-                                    <img class="img-thumbnail" src="<?php echo $perro[
-                                        "FotoUrl"
-                                    ]; ?>" alt="Foto" width="48" id="foto-<?php echo $perro["TatooId"]; ?>" />
-                                </td>
-                                <td class="text-center align-middle"><?php echo $perro["TatooId"]; ?></td>
-                                <td class="text-center align-middle"><?php echo $perro["Apodo"]; ?></td>
-                                <td class="text-center align-middle"><?php echo $perro["Raza"]; ?></td>
-                                <td class="text-center align-middle">
-                                    <?php echo $perro["NombrePropietario"]; ?>
-                                </td>
-                                <td class="text-center align-middle"><button class="btn btn-link" onclick='verObservacion(<?php echo json_encode(
-                                    $perro
-                                ); ?>)'>Click para ver</button></td>
+                                <td class="text-center align-middle"><?php echo $propietario["DNI"]; ?></td>
+
+                                <td class="text-center align-middle"><?php echo $propietario["Nombre"] .
+                                    " " .
+                                    $propietario["Apellido"]; ?></td>
+
+                                <td class="text-center align-middle"><?php echo $propietario["Email"]; ?></td>
+
+                                <td class="text-center align-middle"><?php echo $propietario["Telefono"]; ?></td>
+
+                                <td class="text-center align-middle"><?php echo $propietario["Direccion"]; ?></td>
                                 <?php if ($_SESSION["Rol"] == 1 || $_SESSION["Rol"] == 2): ?>
-                                    <td class="text-center align-middle">
-                                        <button class="btn border" style="color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPerro(<?php echo json_encode(
-                                            $perro
+                                    <td class=" text-center align-middle">
+                                        <button class="btn border" style="color:green" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onclick='editarPropietario(<?php echo json_encode(
+                                            $propietario
                                         ); ?>)'>
                                             <i class="far fa-edit"></i>
                                         </button>
                                         <?php if ($_SESSION["Rol"] == 1): ?>
-                                            <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPerro(<?php echo $perro[
-                                                "PerroId"
+                                            <button class="btn border" style="color:red" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" onclick="eliminarPropietario(<?php echo $propietario[
+                                                "PropietarioId"
                                             ]; ?>)">
                                                 <i class="far fa-trash-alt"></i>
                                             </button>
@@ -168,16 +158,16 @@ $carpeta_actual = basename(getcwd());
             </div>
         </div>
     </div>
-    <br>
 </body>
 
-<?php include_once "../componentes/modals.php"; ?>
-
+<!--LINK: https://cdn.datatables.net/-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/de1cdf12c2.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="/proyecto-perros/js/page_principal/scripts.js" type="module"></script>
+<script src="/proyecto-perros/js/page_propietarios/scripts.js" type="module"></script>
 <script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
+
+<?php include_once "../componentes/modals.php"; ?>
 
 </html>

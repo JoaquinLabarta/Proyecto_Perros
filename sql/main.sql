@@ -1,82 +1,77 @@
 DROP DATABASE IF EXISTS bromatologia;
 CREATE DATABASE IF NOT EXISTS bromatologia;
 
-CREATE TABLE IF NOT EXISTS Usuarios (
-  UsuarioID INT NOT NULL AUTO_INCREMENT,
-  Usuario VARCHAR(64) NOT NULL,
-  Nombre VARCHAR(255) NOT NULL,
-  Apellido VARCHAR(255) NOT NULL,
-  Nacimiento DATE NOT NULL,
-  Email VARCHAR(255) NOT NULL,
-  Clave VARCHAR(255) NOT NULL,
-  Administrador BOOLEAN NOT NULL,
-  Activo BOOLEAN NOT NULL,
-  PRIMARY KEY (UsuarioID)
-) ENGINE=INNODB;
+CREATE TABLE IF NOT EXISTS Usuarios(
+    UsuarioId INT NOT NULL AUTO_INCREMENT,
+    Usuario VARCHAR(64) NOT NULL,
+    Nombre VARCHAR(255) NOT NULL,
+    Apellido VARCHAR(255) NOT NULL,
+    Nacimiento DATE NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Clave VARCHAR(255) NOT NULL,
+    Activo BOOLEAN NOT NULL,
+    Rol INT NOT NULL,
+    PRIMARY KEY(UsuarioId)
+) ENGINE = INNODB; 
 
-CREATE TABLE IF NOT EXISTS Propietarios (
-  PropietarioID INT NOT NULL AUTO_INCREMENT,
-  DNI INT NOT NULL,
-  Nombre VARCHAR(255) NOT NULL,
-  Apellido VARCHAR(255) NOT NULL,
-  Email VARCHAR(255),
-  Telefono VARCHAR(255),
-  Direccion VARCHAR(255),
-  PRIMARY KEY (PropietarioID)
-) ENGINE=INNODB;
+CREATE TABLE IF NOT EXISTS Propietarios(
+    PropietarioId INT NOT NULL AUTO_INCREMENT,
+    DNI INT NOT NULL,
+    Nombre VARCHAR(255) NOT NULL,
+    Apellido VARCHAR(255) NOT NULL,
+    Email VARCHAR(255),
+    Telefono VARCHAR(255),
+    Direccion VARCHAR(255),
+    PRIMARY KEY(PropietarioId)
+) ENGINE = INNODB; 
 
-CREATE TABLE IF NOT EXISTS Perros (
-  PerroID INT NOT NULL AUTO_INCREMENT,
-  TatooID INT NOT NULL,
-  Apodo VARCHAR(255),
-  Raza VARCHAR(255),
-  Castracion DATE,
-  Adopcion DATE NOT NULL,
-  Observacion VARCHAR(255),
-  PropietarioID INT,
-  PRIMARY KEY (PerroID),
-  FOREIGN KEY (PropietarioID) REFERENCES Propietarios(PropietarioID)
-) ENGINE=INNODB;
+CREATE TABLE IF NOT EXISTS Perros(
+    PerroId INT NOT NULL AUTO_INCREMENT,
+    TatooId VARCHAR(255) NOT NULL,
+    FotoUrl VARCHAR(255),
+    Apodo VARCHAR(255),
+    Raza VARCHAR(255),
+    Castracion DATE,
+    Adopcion DATE NOT NULL,
+    Observacion VARCHAR(255),
+    PRIMARY KEY(PerroId)
+) ENGINE = INNODB;
 
-CREATE TABLE IF NOT EXISTS Vacunas (
-  VacunaID INT NOT NULL AUTO_INCREMENT,
-  Nombre VARCHAR(255),
-  PRIMARY KEY (VacunaID)
-) ENGINE=INNODB;
+CREATE TABLE IF NOT EXISTS PropietariosPerros(
+    PropietarioPerroId INT NOT NULL AUTO_INCREMENT,
+    PropietarioId INT NOT NULL,
+    PerroId INT NOT NULL,
+    PRIMARY KEY(PropietarioPerroId),
+    FOREIGN KEY(PropietarioId) REFERENCES Propietarios(PropietarioId),
+    FOREIGN KEY(PerroId) REFERENCES Perros(PerroId)
+) ENGINE = INNODB; 
 
-CREATE TABLE IF NOT EXISTS FotosPerros (
-  FotoID INT NOT NULL AUTO_INCREMENT,
-  url VARCHAR(255) NOT NULL,
-  PerroID INT NOT NULL,
-  PRIMARY KEY (FotoID),
-  FOREIGN KEY (PerroID) REFERENCES Perros(PerroID)
-) ENGINE=INNODB;
+CREATE TABLE Roles(
+    RolId INT NOT NULL AUTO_INCREMENT,
+    Rol VARCHAR(255) NOT NULL,
+    PRIMARY KEY(RolId)
+) ENGINE = INNODB; 
 
-CREATE TABLE IF NOT EXISTS VacunasPerros (
-  VacunasPerrosID INT NOT NULL AUTO_INCREMENT,
-  VacunaID INT NOT NULL,
-  PerroID INT NOT NULL,
-  PRIMARY KEY (VacunasPerrosID),
-  FOREIGN KEY (VacunaID) REFERENCES Vacunas(VacunaID),
-  FOREIGN KEY (PerroID) REFERENCES Perros(PerroID)
-) ENGINE=INNODB;
+INSERT INTO Roles(Rol)
+VALUES("Administrador"),("Tatuador");
 
-INSERT INTO Usuarios (
-  Usuario, 
-  Nombre, 
-  Apellido,
-  Nacimiento, 
-  Email, 
-  Clave,
-  Administrador,
-  Activo
-) VALUES (
-  "administrador",
-  "Gabriel Dario",
-  "Briones Dos Santos",
-  "2002-11-03",
-  "brionesgabriel@hotmail.com",
-  "$2a$04$IZTtQfshyTnu8I0qOvzxv.0vJ/F..NBAfLtaWtIcp.FZT0H1qA.eO",
-  1,
-  1
+INSERT INTO Usuarios(
+    Usuario,
+    Nombre,
+    Apellido,
+    Nacimiento,
+    Email,
+    Clave,
+    Activo,
+    Rol
+)
+VALUES(
+    "BromatologiaSaladillo",
+    "Bromatologia",
+    "Saladillo",
+    "2021-09-23",
+    "-",
+    "$2a$12$ZF23CpD6UhclIfa.aXiAtuGi5FaQ3UO4qO4ERDwipm3FPWzcw2qVy",
+    1,
+    1
 );
