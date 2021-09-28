@@ -105,10 +105,9 @@ $carpeta_actual = basename(getcwd());
     <?php include_once "../componentes/header.php"; ?>
 
     <div class="container">
-        <div class="row mt-3">
-            <div class="col">
-                <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Buscar Usuario por Nombre, Apellido, etc...">
-            </div>
+        <h2 class="my-3">Usuarios</h2>
+        <div class="col mt-3">
+            <input class="form-control" id="inputBuscarUsuarios" type="search" placeholder="Escriba para buscar usuarios...">
         </div>
 
         <div class="row">
@@ -122,9 +121,8 @@ $carpeta_actual = basename(getcwd());
                         <th class="text-center">Acciones</th>
                     </thead>
                     <tbody>
-                        <?php
-                        include "../../conexion/get_users.php";
-                        foreach ($usuarios as $usuario): ?>
+                        <?php include "../../conexion/get_users.php"; ?>
+                        <?php foreach ($usuarios as $usuario): ?>
                             <tr>
                                 <td class="text-center align-middle"><?php echo $usuario["Usuario"]; ?></td>
                                 <td class="text-center align-middle"><?php echo $usuario["Nombre"] .
@@ -144,8 +142,7 @@ $carpeta_actual = basename(getcwd());
                                     </button>
                                 </td>
                             </tr>
-                        <?php endforeach;
-                        ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
