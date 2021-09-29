@@ -1,6 +1,12 @@
 DROP DATABASE IF EXISTS bromatologia;
 CREATE DATABASE IF NOT EXISTS bromatologia;
 
+CREATE TABLE Roles(
+    RolId INT NOT NULL AUTO_INCREMENT,
+    Rol VARCHAR(255) NOT NULL,
+    PRIMARY KEY(RolId)
+) ENGINE = INNODB; 
+
 CREATE TABLE IF NOT EXISTS Usuarios(
     UsuarioId INT NOT NULL AUTO_INCREMENT,
     Usuario VARCHAR(64) NOT NULL,
@@ -10,8 +16,9 @@ CREATE TABLE IF NOT EXISTS Usuarios(
     Email VARCHAR(255) NOT NULL,
     Clave VARCHAR(255) NOT NULL,
     Activo BOOLEAN NOT NULL,
-    Rol INT NOT NULL,
-    PRIMARY KEY(UsuarioId)
+    RolId INT NOT NULL,
+    PRIMARY KEY(UsuarioId),
+    FOREIGN KEY(RolId) REFERENCES Roles(RolId)
 ) ENGINE = INNODB; 
 
 CREATE TABLE IF NOT EXISTS Propietarios(
@@ -46,12 +53,6 @@ CREATE TABLE IF NOT EXISTS PropietariosPerros(
     FOREIGN KEY(PerroId) REFERENCES Perros(PerroId)
 ) ENGINE = INNODB; 
 
-CREATE TABLE Roles(
-    RolId INT NOT NULL AUTO_INCREMENT,
-    Rol VARCHAR(255) NOT NULL,
-    PRIMARY KEY(RolId)
-) ENGINE = INNODB; 
-
 INSERT INTO Roles(Rol)
 VALUES("Administrador"),("Tatuador");
 
@@ -63,7 +64,7 @@ INSERT INTO Usuarios(
     Email,
     Clave,
     Activo,
-    Rol
+    RolId
 )
 VALUES(
     "BromatologiaSaladillo",
