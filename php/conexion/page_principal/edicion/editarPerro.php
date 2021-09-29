@@ -20,6 +20,7 @@ $params = [
     "castracion" => $castracion ? $castracion : null,
     "adopcion" => $adopcion,
     "observacion" => $observacion,
+    "propietarioId" => $propietarioId != 0 ? $propietarioId : null
 ];
 
 /* Query para actualizar un perro en la base de datos. */
@@ -29,7 +30,8 @@ $query = "UPDATE Perros
     Raza = :raza,
     Castracion = :castracion,
     Adopcion = :adopcion,
-    Observacion = :observacion";
+    Observacion = :observacion,
+    PropietarioId = :propietarioId";
 
 // Se guarda la foto de forma local
 if (isset($_FILES["editarFoto"]) && $_FILES["editarFoto"]["tmp_name"]) {
@@ -50,52 +52,6 @@ try {
 } catch (\Throwable $th) {
     echo "Hubo un error al intentar actualizar un perro.";
     echo $th;
-}
-
-if ($propietarioId != 0) {
-    $check =
-        "SELECT PropietarioPerroId FROM PropietariosPerros " .
-        "WHERE PerroId = :perroId";
-
-    $sql = $pdo->prepare($check);
-    $sql->execute(["perroId" => $perroId]);
-    $relacionCheck = $sql->fetchAll();
-
-    $query = "";
-    if (count($relacionCheck) > 0) {
-        // Caso haya propietario y propietarioId no sea 0 se actualiza
-        $query =
-            "UPDATE PropietariosPerros " .
-            "SET PropietarioId = :propietarioId " .
-            "WHERE PerroId = :perroId ";
-    } else {
-        // Caso no haya propietario, se inserta
-        $query =
-            "INSERT INTO PropietariosPerros (PropietarioId, PerroId) " .
-            "VALUES (:propietarioId, :perroId)";
-    }
-
-    $params = [
-        "propietarioId" => $propietarioId,
-        "perroId" => $perroId,
-    ];
-
-    try {
-        $result = $pdo->prepare($query)->execute($params);
-    } catch (\Throwable $th) {
-        echo "Hubo un error al intentar relacionar un propietario con este perro.";
-        echo $th;
-    }
-} else {
-    // Caso propietarioId sea 0, se elimina
-    try {
-        $result = $pdo
-            ->prepare("DELETE FROM PropietariosPerros WHERE perroId = :perroId")
-            ->execute(["perroId" => $perroId]);
-    } catch (\Throwable $th) {
-        echo "Hubo un error al intentar relacionar un propietario con este perro.";
-        echo $th;
-    }
 }
 
 header("Location: /proyecto-perros/");

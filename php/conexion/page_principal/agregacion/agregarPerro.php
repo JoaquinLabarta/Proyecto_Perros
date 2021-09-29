@@ -22,8 +22,8 @@ if (count($checkResult) > 0) {
 } else {
     /* Query para insertar un nuevo registro en la base de datos. */
     $query =
-        "INSERT INTO Perros (TatooId, FotoUrl, Apodo, Raza, Castracion, Adopcion, Observacion) " .
-        "VALUES (:tatooId, :fotoUrl, :apodo, :raza, :castracion, :adopcion, :observacion)";
+        "INSERT INTO Perros (TatooId, FotoUrl, Apodo, Raza, Castracion, Adopcion, Observacion, PropietarioId) " .
+        "VALUES (:tatooId, :fotoUrl, :apodo, :raza, :castracion, :adopcion, :observacion, :propietarioId)";
 
     // Se guarda la foto de forma local
     $target = "";
@@ -44,6 +44,7 @@ if (count($checkResult) > 0) {
         "castracion" => $castracion,
         "adopcion" => $adopcion,
         "observacion" => $observacion,
+        "propietarioId" => $propietarioId != 0 ? $propietarioId : null,
     ];
 
     try {
@@ -51,24 +52,6 @@ if (count($checkResult) > 0) {
     } catch (\Throwable $th) {
         echo "Hubo un error al intentar agregar un perro.";
         echo $th;
-    }
-
-    if ($propietarioId != 0) {
-        $perroId = $pdo->lastInsertId();
-        $query =
-            "INSERT INTO PropietariosPerros (PropietarioId, PerroId) VALUES (:propietarioId, :perroId)";
-
-        $params = [
-            "propietarioId" => $propietarioId,
-            "perroId" => $perroId,
-        ];
-
-        try {
-            $result = $pdo->prepare($query)->execute($params);
-        } catch (\Throwable $th) {
-            echo "Hubo un error al intentar relacionar un propietario con este perro.";
-            echo $th;
-        }
     }
 }
 

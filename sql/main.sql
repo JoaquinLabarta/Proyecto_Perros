@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS Usuarios(
     Email VARCHAR(255) NOT NULL,
     Clave VARCHAR(255) NOT NULL,
     Activo BOOLEAN NOT NULL,
-    RolId INT NOT NULL,
+    RolId INT NULL,
     PRIMARY KEY(UsuarioId),
     FOREIGN KEY(RolId) REFERENCES Roles(RolId)
 ) ENGINE = INNODB; 
@@ -41,17 +41,10 @@ CREATE TABLE IF NOT EXISTS Perros(
     Castracion DATE,
     Adopcion DATE NOT NULL,
     Observacion VARCHAR(255),
-    PRIMARY KEY(PerroId)
+    PropietarioId INT NULL,
+    PRIMARY KEY(PerroId),
+    FOREIGN KEY(PropietarioId) REFERENCES Propietarios(PropietarioId)
 ) ENGINE = INNODB;
-
-CREATE TABLE IF NOT EXISTS PropietariosPerros(
-    PropietarioPerroId INT NOT NULL AUTO_INCREMENT,
-    PropietarioId INT NOT NULL,
-    PerroId INT NOT NULL,
-    PRIMARY KEY(PropietarioPerroId),
-    FOREIGN KEY(PropietarioId) REFERENCES Propietarios(PropietarioId),
-    FOREIGN KEY(PerroId) REFERENCES Perros(PerroId)
-) ENGINE = INNODB; 
 
 INSERT INTO Roles(Rol)
 VALUES("Administrador"),("Tatuador");

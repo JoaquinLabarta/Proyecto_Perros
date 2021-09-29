@@ -4,7 +4,7 @@ include_once "pdo.php";
 $query = "
     SELECT
         COALESCE(FotoUrl, '/proyecto-perros/recursos/perroDefault.svg') AS FotoUrl,
-        Perros.PerroId,
+        P.PerroId,
         TatooId,
         Apodo,
         Raza,
@@ -14,19 +14,16 @@ $query = "
             NULLIF(Observacion, ''),
             ''
         ) AS Observacion,
-        COALESCE(Prop.PropietarioId, 0) AS PropietarioId,
+        COALESCE(P.PropietarioId, 0) AS PropietarioId,
         COALESCE(
             CONCAT(Prop.Nombre, ' ', Prop.Apellido),
             'No tiene'
         ) AS NombrePropietario
     FROM
-        Perros
-    LEFT JOIN PropietariosPerros AS PP
+        Perros P
+    LEFT JOIN Propietarios Prop
     ON
-        Perros.PerroId = PP.PerroId
-    LEFT JOIN Propietarios AS Prop
-    ON
-        Prop.PropietarioId = PP.PropietarioId
+        Prop.PropietarioId = P.PropietarioId
 ";
 
 $sql = $pdo->prepare($query);
