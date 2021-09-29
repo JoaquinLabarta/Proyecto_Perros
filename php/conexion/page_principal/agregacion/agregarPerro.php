@@ -27,7 +27,7 @@ if (count($checkResult) > 0) {
 
     // Se guarda la foto de forma local
     $target = "";
-    if (isset($_FILES["foto"])) {
+    if (isset($_FILES["foto"]) && $_FILES["foto"]["tmp_name"]) {
         $file_tmp = $_FILES["foto"]["tmp_name"];
         $file_ext = $_FILES["foto"]["ext"];
         $target = "/proyecto-perros/recursos/fotos/" . $tatooId . $file_ext;
