@@ -57,22 +57,22 @@
             <?php if ($_SESSION["Rol"] == 1): ?>
                 <?php if ($carpeta_actual !== "page_principal"): ?>
                     <a class='btn btn-white border' title="Perros" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_principal">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-paw"></i>
                     </a>
                 <?php endif; ?>
                 <?php if ($carpeta_actual !== "page_usuarios"): ?>
                     <a class="btn btn-white border" title="Usuarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_usuarios">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-users-cog"></i>
                     </a>
                 <?php endif; ?>
                 <?php if ($carpeta_actual !== "page_propietarios"): ?>
                     <a class='btn btn-white border' title="Propietarios" style='color: #649fa5' href="/proyecto-perros/php/vistas/page_propietarios">
-                        <i class="fas fa-id-card"></i>
+                        <i class="fas fa-user-tie"></i>
                     </a>
                 <?php endif; ?>
             <?php endif; ?>
             <a class="btn btn-white border" title="Cerrar sesion" style="color: #649fa5" href="/proyecto-perros/php/conexion/page_principal/cerrar_sesion.php">
-                <i class="fas fa-sign-out-alt"></i>
+                <i class="fas fa-door-open"></i>
             </a>
         </div>
     </div>
