@@ -26,7 +26,7 @@ if (count($checkResult) > 0) {
 } else {
     /* Query para insertar un nuevo registro de usuario en la base de datos. */
     $query =
-        "INSERT INTO Usuarios (Usuario, Nombre, Apellido, Nacimiento, Email, Clave, Activo, Rol) " .
+        "INSERT INTO Usuarios (Usuario, Nombre, Apellido, Nacimiento, Email, Clave, Activo, RolId) " .
         "VALUES (:usuario, :nombre, :apellido, :nacimiento, :email, :clave, :activo, :rol)";
 
     /**
