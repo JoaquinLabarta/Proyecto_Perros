@@ -3,7 +3,7 @@ include_once "../../conexion/get_perros.php";
 session_start();
 
 if (!isset($_SESSION["Rol"])) {
-    header("Location: /proyecto-perros");
+    header("Location: /perros");
 }
 
 $carpeta_actual = basename(getcwd());
@@ -15,11 +15,11 @@ $carpeta_actual = basename(getcwd());
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8">
 
-    <link rel="icon" href="/proyecto-perros/recursos/logo.png">
+    <link rel="icon" href="/perros/recursos/logo.png">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
 
-    <link href="/proyecto-perros/css/page_principal/styles.css" rel="stylesheet">
+    <link href="/perros/css/page_principal/styles.css" rel="stylesheet">
 
     <style>
         .dataTables_filter,
@@ -177,7 +177,7 @@ $carpeta_actual = basename(getcwd());
 <script src="https://kit.fontawesome.com/de1cdf12c2.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="/proyecto-perros/js/page_principal/scripts.js" type="module"></script>
-<script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
+<script src="/perros/js/page_principal/scripts.js" type="module"></script>
+<script src="/perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 
 </html>

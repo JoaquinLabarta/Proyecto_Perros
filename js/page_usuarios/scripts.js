@@ -20,7 +20,7 @@ window.eliminarUsuario = (usuarioId) => {
     .addEventListener("click", () => {
       $.ajax({
         type: "POST",
-        url: "/proyecto-perros/php/conexion/page_usuarios/eliminarUsuario.php",
+        url: "/perros/php/conexion/page_usuarios/eliminarUsuario.php",
         data: { usuarioId },
         success: () => location.reload(),
         error: (xhr) => alert(xhr.responseText),
@@ -58,7 +58,7 @@ window.guardarUsuario = (event) => {
   // Caso los datos hayan pasado la validacion con exito, se agrega el registro
   $.ajax({
     type: "POST",
-    url: "/proyecto-perros/php/conexion/page_usuarios/agregarUsuario.php",
+    url: "/perros/php/conexion/page_usuarios/agregarUsuario.php",
     data: nuevoUsuario,
     success: () => location.reload(),
     error: (xhr) => alert(xhr.responseText),

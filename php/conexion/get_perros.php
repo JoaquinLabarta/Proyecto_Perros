@@ -3,7 +3,7 @@ include_once "pdo.php";
 
 $query = "
     SELECT
-        COALESCE(FotoUrl, '/proyecto-perros/recursos/perroDefault.svg') AS FotoUrl,
+        COALESCE(FotoUrl, '/perros/recursos/perroDefault.svg') AS FotoUrl,
         P.PerroId,
         TatooId,
         Apodo,

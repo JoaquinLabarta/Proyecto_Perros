@@ -36,7 +36,7 @@ window.guardarPropietario = (event) => {
 
     $.ajax({
         type: "POST",
-        url: "/proyecto-perros/php/conexion/page_principal/agregacion/agregarPropietario.php",
+        url: "/perros/php/conexion/page_principal/agregacion/agregarPropietario.php",
         data: nuevoPropietario,
         success: () => location.reload(),
         error: (xhr) => alert(xhr.responseText),
@@ -77,7 +77,7 @@ window.editarPropietario = (propietario) => {
 
         $.ajax({
             type: "POST",
-            url: "/proyecto-perros/php/conexion/page_propietarios/editarPropietario.php",
+            url: "/perros/php/conexion/page_propietarios/editarPropietario.php",
             data: propietarioEditado,
             success: () => location.reload(),
             error: (xhr) => alert(xhr.responseText),
@@ -95,7 +95,7 @@ window.eliminarPropietario = (propietarioId) => {
     document.getElementById("confirmarEliminarPropietario").addEventListener("click", () => {
         $.ajax({
             type: "POST",
-            url: "/proyecto-perros/php/conexion/page_principal/eliminacion/eliminarPropietario.php",
+            url: "/perros/php/conexion/page_principal/eliminacion/eliminarPropietario.php",
             data: { propietarioId },
             success: () => location.reload(),
             error: (xhr) => alert(xhr.responseText),
