@@ -42,7 +42,7 @@ window.eliminarPerro = (perroId) => {
     .addEventListener("click", () => {
       $.ajax({
         type: "POST",
-        url: "/proyecto-perros/php/conexion/page_principal/eliminacion/eliminarPerro.php",
+        url: "/perros/php/conexion/page_principal/eliminacion/eliminarPerro.php",
         data: { perroId },
         success: () => location.reload(),
         error: (xhr) => alert(xhr.responseText),
@@ -65,7 +65,7 @@ window.editarPerro = (perro) => {
   $("#editarObservacion").val(perro["Observacion"]);
   $("#editarPropietarioId").val(perro["PropietarioId"]);
 
-  if (perro["FotoUrl"] === "/proyecto-perros/recursos/perroDefault.svg") {
+  if (perro["FotoUrl"] === "/perros/recursos/perroDefault.svg") {
     $("#botonFotoEliminar").css("display", "none");
     $("#fotoPerroEditar").css("display", "none");
     $("#editarFoto").css("display", "block");
@@ -128,7 +128,7 @@ window.validarAgregarPerro = () => {
 const eliminarFoto = (event, perro) => {
   event.preventDefault();
   $.ajax({
-    url: "/proyecto-perros/php/conexion/page_principal/eliminacion/eliminarFotoPerro.php",
+    url: "/perros/php/conexion/page_principal/eliminacion/eliminarFotoPerro.php",
     type: "POST",
     data: { perroId: perro["PerroId"], fotoUrl: perro["FotoUrl"] },
     success: () => {
@@ -137,7 +137,7 @@ const eliminarFoto = (event, perro) => {
       $("#editarFoto").css("display", "block");
       $("#foto-" + perro["TatooId"]).attr(
         "src",
-        "/proyecto-perros/recursos/perroDefault.svg"
+        "/perros/recursos/perroDefault.svg"
       );
     },
     error: () =>
