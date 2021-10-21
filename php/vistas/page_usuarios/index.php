@@ -18,61 +18,10 @@ $carpeta_actual = basename(getcwd());
     <link rel="icon" href="/proyecto-perros/recursos/logo.png">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <style>
+        <style>
         .dataTables_filter,
         .dataTables_info {
             display: none;
-        }
-
-        .btn-primary {
-            background-color: #649fa5;
-            border-color: #649fa5;
-        }
-
-        .btn-primary:hover,
-        .btn-primary:active,
-        .btn-primary:focus {
-            background-color: #D0757C;
-            border-color: #D0757C;
-        }
-
-        table.dataTable>thead>tr>th:not(.sorting_disabled),
-        table.dataTable>thead>tr>td:not(.sorting_disabled) {
-            padding-right: 0px;
-        }
-
-        #usuarios.dataTable thead th {
-            border-bottom: 1;
-        }
-
-        .table>:not(caption)>*>* {
-            border-bottom-width: 0px;
-        }
-
-        .table {
-            --bs-table-bg: transparent;
-            --bs-table-accent-bg: transparent;
-            --bs-table-striped-color: #212529;
-            --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
-            --bs-table-active-color: #212529;
-            --bs-table-active-bg: rgba(0, 0, 0, 0.1);
-            --bs-table-hover-color: #212529;
-
-            width: 100%;
-            margin-bottom: 1rem;
-            color: #212529;
-            vertical-align: top;
-            border-color: #dee2e6;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        table.dataTable>thead>tr>th:not(.sorting_disabled),
-        table.dataTable>thead>tr>td:not(.sorting_disabled) {
-            padding-left: 0px;
-
         }
 
         table.dataTable {
@@ -84,17 +33,11 @@ $carpeta_actual = basename(getcwd());
         }
 
         table.dataTable.no-footer {
-            border-bottom: 0px solid grey;
-        }
-
-        table.dataTable.no-footer {
             border-bottom: 0px solid #E3E9EA;
         }
 
-        .dataTables_wrapper .dataTables_paginate {
-            float: right;
-            text-align: right;
-            padding-top: .75em;
+        .table-responsive {
+            overflow-x: inherit;
         }
     </style>
 
@@ -159,6 +102,7 @@ $carpeta_actual = basename(getcwd());
 <script src="/proyecto-perros/js/page_usuarios/scripts.js" type="module"></script>
 <script src="/proyecto-perros/js/modulos/bootstrap/bootstrap.js" type="module"></script>
 
+<?php include_once "../componentes/footer.php"; ?>
 <?php include_once "../componentes/modals.php"; ?>
 
 </html>
