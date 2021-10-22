@@ -7,4 +7,4 @@ session_unset();
 session_destroy();
 
 // Se redirecciona al usuario a la 'Login page'.
-header("Location: /perros");
+header("Location: ../../../index.php");

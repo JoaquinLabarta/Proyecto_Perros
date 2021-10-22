@@ -21,8 +21,8 @@
 
 <nav class="navbar navbar-light shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" style="color:#649FA5" href="/perros/php/vistas/page_principal">
-            <img src="/perros/recursos/logo.png" alt="Logo" width="40" height="40">
+        <a class="navbar-brand" style="color:#649FA5" href="../page_principal/">
+            <img src="../../../recursos/logo.png" alt="Logo" width="40" height="40">
             Bromatologia | Municipalidad de Saladillo
         </a>
         <div class="d-flex">
@@ -56,22 +56,22 @@
             <?php endif; ?>
             <?php if ($_SESSION["Rol"] == 1): ?>
                 <?php if ($carpeta_actual !== "page_principal"): ?>
-                    <a class='btn btn-white border' title="Perros" style='color: #649fa5' href="/perros/php/vistas/page_principal">
+                    <a class='btn btn-white border' title="Perros" style='color: #649fa5' href="../page_principal">
                         <i class="fas fa-paw"></i>
                     </a>
                 <?php endif; ?>
                 <?php if ($carpeta_actual !== "page_usuarios"): ?>
-                    <a class="btn btn-white border" title="Usuarios" style='color: #649fa5' href="/perros/php/vistas/page_usuarios">
+                    <a class="btn btn-white border" title="Usuarios" style='color: #649fa5' href="../page_usuarios">
                         <i class="fas fa-users-cog"></i>
                     </a>
                 <?php endif; ?>
                 <?php if ($carpeta_actual !== "page_propietarios"): ?>
-                    <a class='btn btn-white border' title="Propietarios" style='color: #649fa5' href="/perros/php/vistas/page_propietarios">
+                    <a class='btn btn-white border' title="Propietarios" style='color: #649fa5' href="../page_propietarios">
                         <i class="fas fa-user-tie"></i>
                     </a>
                 <?php endif; ?>
             <?php endif; ?>
-            <a class="btn btn-white border" title="Cerrar sesion" style="color: #649fa5" href="/perros/php/conexion/page_principal/cerrar_sesion.php">
+            <a class="btn btn-white border" title="Cerrar sesion" style="color: #649fa5" href="../../conexion/page_principal/cerrar_sesion.php">
                 <i class="fas fa-door-open"></i>
             </a>
         </div>

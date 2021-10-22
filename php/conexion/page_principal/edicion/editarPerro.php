@@ -37,7 +37,7 @@ $query = "UPDATE Perros
 if (isset($_FILES["editarFoto"]) && $_FILES["editarFoto"]["tmp_name"]) {
     $file_tmp = $_FILES["editarFoto"]["tmp_name"];
     $file_ext = $_FILES["editarFoto"]["ext"];
-    $target = "/perros/recursos/fotos/" . $tatooId . $file_ext;
+    $target = "../../../../recursos/fotos/" . $tatooId . $file_ext;
 
     move_uploaded_file($file_tmp, $_SERVER["DOCUMENT_ROOT"] . $target);
 
@@ -54,5 +54,5 @@ try {
     echo $th;
 }
 
-header("Location: /perros/");
+header("Location: ../../../../index.php");
 die();
