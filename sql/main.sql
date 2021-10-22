@@ -49,6 +49,27 @@ CREATE TABLE IF NOT EXISTS Perros(
 INSERT INTO Roles(Rol)
 VALUES("Administrador"),("Tatuador");
 
+INSERT INTO Perros(
+    Tatooid,
+    FotoUrl,
+    Apodo,
+    Raza,
+    Castracion,
+    Adopcion,
+    Observacion,
+    PropietarioId
+)
+VALUES(
+    "A001",
+    NULL,
+    "Pirito",
+    "Caniche",
+    NULL,
+    "",
+    "",
+    NULL
+);
+
 INSERT INTO Usuarios(
     Usuario,
     Nombre,
