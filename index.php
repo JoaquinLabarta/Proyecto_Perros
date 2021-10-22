@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["Rol"])) {
-    header("Location: /perros/php/vistas/page_login");
+    header("Location: ./php/vistas/page_login/index.php");
 } else {
-    header("Location: /perros/php/vistas/page_principal");
+    header("Location: ./php/vistas/page_principal/index.php");
 }
