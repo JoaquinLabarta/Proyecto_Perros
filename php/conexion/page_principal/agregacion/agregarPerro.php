@@ -30,7 +30,7 @@ if (count($checkResult) > 0) {
     if (isset($_FILES["foto"]) && $_FILES["foto"]["tmp_name"]) {
         $file_tmp = $_FILES["foto"]["tmp_name"];
         $file_ext = $_FILES["foto"]["ext"];
-        $target = "../../../../recursos/fotos/" . $tatooId . $file_ext;
+        $target = "/perros/recursos/fotos/" . $tatooId . $file_ext;
         move_uploaded_file($file_tmp, $_SERVER["DOCUMENT_ROOT"] . $target);
     } else {
         $target = null;
@@ -55,5 +55,5 @@ if (count($checkResult) > 0) {
     }
 }
 
-header("Location: ../../../../index.php");
+header("Location: /perros/");
 die();
